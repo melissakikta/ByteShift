@@ -14,4 +14,4 @@ jobs:
         env:
           DEPLOY_HOOK: ${{ secrets.DEPLOY_HOOK }}
         run: |
-          curl -X POST $DEPLOY_HOOK
+          curl $DEPLOY_HOOK

@@ -1,0 +1,23 @@
+{
+	"name": "server",
+	"version": "1.0.0",
+	"description": "packages from node for server side usability",
+	"main": "server.js",
+	"type": "module",
+	"scripts": {
+		"build": "tsc",
+		"start": "node dist/server.js",
+		"watch": "nodemon dist/server.js",
+		"seed": "node dist/seeds/seed.js"
+	},
+	"dependencies": {
+		"@apollo/server": "^4.11.3",
+		"express": "^4.21.2",
+		"graphql": "^16.10.0",
+		"mongoose": "^8.12.1"
+	},
+	"devDependencies": {
+		"nodemon": "^3.1.9",
+		"typescript": "^5.8.2"
+	}
+}

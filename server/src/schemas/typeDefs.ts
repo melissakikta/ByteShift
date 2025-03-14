@@ -5,6 +5,9 @@ const typeDefs = `
     	email: String!
     	password: String!
     	posts: [Post]!
+		comments: [Comment]!
+		likedPosts: [Post]!
+		dislikedPosts: [Post]!
   	}
 
   	type Post {
@@ -14,19 +17,15 @@ const typeDefs = `
 		title: String!
 		content: String!
 		imgURL: String
-		reactions: [Reaction]
+		likes: Number
+		dislikes: Number
 		comments: [Comment]
-		createdAt: String!
-	}
-
-	type Reaction {
 	}
 
 	type Comment {
 		_id: ID!
 		username: String!
 		content: String!
-		createdAt: String!
 	}
     
     type Auth {
@@ -48,18 +47,21 @@ const typeDefs = `
 
   	type Query {
 		getUsers: [User]
-		getUserById(_id: ID!):
+		me: User
+		getUser(username: String!): User
 		getPosts: [Post]
-
+		getComments: [Comment]
   	}
 
   	type Mutation {
 		login(email: String!, password: String!): Auth
 		addUser(userInput: AddUserInput!): Auth
 		addPost(postInput: AddPostInput!): User
-		addReaction(reactionInput: AddReactionInput!): Post
+		likePost(postId: ID!): Post
+		dislikePost(postId: ID!): Post
 		addComment(commentInput: AddCommentInput!): Post
 		deletePost(postId: ID!): User
+		deleteComment(postId: ID!, commentId: ID!): Post
   	}
 `;
 

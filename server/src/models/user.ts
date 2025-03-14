@@ -36,7 +36,7 @@ const userSchema = new Schema<IUser>(
         posts: [ Post.schema! ],
         comments: [ Comment.schema! ],
         likedPosts: [ Post.schema! ],
-        dislikedPosts: [ Post.schema ],
+        dislikedPosts: [ Post.schema! ],
     }
 );
 

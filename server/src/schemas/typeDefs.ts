@@ -1,26 +1,66 @@
 const typeDefs = `
-  type Tech {
-    _id: ID!
-    name: String!
-  }
+  	type User {
+    	_id: ID!
+    	username: String!
+    	email: String!
+    	password: String!
+    	posts: [Post]!
+  	}
 
-  type Matchup {
-    _id: ID!
-    tech1: String!
-    tech2: String!
-    tech1_votes: Int
-    tech2_votes: Int
-  }
+  	type Post {
+		_id: ID!
+		username: String!
+		type: String!
+		title: String!
+		content: String!
+		imgURL: String
+		reactions: [Reaction]
+		comments: [Comment]
+		createdAt: String!
+	}
 
-  type Query {
-    tech: [Tech]
-    matchups(_id: String): [Matchup]
-  }
+	type Reaction {
+	}
 
-  type Mutation {
-    createMatchup(tech1: String!, tech2: String!): Matchup
-    createVote(_id: String!, techNum: Int!): Matchup
-  }
+	type Comment {
+		_id: ID!
+		username: String!
+		content: String!
+		createdAt: String!
+	}
+    
+    type Auth {
+        token: ID!
+        user: User
+    }
+
+	input AddUserInput {
+		username: String!
+		email: String!
+		password: String!
+	}
+
+	input PostInput {
+		username: String!
+		type: String!
+		title: String!
+	}
+
+  	type Query {
+		getUsers: [User]
+		getUserById(_id: ID!):
+		getPosts: [Post]
+
+  	}
+
+  	type Mutation {
+		login(email: String!, password: String!): Auth
+		addUser(userInput: AddUserInput!): Auth
+		addPost(postInput: AddPostInput!): User
+		addReaction(reactionInput: AddReactionInput!): Post
+		addComment(commentInput: AddCommentInput!): Post
+		deletePost(postId: ID!): User
+  	}
 `;
 
 export default typeDefs;

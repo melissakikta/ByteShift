@@ -5,9 +5,9 @@ const typeDefs = `
     	email: String!
     	password: String!
     	posts: [Post]!
-		comments: [Comment]!
-		likedPosts: [Post]!
-		dislikedPosts: [Post]!
+			comments: [Comment]!
+			likedPosts: [Post]!
+			dislikedPosts: [Post]!
   	}
 
   	type Post {
@@ -28,10 +28,10 @@ const typeDefs = `
 		content: String!
 	}
     
-    type Auth {
-        token: ID!
-        user: User
-    }
+	type Auth {
+			token: ID!
+			user: User
+	}
 
 	input AddUserInput {
 		username: String!
@@ -46,6 +46,7 @@ const typeDefs = `
 	}
 
   	type Query {
+		getUsersAll: [User]
 		getUsers: [User]
 		me: User
 		getUser(username: String!): User

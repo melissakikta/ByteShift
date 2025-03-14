@@ -47,6 +47,53 @@ mutation addPost($input: AddPostInput!) {
 }
 `;
 
-export const ADD_REACTION = gql`
-mutation addReaction($input: AddReactionInput!) {
-  addReaction(reactionInput: $input)
+export const LIKE_POST = gql`
+mutation likePost($postId: ID!) {
+  likePost(postId: $postId) {
+    _id
+    title
+    likes
+    username
+  }
+}
+`;
+
+export const DISLIKE_POST = gql`
+mutation dislikePost($postId: ID!) {
+  dislikePost(postId: $postId) {
+    _id
+    title
+    dislikes
+    username
+  }
+}
+`;
+
+export const ADD_COMMENT = gql`
+mutation addComment($commentInput: AddCommentInput!) {
+  addComment(commentInput: $commentInput) {
+    _id
+    username
+    content
+    createdAt
+  }
+}
+`;
+
+export const DELETE_POST = gql`
+mutation deletePost($postId: ID!) {
+  deletePost(postId: $postId) {
+    _id
+    username
+  }
+}
+`;
+
+export const DELETE_COMMENT = gql`
+mutation deleteComment($postId: ID!, $commentId: ID!) {
+  deleteComment(postId: $postId, commentId: $commentId) {
+    _id
+    username
+  }
+}
+`;

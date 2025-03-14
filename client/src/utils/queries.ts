@@ -70,3 +70,5 @@ export const QUERY_GET_USERS = gql`
     }
   }
 `;
+
+export const QUERY_ME = gql``

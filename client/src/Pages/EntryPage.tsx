@@ -1,35 +1,50 @@
-//import styling
-
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Button, Typography, Layout, Row, Col } from 'antd';
 
-import button from ./assets/images/button.png; 
+
+// Destructure Ant Design components for cleaner use
+const { Title, Paragraph } = Typography;
+const { Content } = Layout;
+
 
 //function to create the entry page
 const Entry: React.FC = () => {
   return (
-    <section className="home">
-      <div className="page-section">
-        <h1>Welcome to ByteShift!</h1>
-        <div className="flex-container">
-          <p>Struggling to keep track of important team updates? Losing links in endless email threads?</p>
-          <p>Try <strong>ByteShift</strong>!</p>
-          <p> ByteShift provides a dedicated space for your team to effortlessly share links, code snippets, and text. Team members can react, comment, and collaborate seamlessly, ensuring smoother communication and better organization. Say goodbye to scattered information and hello to streamlined teamwork!</p>
-        </div>
-        <div className="flex-container">
-          <Link to="/signup" className="flex-item">
-            <img src={button} alt="signup" className="button-image" />
-            <h2>Sign Up</h2>
-          </Link>
+    <Layout className="home" style={{ minHeight: "100vh", padding: "40px" }}>
+      <Content className="page-section" style={{ textAlign: "center", maxWidth: 800, margin: "auto" }}>
+        <Title level={1}>Welcome to ByteShift!</Title>
+        <Row gutter={[16, 16]} justify="center">
+          <Col span={24}>
+            <Paragraph>
+              Struggling to keep track of important team updates? Losing links in endless email threads?
+            </Paragraph>
+            <Paragraph>
+              Try <strong>ByteShift</strong>!
+            </Paragraph>
+            <Paragraph>
+              ByteShift provides a dedicated space for your team to effortlessly share links, code snippets, and text. 
+              Team members can react, comment, and collaborate seamlessly, ensuring smoother communication and better organization. 
+              Say goodbye to scattered information and hello to streamlined teamwork!
+            </Paragraph>
+          </Col>
+        </Row>
 
-          <Link to="/login" className="flex-item">
-            <img src={button} alt="signup" className="button-image" />
-            <h2>Login</h2>
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-};
+        <Row gutter={16} justify="center">
+          <Col>
+            <Link to="/signup">
+              <Button type="primary" size="large">Sign Up</Button>
+            </Link>
+          </Col>
+          <Col>
+            <Link to="/login">
+              <Button type="default" size="large">Login</Button>
+            </Link>
+          </Col>
+        </Row>
+      </Content>
+    </Layout>
+    );
+  };
 
 export default Entry;

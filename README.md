@@ -1,9 +1,12 @@
 # ByteShift
 A team sharing site for the collective sharing of code, articles, and content between members.
 
-
 ## 📚 Description
-THIS NEEDS TO BE TYPED 
+Struggling to keep track of important team updates? Losing links in endless email threads?
+
+Try <strong>ByteShift</strong>!
+
+ByteShift provides a dedicated space for your team to effortlessly share links, code snippets, and text. Team members can react, comment, and collaborate seamlessly, ensuring smoother communication and better organization. Say goodbye to scattered information and hello to streamlined teamwork!
 
 [Deployed Application](link here) 
 
@@ -57,6 +60,12 @@ For CI/CD purposes, GitHub Actions were used.
 This application was created to requiresthe use of Express.js, MongoDB database, and Mongoose ODM. 
 
 [MongoDB Docs](https://www.mongodb.com/docs/)
+
+
+This application uses Ant Design for styling as a component library. 
+
+[Ant Design](https://ant.design/)
+
 
 Back to [Table-of-Contents](#🚀-table-of-contents)
 

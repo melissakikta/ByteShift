@@ -71,4 +71,135 @@ export const QUERY_GET_USERS = gql`
   }
 `;
 
-export const QUERY_ME = gql``
+export const QUERY_ME = gql`
+  query me {
+    me {
+      _id
+      username
+      email
+      posts {
+        _id
+        type
+        title
+        content
+        imgURL
+        likes
+        dislikes
+        comments {
+          _id
+          content
+          username
+        }
+      comments {
+        _id
+        username
+        content
+      }  
+      likedPosts {
+        _id
+        type
+        title
+        content
+        imgURL
+        likes
+        dislikes
+      }
+      dislikedPosts {
+        _id
+        type
+        title
+        content
+        imgURL
+        likes
+        dislikes
+      }
+    }
+  }    
+`;
+
+export const QUERY_GET_USER = gql`
+  query getUser($username: String!) {
+    getUser(username: $username) {
+      _id
+      username
+      email
+      posts {
+        _id
+        type
+        title
+        content
+        imgURL
+        likes
+        dislikes
+        comments {
+          _id
+          content
+          username
+        }
+      }    
+      comments {
+        _id
+        username
+        content    
+      }
+      likedPosts {
+        _id
+        type
+        title
+        content
+        imgURL
+        likes
+        dislikes 
+        comments {
+          _id
+          username
+          content  
+        }
+      }
+      dislikedPosts {
+        _id
+        type
+        title
+        content
+        imgURL
+        likes
+        dislikes 
+        comments {
+          _id
+          username
+          content  
+        }
+      }
+    }
+  }
+`;
+
+export const QUERY_GET_POSTS = gql`
+  query getPosts {
+    getPosts {
+      _id
+      username
+      type
+      title
+      content
+      imgURL
+      likes
+      dislikes
+      comments {
+        _id
+        username
+        content
+      }
+    }
+  }
+`;
+
+export const QUERY_GET_COMMENTS = gql`
+  query getComments {
+    getComments {
+      _id
+      username
+      content
+    }
+  }
+`;

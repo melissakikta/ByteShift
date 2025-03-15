@@ -2,12 +2,12 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import App from './App.jsx'
-import Entry from './EntryPage.jsx'
-import Login from './src/components/SignIn/Login'
-import SignUp from './src/components/SignIn/Signup'
-import Collection from './src/pages/PostCollection'
-import Form from './src/pages/PostForm'
-import ErrorPage from './src/pages/Error'
+import Entry from './Pages/EntryPage'
+import Login from './components/SignIn/Login'
+import SignUp from './components/SignIn/Signup'
+import Collection from './pages/PostCollection'
+import Form from './pages/PostForm'
+import ErrorPage from './pages/Error'
 
 const router = createBrowserRouter([
   {

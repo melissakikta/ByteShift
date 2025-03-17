@@ -16,6 +16,7 @@ const typeDefs = `
 		type: String!
 		title: String!
 		content: String!
+		link: String
 		imgURL: String
 		likes: Number
 		dislikes: Number

@@ -1,5 +1,5 @@
-import User from '../models/User';
-import Post from '../models/Post';
-import Comment from '../models/Comment';
+import User from './User';
+import Post from './Post';
+import Comment from './Comment';
 
 export { User, Post, Comment };

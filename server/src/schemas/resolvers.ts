@@ -1,3 +1,7 @@
+import { GraphQLError } from 'graphql';
+import { signToken } from '../services/auth';
+import { User } from '../models/index';
+
 // Define types for the arguments
 interface AddUserArgs {
     username: string;
@@ -10,7 +14,17 @@ interface LoginUserArgs {
     password: string;
 }
 
-interface 
+interface AddPostArgs {
+	username: string; // The username of the user who created the post, required to be automatically populated
+	type: string; // The type of the post, required to be automatically populated
+	title: string; // The title of the post
+	content: string; // The content of the post
+	link: string; // The link of the post
+	imgURL: string; // The image URL of the post
+	likes: number; // The number of likes the post has
+	dislikes: number; // The number of dislikes the post has
+	comments: string[]; // The comments on the post TODO: Change to Comment type or ID?
+}
 
 const resolvers = {
 	Query: {

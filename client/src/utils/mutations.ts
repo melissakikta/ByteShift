@@ -32,6 +32,7 @@ mutation addPost($input: AddPostInput!) {
     type
     title
     content
+    link
     imgURL
     reactions {
       _id

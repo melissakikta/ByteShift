@@ -1,103 +1,84 @@
-import { useState, type FormEvent, type ChangeEvent} from 'react';
-import { Form, Input, Button, Typography, Space, message } from "antd"; 
+import { useState } from 'react';
 import { useMutation } from '@apollo/client';
+import { Form, Input, Button, Typography, Card, Alert } from "antd"; 
+import { LockOutlined } from '@ant-design/icons';
 import { LOGIN_USER } from '../../utils/mutations';
 import AuthService from '../../utils/auth';
 
 const { Title } = Typography;
 
 const Login = () => {
-  const [formState, setFormState] = useState({ username: '', password: '' });
-  const [login, { error, data }] = useMutation(LOGIN_USER);
+  const [form] = Form.useForm();
+  const [login, { error }] = useMutation(LOGIN_USER);
+  const [loading, setloading] = useState(false);
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
-  };
-
-  const handleFormSubmit = async (event: FormEvent) => {
-    event.preventDefault();
-    console.log(formState);
-
+  const handleFormSubmit = async (values: {username: string; password: string }) => {
+    setloading(true);
     try {
       const { data } = await login({
-        variables: { ...formState },
+        variables: { ...values },
       });
 
       AuthService.login(data.login.token);
-    } catch (e) {
-      console.error(e);
     }
-
-    setFormState({
-      username: '',
-      password: '',
-    });
+    catch (e) {
+      console.error(e);
+    } finally {
+      setloading(false);
+    }
   };
 
+  
   return (
-    <div style={{ maxWidth: 500, margin: '0 auto', padding: '20px' }}>
-      <Title level={3} style={{ textAlign: 'center' }}>
-        <h2>Login</h2>
-      </Title>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', margin: '0 auto' }}>
+      <Card style={{ width: 400, textAlign: 'center', padding: '2rem' }}>
+        <Title level={3} style={{ textAlign: 'center' }}>Login</Title>
 
-      <Form
-        form={Form}
-        layout="vertical"
-        onFinish={handleFormSubmit}
-        style={{ maxWidth: 400, margin: '0 auto' }}
-      >
-        {/* Username Input */}
-        <Form.Item
-          label="Username"
-          name="username"
-          rules={[{ required: true, message: 'Please input your username!' }]}
-          style={{ marginBottom: '1rem' }}
+        {error && <Alert message="Incorrect username and/or password, please try again." type="error" showIcon style={{ marginBottom: 16 }} />}
+        
+        <Form
+          form={Form}
+          layout="vertical"
+          onFinish={handleFormSubmit}
+          style={{ maxWidth: 400, margin: '0 auto' }}
+          autoComplete="off"
         >
-          <Input
-            placeholder="Enter your username"
+          {/* Username Input */}
+          <Form.Item
+            label="Username"
             name="username"
-            value={formState.username}
-            onChange={handleChange}
-          />
-        </Form.Item>
-
-        {/* Password Input */}
-        <Form.Item
-          label="Password"
-          name="password"
-          rules={[{ required: true, message: 'Please input your password!' }]}
-          style={{ marginBottom: '1rem' }}
+            rules={[{ required: true, message: 'Please input your username!' }]}
+            style={{ marginBottom: '1rem' }}
           >
-          <Input.Password
-            placeholder="Enter your password"
-            name="password"
-            value={formState.password}
-            onChange={handleChange}
-          />
+            <Input prefix={<LockOutlined />} placeholder="Username" />
           </Form.Item>
 
-        {/* Submit Button */}
-        <Form.Item>
-          <Space>
-            <Button type="primary" htmlType="submit" loading={loading}>
-              {loading ? "Logging in..." : "Logged in!"}
-            </Button>
-              Login
-            {error && (
-              <div>
-                <p className="error-text">The provided credentials are incorrect</p>
-              </div>
-            )}
-          </Space>
-        </Form.Item>
+          {/* Password Input */}
+          <Form.Item
+            label="Password"
+            name="password"
+            rules={[{ required: true, message: 'Please input your password!' }]}
+            style={{ marginBottom: '1rem' }}
+            >
+            <Input.Password prefix={<LockOutlined />} placeholder="Password" />
+            </Form.Item>
 
+          {/* Submit Button */}
+          <Form.Item>
+              <Button type="primary" htmlType="submit" block loading={loading}>
+                {loading ? "Logging in..." : "Logged in!"}
+              </Button>
+
+              {error && (
+                <div>
+                  <p className="error-text">The provided credentials are incorrect</p>
+                </div>
+              )}
+          </Form.Item>
+        </Form>
+      </Card>
     </div>
   );
-
 };
 
 export default Login;

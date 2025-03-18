@@ -20,6 +20,9 @@ const commentSchema = new Schema<IComment>(
             type: Date,
             default: Date.now,
         },
+    },
+    {
+        timestamps: true,
     }
 );
 

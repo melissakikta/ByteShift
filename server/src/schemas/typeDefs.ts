@@ -21,12 +21,14 @@ const typeDefs = `
 		likes: Number
 		dislikes: Number
 		comments: [Comment]
+		createdAt: String
 	}
 
 	type Comment {
 		_id: ID!
 		username: String!
 		content: String!
+		createdAt: String
 	}
     
 	type Auth {

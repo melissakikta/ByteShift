@@ -4,6 +4,7 @@ export default interface Post {
     type: string;
     title: string;
     content: string;
+    link: string;
     imgURL: string;
     likes: number;
     dislikes: number;

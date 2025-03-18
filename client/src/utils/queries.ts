@@ -204,6 +204,27 @@ export const QUERY_GET_POSTS = gql`
   }
 `;
 
+export const QUERY_GET_POST = gql`
+  query getPost($postId: ID!) {
+    getPost(postId: $postId) {
+      _id
+      username
+      type
+      title
+      content
+      link
+      imgURL
+      likes
+      dislikes
+      comments {
+        _id
+        username
+        content
+      }
+    }
+  }
+`;
+
 export const QUERY_GET_COMMENTS = gql`
   query getComments {
     getComments {

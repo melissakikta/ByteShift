@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// two lines and a space
 
 const BlogPost: React.FC = () => (
   <div>

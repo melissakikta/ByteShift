@@ -1,14 +1,14 @@
 import React from 'react';
+import { Typography } from 'antd';
 
-//import header style sheet
-import '../styles/Header.css';
+const { Title } = Typography;
 
 //function to create the Header
 const Header: React.FC = () => {
   return (
-    <header className="header">
-      <h1>ByteShift</h1>
-    </header>
+    <Title level={1} style={{color: "white", margin: 0 }}>
+      ByteShift
+    </Title>
   );
 }
 

@@ -43,13 +43,14 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Layout style={{ minHeight: "100vh" }}>
-        <Layout.Header>
+      <Layout style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+        <Layout.Header style={{ textAlign: "center", padding: "20px 0" }}>
           <Header />
-          <Navbar />
         </Layout.Header>
 
-        <Layout.Content style={{ padding: "20px", maxWidth: "1200px", margin: "auto" }}>
+          <Navbar />
+
+        <Layout.Content style={{ flex: "1", padding: "20px", maxWidth: "1200px", margin: "auto" }}>
           <Outlet />
         </Layout.Content>
 

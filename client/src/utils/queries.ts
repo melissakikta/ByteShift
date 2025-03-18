@@ -11,6 +11,7 @@ export const QUERY_GET_USERS_ALL = gql`
         type
         title
         content
+        link
         imgURL
         likes
         dislikes
@@ -30,6 +31,7 @@ export const QUERY_GET_USERS_ALL = gql`
         type
         title
         content
+        link
         imgURL
         likes
         dislikes
@@ -44,6 +46,7 @@ export const QUERY_GET_USERS_ALL = gql`
         type
         title
         content
+        link
         imgURL
         likes
         dislikes
@@ -82,6 +85,7 @@ export const QUERY_ME = gql`
         type
         title
         content
+        link
         imgURL
         likes
         dislikes
@@ -100,6 +104,7 @@ export const QUERY_ME = gql`
         type
         title
         content
+        link
         imgURL
         likes
         dislikes
@@ -109,6 +114,7 @@ export const QUERY_ME = gql`
         type
         title
         content
+        link
         imgURL
         likes
         dislikes
@@ -128,6 +134,7 @@ export const QUERY_GET_USER = gql`
         type
         title
         content
+        link
         imgURL
         likes
         dislikes
@@ -147,6 +154,7 @@ export const QUERY_GET_USER = gql`
         type
         title
         content
+        link
         imgURL
         likes
         dislikes 
@@ -161,6 +169,7 @@ export const QUERY_GET_USER = gql`
         type
         title
         content
+        link
         imgURL
         likes
         dislikes 
@@ -182,6 +191,7 @@ export const QUERY_GET_POSTS = gql`
       type
       title
       content
+      link
       imgURL
       likes
       dislikes

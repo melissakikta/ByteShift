@@ -50,7 +50,7 @@ const LinkPost: React.FC = () => {
   return (
     <div style={{ maxWidth: 500, margin: "0 auto", padding: "20px" }}>
       <Title level={3} style={{ textAlign: "center" }}>
-      <h2>Share a Link</h2>
+        <h2>Share a Link</h2>
       </Title>
 
       <Form

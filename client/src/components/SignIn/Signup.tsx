@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { Form, Input, Button, Card, Typography, Alert } from 'antd';
 import { UserOutlined, MailOutlined, LockOutlined } from '@ant-design/icons';
-import { ADD_USER } from '../utils/mutations';
-import AuthService from '../utils/auth';
+import { ADD_USER } from '../../utils/mutations';
+import AuthService from '../../utils/auth';
 
 const { Title, Text } = Typography;
 
@@ -61,7 +61,7 @@ const Signup: React.FC = () => {
             <Form.Item
               name="email"
               rules={[
-                { required: true, message: 'Please input your email!' }
+                { required: true, message: 'Please input your email!' },
                 { type: 'email', message: 'Please enter a valid email address.' },
               ]}
             >

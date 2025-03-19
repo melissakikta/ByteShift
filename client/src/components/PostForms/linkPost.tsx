@@ -1,9 +1,9 @@
 import React from 'react';
 import { Form, Input, Button, Typography, Space, message } from "antd"; 
 import { useMutation } from '@apollo/client';
-import { ADD_POST } from '../utils/mutations';
-import { QUERY_GET_POSTS } from '../utils/queries';
-import AuthService from '../utils/auth';
+import { ADD_POST } from '../../utils/mutations';
+import { QUERY_GET_POSTS } from '../../utils/queries';
+import AuthService from '../../utils/auth';
 
 const { Title } = Typography;
 
@@ -39,7 +39,7 @@ const LinkPost: React.FC = () => {
       });
 
       message.success("Link posted successfully!");
-      Form.resetFields();
+      form.resetFields();
     } catch (error) {
       message.error("Failed to submit link. Please try again.");
       console.error("Error submitting post:", error);

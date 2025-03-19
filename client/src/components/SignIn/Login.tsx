@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { Form, Input, Button, Typography, Card, Alert } from "antd"; 
+import { Form, Input, Button, Typography, Card as AntCard, Alert } from "antd"; 
 import { LockOutlined } from '@ant-design/icons';
 import { LOGIN_USER } from '../../utils/mutations';
 import AuthService from '../../utils/auth';
@@ -31,13 +31,13 @@ const Login = () => {
   
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', margin: '0 auto' }}>
-      <Card style={{ width: 400, textAlign: 'center', padding: '2rem' }}>
+      <AntCard style={{ width: 400, textAlign: 'center', padding: '2rem' }}>
         <Title level={3} style={{ textAlign: 'center' }}>Login</Title>
 
         {error && <Alert message="Incorrect username and/or password, please try again." type="error" showIcon style={{ marginBottom: 16 }} />}
         
         <Form
-          form={Form}
+          form={form}
           layout="vertical"
           onFinish={handleFormSubmit}
           style={{ maxWidth: 400, margin: '0 auto' }}
@@ -66,7 +66,7 @@ const Login = () => {
           {/* Submit Button */}
           <Form.Item>
               <Button type="primary" htmlType="submit" block loading={loading}>
-                {loading ? "Logging in..." : "Logged in!"}
+                {loading ? "Logging in..." : "Login"}
               </Button>
 
               {error && (
@@ -76,7 +76,7 @@ const Login = () => {
               )}
           </Form.Item>
         </Form>
-      </Card>
+      </AntCard>
     </div>
   );
 };

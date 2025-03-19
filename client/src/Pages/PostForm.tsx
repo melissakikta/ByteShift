@@ -1,101 +1,85 @@
 import React, { useState } from 'react';
-// two lines and a space
 
-const BlogPost: React.FC = () => (
-  <div>
-    <h2>Blog Post</h2>
-    <form>
-      <input type="text" placeholder="Input for BlogPost form" />
-    </form>
-  </div>
-);
+// BlogPost component
+const BlogPost: React.FC<{ onSubmit: (content: string) => void; setTitle: (title: string) => void; }> = ({ onSubmit, setTitle }) => {
+    const [inputContent, setInputContent] = useState<string>('');
 
-const CodePost: React.FC = () => (
-  <div>
-    <h2>Code Form</h2>
-    <form>
-      <input type="text" placeholder="Input for CodePost form" />
-    </form>
-  </div>
-);
+    const handleContentChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setInputContent(event.target.value);
+    };
 
-const LinkPost: React.FC = () => {
-  const [link, setLink] = useState<string>('');
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        setTitle('Your Blog Post Title'); // Set the title here (you can customize this)
+        onSubmit(inputContent); // Pass the content back to the App component
+        setInputContent(''); // Clear the input
+    };
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setLink(event.target.value);
-  };
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    // Handle the link submission logic here
-    console.log('Link submitted:', link);
-    // Clear the input after submission
-    setLink('');
-  };
-
-  return (
-    <div>
-      <h2>Link Upload</h2>
-      <form onSubmit={handleSubmit}>
-        <input 
-          type="text" 
-          placeholder="Provide your link" 
-          value={link} 
-          onChange={handleInputChange} 
-        />
-        <button type="submit">Submit</button>
-      </form>
-    </div>
-  );
+    return (
+        <form onSubmit={handleSubmit}>
+            <input
+                type="text"
+                placeholder="Input for Blog Post"
+                onChange={handleContentChange}
+                value={inputContent}
+            />
+            <button type="submit">Submit</button>
+        </form>
+    );
 };
 
-const App: React.FC = () => {
-  const [selectedForm, setSelectedForm] = useState<string>('Blog Post');
-  const [title, setTitle] = useState<string>('');
-  const [link, setLink] = useState<string>('');
-  const [error, setError] = useState<string | null>(null);
+// CodePost component
+const CodePost: React.FC<{ onSubmit: (code: string) => void; }> = ({ onSubmit }) => {
+    const [inputCode, setInputCode] = useState<string>('');
 
-  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>): void => {
-    setSelectedForm(event.target.value);
-  };
+    const handleCodeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setInputCode(event.target.value);
+    };
 
-  const renderForm = () => {
-    switch (selectedForm) {
-      case 'Blog Post':
-        return <BlogPost />;
-      case 'Code Post':
-        return <CodePost />;
-      case 'Link':
-        return <LinkPost />;
-      default:
-        return null;
-    }
-  };
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        onSubmit(inputCode); // Pass the code back to the App component
+        setInputCode(''); // Clear the input
+    };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
-    event.preventDefault();
-    // Add your form submission logic here
-    console.log('Form submitted');
-  };
-
-  return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        <div>
-          <label htmlFor="form-select">Select Form:</label>
-          <select id="form-select" value={selectedForm} onChange={handleChange}>
-            <option value="Blog Post">Blog Post</option>
-            <option value="Code Post">Code Post</option>
-            <option value="Link">Link</option>
-          </select>
-        </div>
-        {renderForm()}
-        <button type="submit">Submit</button>
-      </form>
-    </div>
-  );
+    return (
+        <form onSubmit={handleSubmit}>
+            <input
+                type="text"
+                placeholder="Input for Code Post"
+                onChange={handleCodeChange}
+                value={inputCode}
+            />
+            <button type="submit">Submit</button>
+        </form>
+    );
 };
 
-export default App;
+// LinkPost component
+const LinkPost: React.FC<{ onSubmit: (link: string) => void; }> = ({ onSubmit }) => {
+    const [link, setLink] = useState<string>('');
+
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setLink(event.target.value);
+    };
+
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        onSubmit(link); // Pass the link back to the App component
+        setLink(''); // Clear the input
+    };
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <input
+                type="text"
+                placeholder="Provide your link"
+                value={link}
+                onChange={handleInputChange}
+            />
+            <button type="submit">Submit</button>
+        </form>
+    );
+};
+
+export { BlogPost, CodePost, LinkPost };

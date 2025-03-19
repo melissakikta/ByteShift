@@ -1,17 +1,18 @@
 import React from 'react';
 import type PostProps from '../../interfaces/Post';
 import type CommentProps from '../../interfaces/Comment';
-import { useState } from 'react';
 import Comment from '../Comment/Comment';
-import { useMutation } from '@apollo/client';
-import { QUERY_GET_COMMENTS_FOR_POST, QUERY_GET_POST } from '../../utils/queries';
+
+import { useMutation, useQuery } from '@apollo/client';
+import { useState } from 'react';
+
+import { QUERY_GET_COMMENTS_FOR_POST } from '../../utils/queries';
 import { LIKE_POST, DISLIKE_POST } from '../../utils/mutations';
 
 const Post = ({ post }: { post: PostProps }): JSX.Element => {
 	// query for comments, likes, and dislikes and store in state
 	// array of comments, query for 3 most recent comments
 	const [comments, setComments] = useState<CommentProps[]>([]);
-	const [getComments] = useMutation(QUERY_GET_COMMENTS_FOR_POST, {
 
 	// todo add mutation and tracking for likes and dislikes onClick
 	const [likes, setLikes] = useState<number>(0);
@@ -22,7 +23,6 @@ const Post = ({ post }: { post: PostProps }): JSX.Element => {
 		// update likes in database
 		const [addLike] = useMutation(LIKE_POST, {
 			variables: { postId: post._id },
-			refetchQueries: [{ query: QUERY_GET_POST }],
 		});
 		setLikes(likes + 1);
 		addLike();
@@ -32,7 +32,6 @@ const Post = ({ post }: { post: PostProps }): JSX.Element => {
 		// update dislikes in database
 		const [addDislike] = useMutation(DISLIKE_POST, {
 			variables: { postId: post._id },
-			refetchQueries: [{ query: QUERY_GET_POST }],
 		});
 		setDislikes(dislikes + 1);
 		addDislike();
@@ -97,12 +96,17 @@ const Post = ({ post }: { post: PostProps }): JSX.Element => {
 		);
 	}
 	
-	setComments(post.comments.slice(0, 3).map(comment => ({
-		_id: comment._id,
-		username: comment.username,
-		content: comment.content,
-		createdAt: comment.createdAt
-	})));
+	useQuery(QUERY_GET_COMMENTS_FOR_POST, {
+		variables: { postId: post._id },
+		onCompleted: (data) => {
+			setComments(data.getCommentsForPost.map((comments: CommentProps) => ({
+				_id: comments._id,
+				username: comments.username,
+				content: comments.content,
+				createdAt: comments.createdAt
+			})));
+		}
+	});
 
 	if (!post) return <div>No post to display</div>;
 	if (post.type === 'blog') {

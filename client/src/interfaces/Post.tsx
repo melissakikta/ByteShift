@@ -1,3 +1,5 @@
+import Comment from './Comment';
+
 export default interface Post {
     _id: string;
     username: string;

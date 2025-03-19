@@ -1,7 +1,29 @@
 :root {
-  --primary-color: #2e294e;
-  --secondary-color: #1B998B;
-  --tertiary-color: #EC6F6F;
-  --quaternary-color: #C5D86D;
-  --warning-color: #E71D36
+  --primary: #2e294e;
+  --secondary: #1B998B;
+  --tertiary: #EC6F6F;
+  --quaternary: #C5D86D;
+  --warning: #E71D36
+}
+
+.custom-menu-item {
+  background-color: var(--secondary);
+  color: var(--primary);
+  transition: background 0.3s ease-in-out;
+}
+
+.custom-menu-item:hover {
+  background: var(--quaternary);
+}
+
+.custom-menu-item button {
+  background-color: var(--secondary);
+  color: var(--primary);
+  transition: background 0.3s ease-in-out;
+  padding: 10px;
+  border: none;
+}
+
+.custom-menu-item button:hover {
+  background: var(--quaternary);
 }

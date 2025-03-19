@@ -30,7 +30,7 @@ const Login = () => {
 
   
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', margin: '0 auto' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', margin: '0 auto',  }}>
       <AntCard style={{ width: 400, textAlign: 'center', padding: '2rem' }}>
         <Title level={3} style={{ textAlign: 'center' }}>Login</Title>
 

@@ -57,6 +57,14 @@ const LinkPost: React.FC = () => {
         form={Form}
         layout="vertical"
         onFinish={handleSumbit}
+        style={{
+          border: "2px var(--quaternary)", // Lime border
+          borderRadius: "10px", // Rounded corners
+          padding: "20px", // Padding for better spacing
+          backgroundColor: "var(--secondary)", // Ensure background color
+          color: "var(--primary)", // Ensure text color
+          boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)", // Optional shadow for a modern look
+        }}
       >
         {/* Title */}
         <Form.Item
@@ -82,10 +90,19 @@ const LinkPost: React.FC = () => {
         {/* Submit Button */}
         <Form.Item>
           <Space>
-            <Button type="primary" htmlType="submit" loading={loading}>
+            <Button 
+              type="primary" 
+              htmlType="submit"
+              className="custom-menu-item" 
+              loading={loading}
+            >
               {loading ? "Submitting..." : "Submit Link"}
             </Button>
-            <Button htmlType="rest" onClick={() => form.resetFields()}>
+            <Button 
+              htmlType="rest" 
+              onClick={() => form.resetFields()}
+              className="custom-menu-item"
+            >
               Reset
             </Button>
           </Space>

@@ -11,18 +11,18 @@ const { Content } = Layout;
 //function to create the entry page
 const Entry: React.FC = () => {
   return (
-    <Layout className="home" style={{ minHeight: "100vh", padding: "40px" }}>
+    <Layout className="home" style={{ minHeight: "100vh", padding: "40px", background: "var(--primary)" }}>
       <Content className="page-section" style={{ textAlign: "center", maxWidth: 800, margin: "auto" }}>
-        <Title level={1}>Welcome to ByteShift!</Title>
+        <Title level={1} style={{ color: "var(--tertiary)"}}>Welcome to ByteShift!</Title>
         <Row gutter={[16, 16]} justify="center">
           <Col span={24}>
-            <Paragraph>
+            <Paragraph style={{ color: "var(--secondary)"}}>
               Struggling to keep track of important team updates? Losing links in endless email threads?
             </Paragraph>
-            <Paragraph>
+            <Paragraph style={{ color: "var(--secondary)"}}>
               Try <strong>ByteShift</strong>!
             </Paragraph>
-            <Paragraph>
+            <Paragraph style={{ color: "var(--secondary)"}}>
               ByteShift provides a dedicated space for your team to effortlessly share links, code snippets, and text. 
               Team members can react, comment, and collaborate seamlessly, ensuring smoother communication and better organization. 
               Say goodbye to scattered information and hello to streamlined teamwork!
@@ -33,12 +33,12 @@ const Entry: React.FC = () => {
         <Row gutter={16} justify="center">
           <Col>
             <Link to="/signup">
-              <Button type="primary" size="large">Sign Up</Button>
+              <Button type="primary" size="large" style={{background: "var(--quaternary)", color: "var(--secondary)" }}>Sign Up</Button>
             </Link>
           </Col>
           <Col>
             <Link to="/login">
-              <Button type="default" size="large">Login</Button>
+              <Button type="default" size="large" style={{background: "var(--quaternary)", color: "var(--secondary)" }}>Login</Button>
             </Link>
           </Col>
         </Row>

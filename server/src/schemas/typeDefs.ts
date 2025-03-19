@@ -1,4 +1,4 @@
-const typeDefs = `
+const typeDefs = `#graphql
   	type User {
     	_id: ID!
     	username: String!
@@ -51,11 +51,16 @@ const typeDefs = `
 		imgURL: String
 	}
 
+	input AddCommentInput {
+		username: String!
+		content: String!
+	}
+
   	type Query {
 		getUsersAllData: [User]
-		getUsers: [User]
+		# getUsers: [User]
 		me: User
-		getUser(username: String!): User
+		# getUser(username: String!): User
 		getPosts: [Post]
 		getCommentsForPost(postId: ID!): [Comment]
   	}
@@ -64,8 +69,14 @@ const typeDefs = `
 		login(email: String!, password: String!): Auth
 		addUser(userInput: AddUserInput!): Auth
 		addPost(postInput: AddPostInput!): User
+
 		likePost(postId: ID!): Post
 		dislikePost(postId: ID!): Post
+
+		# these two mutations are for the user who liked or disliked a post to be tracked to prevent them from liking or disliking the same post multiple times
+		addToLikedPosts(postId: ID!): User
+		addToDislikedPosts(postId: ID!): User
+
 		addComment(commentInput: AddCommentInput!): Post
 		deletePost(postId: ID!): User
 		deleteComment(postId: ID!, commentId: ID!): Post

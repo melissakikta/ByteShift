@@ -61,6 +61,32 @@ export const DISLIKE_POST = gql`
 	}
 `;
 
+// todo fix following 2 functions, currently duplicates of like and dislike mutationss
+
+export const ADD_TO_LIKED_POSTS = gql`
+	mutation AddToLikedPosts($postId: ID!) {
+		addToLikedPosts(postId: $postId) {
+			_id
+			title
+			likes
+			username
+		}
+	}
+`;
+
+export const ADD_TO_DISLIKED_POSTS = gql`
+	mutation AddToDislikedPosts($postId: ID!) {
+		addToDislikedPosts(postId: $postId) {
+			_id
+			title
+			dislikes
+			username
+		}
+	}
+`;
+
+// fix above 2 functions
+
 export const ADD_COMMENT = gql`
 mutation addComment($commentInput: AddCommentInput!) {
 	addComment(commentInput: $commentInput) {

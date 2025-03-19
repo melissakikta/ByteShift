@@ -7,7 +7,7 @@ import { useMutation, useQuery } from '@apollo/client';
 import { useState } from 'react';
 
 import { QUERY_GET_COMMENTS_FOR_POST } from '../../utils/queries';
-import { LIKE_POST, DISLIKE_POST } from '../../utils/mutations';
+import { LIKE_POST, DISLIKE_POST, ADD_TO_LIKED_POSTS, ADD_TO_DISLIKED_POSTS } from '../../utils/mutations';
 
 const Post = ({ post }: { post: PostProps }): JSX.Element => {
 	// query for comments, likes, and dislikes and store in state
@@ -21,7 +21,7 @@ const Post = ({ post }: { post: PostProps }): JSX.Element => {
 	// todo finish building like and dislike workflow in app (update state for user, send mutation to server)
 	function updateLikes() {
 		// update likes in database
-		const [addLike] = useMutation(LIKE_POST, {
+		const [addLike, { loading }] = useMutation(LIKE_POST, {
 			variables: { postId: post._id },
 		});
 		setLikes(likes + 1);

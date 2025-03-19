@@ -142,12 +142,15 @@ export const QUERY_GET_USER = gql`
           _id
           content
           username
+          createdAt
         }
+        createdAt
       }    
       comments {
         _id
         username
-        content    
+        content
+        createdAt 
       }
       likedPosts {
         _id
@@ -161,8 +164,10 @@ export const QUERY_GET_USER = gql`
         comments {
           _id
           username
-          content  
+          content
+          createdAt
         }
+        createdAt
       }
       dislikedPosts {
         _id
@@ -176,8 +181,10 @@ export const QUERY_GET_USER = gql`
         comments {
           _id
           username
-          content  
+          content
+          createdAt
         }
+        createdAt
       }
     }
   }
@@ -199,7 +206,9 @@ export const QUERY_GET_POSTS = gql`
         _id
         username
         content
+        createdAt
       }
+      createdAt
     }
   }
 `;
@@ -220,17 +229,24 @@ export const QUERY_GET_POST = gql`
         _id
         username
         content
+        createdAt
       }
+      createdAt
     }
   }
 `;
 
-export const QUERY_GET_COMMENTS = gql`
-  query getComments {
-    getComments {
+export const QUERY_GET_COMMENTS_FOR_POST = gql`
+  query getPost($postId: ID!) {
+    getPost(postId: $postId) {
       _id
-      username
-      content
+      comments {
+        _id
+        username
+        content
+        createdAt
+      }
+      createdAt
     }
   }
 `;

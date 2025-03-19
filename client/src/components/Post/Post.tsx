@@ -4,13 +4,14 @@ import type CommentProps from '../../interfaces/Comment';
 import { useState } from 'react';
 import Comment from '../Comment/Comment';
 import { useMutation } from '@apollo/client';
-import { QUERY_GET_POST } from '../../utils/queries';
+import { QUERY_GET_COMMENTS_FOR_POST, QUERY_GET_POST } from '../../utils/queries';
 import { LIKE_POST, DISLIKE_POST } from '../../utils/mutations';
 
 const Post = ({ post }: { post: PostProps }): JSX.Element => {
 	// query for comments, likes, and dislikes and store in state
 	// array of comments, query for 3 most recent comments
-	const [comments, setComments] = useState<Comment[]>([]);
+	const [comments, setComments] = useState<CommentProps[]>([]);
+	const [getComments] = useMutation(QUERY_GET_COMMENTS_FOR_POST, {
 
 	// todo add mutation and tracking for likes and dislikes onClick
 	const [likes, setLikes] = useState<number>(0);
@@ -37,8 +38,7 @@ const Post = ({ post }: { post: PostProps }): JSX.Element => {
 		addDislike();
 	}
 
-	if (!post) return <div>No post to display</div>;
-	if (post.type === 'blog') {
+	function generateBlogPost() {
 		return (
 			<>
 				<div className='post-header'>
@@ -46,16 +46,19 @@ const Post = ({ post }: { post: PostProps }): JSX.Element => {
 					<span>{post.username}</span>
 				</div>
 				<div>{post.content}</div>
-				{ post.imgURL ? <img src={post.imgURL} /> : <></> }
+				{post.imgURL ? <img src={post.imgURL} /> : <></>}
 				<button type='button' onClick={() => updateLikes()}>likes ({post.likes})</button>
 				<button type='button' onClick={() => updateDislikes()}>dislikes ({post.dislikes})</button>
 				<div>
-
+					{comments.map((comment) => (
+						<Comment comment={comment} />
+					))}
 				</div>
 			</>
 		);
 	}
-	if (post.type === 'code') {
+
+	function generateCodePost() {
 		return (
 			<>
 				<div className='post-header'>
@@ -63,10 +66,18 @@ const Post = ({ post }: { post: PostProps }): JSX.Element => {
 					<span>{post.username}</span>
 				</div>
 				<code>{post.content}</code>
+				<button type='button' onClick={() => updateLikes()}>likes ({post.likes})</button>
+				<button type='button' onClick={() => updateDislikes()}>dislikes ({post.dislikes})</button>
+				<div>
+					{comments.map((comment) => (
+						<Comment comment={comment} />
+					))}
+				</div>
 			</>
 		);
 	}
-	if (post.type === 'link') {
+
+	function generateLinkPost() {
 		return (
 			<>
 				<div className='post-header'>
@@ -75,8 +86,33 @@ const Post = ({ post }: { post: PostProps }): JSX.Element => {
 				</div>
 				<div>{post.content}</div>
 				<iframe src={post.link} title="user shared embedded link"></iframe>
+				<button type='button' onClick={() => updateLikes()}>likes ({post.likes})</button>
+				<button type='button' onClick={() => updateDislikes()}>dislikes ({post.dislikes})</button>
+				<div>
+					{comments.map((comment) => (
+						<Comment comment={comment} />
+					))}
+				</div>
 			</>
 		);
+	}
+	
+	setComments(post.comments.slice(0, 3).map(comment => ({
+		_id: comment._id,
+		username: comment.username,
+		content: comment.content,
+		createdAt: comment.createdAt
+	})));
+
+	if (!post) return <div>No post to display</div>;
+	if (post.type === 'blog') {
+		generateBlogPost();
+	}
+	if (post.type === 'code') {
+		generateCodePost();
+	}
+	if (post.type === 'link') {
+		generateLinkPost();
 	}
 	return <div>Unknown post type</div>;
 };

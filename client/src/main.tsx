@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import App from './App.jsx'
-import Entry from './Pages/EntryPage'
+import Entry from './pages/EntryPage'
 import Login from './components/SignIn/Login'
 import SignUp from './components/SignIn/Signup'
 import Collection from './pages/PostCollection'

@@ -8,8 +8,8 @@ const { Text, Link } = Typography;
 // Function to create the Footer
 const FooterComponent: React.FC = () => {
   return (
-    <Footer style={{ textAlign: 'center', backgroundColor: '#282c34', color: 'white', padding: '20px' }}>
-      <Text style={{ color: 'white', fontSize: '16px' }}>
+    <Footer style={{ textAlign: 'center', backgroundColor: "var(--secondary)", color: "var(--primary)", padding: '20px' }}>
+      <Text style={{ color: 'var(--primary)', fontSize: '16px' }}>
         Developed by:
       </Text>
 

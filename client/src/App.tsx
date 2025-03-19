@@ -42,7 +42,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Layout style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+      <Layout style={{ minHeight: "100vh", display: "flex", flexDirection: "column", background: "var(--primary)" }}>
         <Layout.Header style={{ textAlign: "center", padding: "20px 0" }}>
           <Header />
         </Layout.Header>

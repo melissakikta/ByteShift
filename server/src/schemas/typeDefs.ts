@@ -54,7 +54,7 @@ const typeDefs = `
 		me: User
 		getUser(username: String!): User
 		getPosts: [Post]
-		getComments: [Comment]
+		getCommentsForPost: [Comment]
   	}
 
   	type Mutation {

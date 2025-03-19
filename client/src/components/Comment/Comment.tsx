@@ -1,7 +1,6 @@
 import React from "react";
 import type CommentProps from "../../interfaces/Comment";
 
-
 const Comment = ({ comment }: { comment: CommentProps }): JSX.Element => {
     return (
         <>

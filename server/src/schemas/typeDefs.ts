@@ -5,9 +5,9 @@ const typeDefs = `
     	email: String!
     	password: String!
     	posts: [Post]!
-			comments: [Comment]!
-			likedPosts: [Post]!
-			dislikedPosts: [Post]!
+		comments: [Comment]!
+		likedPosts: [Post]!
+		dislikedPosts: [Post]!
   	}
 
   	type Post {
@@ -32,8 +32,8 @@ const typeDefs = `
 	}
     
 	type Auth {
-			token: ID!
-			user: User
+		token: ID!
+		user: User
 	}
 
 	input AddUserInput {
@@ -42,19 +42,22 @@ const typeDefs = `
 		password: String!
 	}
 
-	input PostInput {
+	input AddPostInput {
 		username: String!
 		type: String!
 		title: String!
+		content: String!
+		link: String
+		imgURL: String
 	}
 
   	type Query {
-		getUsersAll: [User]
+		getUsersAllData: [User]
 		getUsers: [User]
 		me: User
 		getUser(username: String!): User
 		getPosts: [Post]
-		getCommentsForPost: [Comment]
+		getCommentsForPost(postId: ID!): [Comment]
   	}
 
   	type Mutation {

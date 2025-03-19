@@ -1,6 +1,7 @@
 import { GraphQLError } from 'graphql';
 import { signToken } from '../services/auth';
-import { User } from '../models/index';
+import type CommentType from '../interfaces/Comment';
+import { User, Comment } from '../models/index';
 
 // Define types for the arguments
 interface AddUserArgs {
@@ -23,7 +24,7 @@ interface AddPostArgs {
 	imgURL: string; // The image URL of the post
 	likes: number; // The number of likes the post has
 	dislikes: number; // The number of dislikes the post has
-	comments: string[]; // The comments on the post TODO: Change to Comment type or ID?
+	comments: CommentType[]; // The comments on the post TODO: Change Comment type or ID?
 }
 
 const resolvers = {

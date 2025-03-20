@@ -1,3 +1,4 @@
+import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
@@ -6,7 +7,7 @@ import Entry from './pages/EntryPage'
 import Login from './components/SignIn/Login'
 import SignUp from './components/SignIn/Signup'
 import PostDisplay from './pages/PostDisplay'
-import Form from './pages/PostForm'
+import Form from './pages/NewPost'
 import ErrorPage from './pages/Error'
 
 const router = createBrowserRouter([

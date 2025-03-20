@@ -56,7 +56,7 @@ const BlogPost: React.FC = () => {
       </Title>
 
       <Form
-        form={Form}
+        //form={Form}
         layout="vertical"
         onFinish={handleSumbit}
         style={{

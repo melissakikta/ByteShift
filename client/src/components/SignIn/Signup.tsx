@@ -34,8 +34,8 @@ const Signup: React.FC = () => {
 
   return (
     <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}}>
-      <Card style={{ width: 400, textAlign: 'center', padding: '20px' }}>
-        <Title level={2}>Sign Up</Title>
+      <Card style={{ width: 400, textAlign: 'center', padding: '20px', background: "var(--primary)", color: "var(--secondary)" }}>
+        <Title level={2} Style={{ color: "var(--tertiary)"}}>Sign Up</Title>
 
         {data ? (
           <Text type="success">
@@ -76,14 +76,14 @@ const Signup: React.FC = () => {
             </Form.Item>
 
             <Form.Item>
-              <Button type="primary" htmlType="submit" loading={loading}>
+              <Button type="primary" htmlType="submit"  className="custom-menu-item" loading={loading}>
                 Sign Up
               </Button>
             </Form.Item>
           </Form>
          )}
 
-        {error && <Alert message={error.message} type="error" showIcon style={{ marginTop: 16}} />}
+        {error && <Alert message={error.message} type="error" showIcon style={{ marginTop: 16, background: "white", color: "var(--warning)" }} />}
       </Card>
     </div>
   );  

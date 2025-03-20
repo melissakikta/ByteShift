@@ -5,7 +5,7 @@ import App from './App.jsx'
 import Entry from './pages/EntryPage'
 import Login from './components/SignIn/Login'
 import SignUp from './components/SignIn/Signup'
-import Collection from './pages/PostCollection'
+import PostDisplay from './pages/PostDisplay'
 import Form from './pages/PostForm'
 import ErrorPage from './pages/Error'
 
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
         element: <SignUp />
       }, {
         path: '/collection',
-        element: <Collection />
+        element: <PostDisplay />
       }, {
         path: '/form',
         element: <Form />

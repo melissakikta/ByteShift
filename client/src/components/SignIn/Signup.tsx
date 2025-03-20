@@ -35,7 +35,7 @@ const Signup: React.FC = () => {
   return (
     <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}}>
       <Card style={{ width: 400, textAlign: 'center', padding: '20px', background: "var(--primary)", color: "var(--secondary)" }}>
-        <Title level={2} Style={{ color: "var(--tertiary)"}}>Sign Up</Title>
+        <Title level={2} style={{ color: "var(--tertiary)"}}>Sign Up</Title>
 
         {data ? (
           <Text type="success">

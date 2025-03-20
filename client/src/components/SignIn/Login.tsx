@@ -30,11 +30,11 @@ const Login = () => {
 
   
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', margin: '0 auto',  }}>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', margin: '0 auto', background: "var(--primary)" }}>
       <AntCard style={{ width: 400, textAlign: 'center', padding: '2rem' }}>
-        <Title level={3} style={{ textAlign: 'center' }}>Login</Title>
+        <Title level={3} style={{ textAlign: 'center', color: "var(--tertiary)" }}>Login</Title>
 
-        {error && <Alert message="Incorrect username and/or password, please try again." type="error" showIcon style={{ marginBottom: 16 }} />}
+        {error && <Alert message="Incorrect username and/or password, please try again." type="error" showIcon style={{ marginBottom: 16, background: "white", color: "var(--warning)" }} />}
         
         <Form
           form={form}
@@ -65,7 +65,7 @@ const Login = () => {
 
           {/* Submit Button */}
           <Form.Item>
-              <Button type="primary" htmlType="submit" block loading={loading}>
+              <Button type="primary" htmlType="submit"  className="custom-menu-item" block loading={loading}>
                 {loading ? "Logging in..." : "Login"}
               </Button>
 

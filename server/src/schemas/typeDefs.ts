@@ -57,8 +57,7 @@ const typeDefs = `#graphql
 	}
 
   	type Query {
-		getUsersAllData: [User]
-		# getUsers: [User]
+		getUsers: [User]
 		me: User
 		# getUser(username: String!): User
 		getPosts: [Post]
@@ -68,7 +67,7 @@ const typeDefs = `#graphql
   	type Mutation {
 		login(email: String!, password: String!): Auth
 		addUser(userInput: AddUserInput!): Auth
-		addPost(postInput: AddPostInput!): User
+		addPost(postInput: AddPostInput!): Post
 
 		likePost(postId: ID!): Post
 		dislikePost(postId: ID!): Post
@@ -77,9 +76,9 @@ const typeDefs = `#graphql
 		addToLikedPosts(postId: ID!): User
 		addToDislikedPosts(postId: ID!): User
 
-		addComment(commentInput: AddCommentInput!): Post
-		deletePost(postId: ID!): User
-		deleteComment(postId: ID!, commentId: ID!): Post
+		addComment(commentInput: AddCommentInput!): Comment
+		deletePost(postId: ID!): Post
+		deleteComment(postId: ID!, commentId: ID!): Comment
   	}
 `;
 

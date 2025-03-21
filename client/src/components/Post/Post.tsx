@@ -2,6 +2,7 @@ import React from 'react';
 import type PostProps from '../../interfaces/Post';
 import type CommentProps from '../../interfaces/Comment';
 import Comment from '../Comment/Comment';
+import AuthService from '../../utils/auth';
 
 import { useMutation, useQuery } from '@apollo/client';
 import { useState } from 'react';
@@ -9,7 +10,7 @@ import { useState } from 'react';
 import { QUERY_GET_COMMENTS_FOR_POST } from '../../utils/queries';
 import { LIKE_POST, DISLIKE_POST, ADD_TO_LIKED_POSTS, ADD_TO_DISLIKED_POSTS } from '../../utils/mutations';
 
-const Post = ({ post }: { post: PostProps }): JSX.Element => {
+const Post = ({ post }: { post: PostProps }): React.ReactElement => {
 	// query for comments, likes, and dislikes and store in state
 	// array of comments, query for 3 most recent comments
 	const [comments, setComments] = useState<CommentProps[]>([]);
@@ -18,14 +19,24 @@ const Post = ({ post }: { post: PostProps }): JSX.Element => {
 	const [likes, setLikes] = useState<number>(0);
 	const [dislikes, setDislikes] = useState<number>(0);
 
+	function loggedUser() {
+		// return user from local storage
+		const user = AuthService.getProfile();
+		return user.data.id;
+	}
+
 	// todo finish building like and dislike workflow in app (update state for user, send mutation to server)
 	function updateLikes() {
 		// update likes in database
 		const [addLike] = useMutation(LIKE_POST, {
 			variables: { postId: post._id },
 		});
+		const [addToLikedPosts] = useMutation(ADD_TO_LIKED_POSTS, {
+			variables: { postId: post._id, userId: loggedUser },
+		});
 		setLikes(likes + 1);
 		addLike();
+		addToLikedPosts();
 	}
 
 	function updateDislikes() {
@@ -33,8 +44,12 @@ const Post = ({ post }: { post: PostProps }): JSX.Element => {
 		const [addDislike] = useMutation(DISLIKE_POST, {
 			variables: { postId: post._id },
 		});
+		const [addToDislikedPosts] = useMutation(ADD_TO_DISLIKED_POSTS, {
+			variables: { postId: post._id, userId: loggedUser },
+		});
 		setDislikes(dislikes + 1);
 		addDislike();
+		addToDislikedPosts();
 	}
 
 	function generateBlogPost() {
@@ -95,7 +110,7 @@ const Post = ({ post }: { post: PostProps }): JSX.Element => {
 			</>
 		);
 	}
-	
+
 	useQuery(QUERY_GET_COMMENTS_FOR_POST, {
 		variables: { postId: post._id },
 		onCompleted: (data) => {

@@ -1,8 +1,7 @@
 import { GraphQLError } from 'graphql';
 import { signToken } from '../services/auth';
-import type CommentType from '../interfaces/Comment';
 import { User, Post, Comment } from '../models/index';
-import { get } from 'http';
+import { Schema } from 'mongoose';
 
 // Define types for the arguments
 interface AddUserArgs {
@@ -21,181 +20,133 @@ interface AddPostArgs {
 	type: string; // The type of the post, required to be automatically populated
 	title: string; // The title of the post
 	content: string; // The content of the post
-	link: string; // The link of the post
-	imgURL: string; // The image URL of the post
-	likes: number; // The number of likes the post has
-	dislikes: number; // The number of dislikes the post has
-	comments: CommentType[]; // The comments on the post TODO: Change Comment type or ID?
+	link?: string; // The link of the post
+	imgURL?: string; // The image URL of the post
+	// Commented out bc likes, dislikes, and comments are automatically populated
+    // likes: number; // The number of likes the post has
+	// dislikes: number; // The number of dislikes the post has
+	// comments: CommentType[]; // The comments on the post TODO: Change Comment type or ID?
+}
+
+interface AddCommentArgs {
+    username: string; // The username of the user who created the comment, required to be automatically populated
+    postId: string; // The ID of the post the comment is on
+    content: string; // The content of the comment
 }
 
 const resolvers = {
 	Query: {
-        getUsers: async () => {
-            const users = await User.find();
-            return users;
+        getUsersAllData: async () => {
+            return await User.find().populate('posts').populate('comments');
         },
+
         me: async (_parent: any, _args: any, context: any) => {
             if (context.user) {
-                const user = await User.findOne({ _id: context.user._id });
-                return user;
+                return await User.findById(context.user._id).populate('posts').populate('comments');
             }
-            return null;
+            throw new GraphQLError('User not logged in');
         },
+
         getPosts: async () => {
-            const posts = await Post.find();
-            return posts;
+            return await Post.find().populate('comments');
         },
+
         getCommentsForPost: async (_parent: any, { postId }: { postId: string }) => {
-            const comments = await Comment.find({ post: postId });
-            return comments;
+            return await Comment.find({ post: postId });
         }
 	},
+
 	Mutation: {
         addUser: async (_parent: any, { username, email, password }: AddUserArgs) => {
             // Create a new user with the provided username, email, and password
             const user = await User.create({ username, email, password });
-
-
             // Sign a token with the user's information
             const token = signToken(user.username, user.email, user._id);
-
             // Return the token and the user
             return { token, user };
         },
+
         login: async (_parent: any, { email, password }: LoginUserArgs) => {
             // Find a user with the provided email
             const user = await User.findOne({ email });
 
             // If no user is found, throw an GraphQLError
-            if (!user) throw new GraphQLError('Could not authenticate user.');
-
-            // Check if the provided password is correct
-            const correctPw = await user.isCorrectPassword(password);
-
-            // If the password is incorrect, throw an GraphQLError
-            if (!correctPw) throw new GraphQLError('Could not authenticate user.');
-
-            // Sign a token with the user's information
+            if (!user || !(await user.isCorrectPassword(password))) {
+                throw new GraphQLError('Incorrect email or password');
+            }
             const token = signToken(user.username, user.email, user._id);
-
-            // Return the token and the user
             return { token, user };
         },
+
         addPost: async (_parent: any, {postInput}: {postInput: AddPostArgs}) => {
-            // Create a new post with the provided information
-            const post = await Post.create(postInput);
+            const user = await User.findOne({ username: postInput.username });
+            if (!user) throw new GraphQLError('User not found');
 
-            // Return the post
-            return post;
+            const newPost = await Post.create(postInput);
+            user.posts.push(newPost._id as Schema.Types.ObjectId);
+            await user.save();
+            return user.populate('posts');
         },
-        addComment: async (_parent: any, {commentInput}: {commentInput: CommentType}) => {
-            // Create a new comment with the provided information
-            const comment = await Comment.create(commentInput);
 
-            // Return the comment
-            return comment;
+        addComment: async (_parent: any, {commentInput}: {commentInput: AddCommentArgs}) => {
+            const post = await Post.findById(commentInput.postId);
+            if (!post) throw new GraphQLError('Post not found');
+
+            const newComment = await Comment.create(commentInput);
+            post.comments.push(newComment._id as Schema.Types.ObjectId);
+            await post.save();
+            return post.populate('comments');
         },
+
         likePost: async (_parent: any, { postId }: { postId: string }) => {
-            // Find the post by ID
-            const post = await Post.findById(postId);
-
-            // If the post doesn't exist, throw an error
-            if (!post) {
-                throw new Error('Post not found');
-            }
-
-            // Increment the likes field of the post
-            post.likes++;
-
-            // Save the post
-            await post.save();
-
-            // Return the updated post
-            return post;
+            return await Post.findByIdAndUpdate(
+                postId,
+                { $inc: { likes: 1 } },
+                { new: true }
+            );
         },
+
         dislikePost: async (_parent: any, { postId }: { postId: string }) => {
-            // Find the post by ID
-            const post = await Post.findById(postId);
-
-            // If the post doesn't exist, throw an error
-            if (!post) {
-                throw new Error('Post not found');
-            }
-
-            // Increment the dislikes field of the post
-            post.dislikes++;    
-
-            // Save the post
-            await post.save();
-
-            // Return the updated post
-            return post;
+           return await Post.findByIdAndUpdate(
+                postId,
+                { $inc: { dislikes: 1 } },
+                { new: true }
+           );
         },
-        addToLikedPosts: async (_parent: any, { postId }: { postId: string }) => {
-            // Find the user by ID
-            const user = await User.findById(postId);
 
-            // If the user doesn't exist, throw an error
-            if (!user) {
-                throw new Error('User not found');
-            }
-
-            // Add the post ID to the likedPosts array of the user
-            user.likedPosts.push(postId);
-
-            // Save the user
-            await user.save();
-
-            // Return the updated user
-            return user;
+        addToLikedPosts: async (_parent: any, { userId, postId }: { userId: string, postId: string }) => {
+            return await User.findByIdAndUpdate(
+                userId,
+                { $addToSet: { likedPosts: postId } },
+                { new: true }
+            ).populate('likedPosts');
         },
-        addToDislikedPosts: async (_parent: any, { postId }: { postId: string }) => {
-            // Find the user by ID
-            const user = await User.findById(postId);
 
-            // If the user doesn't exist, throw an error
-            if (!user) {
-                throw new Error('User not found');
-            }
-
-            // Add the post ID to the dislikedPosts array of the user
-            user.dislikedPosts.push(postId);
-
-            // Save the user
-            await user.save();
-
-            // Return the updated user
-            return user;
+        addToDislikedPosts: async (_parent: any, { userId, postId }: { userId: string, postId: string }) => {
+            return await User.findByIdAndUpdate(
+                userId,
+                { $addToSet: { dislikedPosts: postId } },
+                { new: true }
+            ).populate('dislikedPosts');
         },
+
         deletePost: async (_parent: any, { postId }: { postId: string }) => {
-            // Find the post by ID
             const post = await Post.findById(postId);
+            if (!post) throw new GraphQLError('Post not found');
 
-            // If the post doesn't exist, throw an error
-            if (!post) {
-                throw new Error('Post not found');
-            }
-
-            // Delete the post            
             await Post.deleteOne({ _id: postId });
+            await User.findByIdAndUpdate({ username: post.username }, { $pull: { posts: postId } });
 
-            // Return the deleted post
-            return post;
+            return await User.findOne({ username: post.username }).populate('posts');
         },
+
         deleteComment: async (_parent: any, { postId, commentId }: { postId: string, commentId: string }) => {
-            // Find the comment by ID
-            const comment = await Comment.findById(commentId);
-
-            // If the comment doesn't exist, throw an error
-            if (!comment) {
-                throw new Error('Comment not found');
-            }
-
-            // Delete the comment
-            await Comment.deleteOne({ _id: commentId });
-
-            // Return the deleted comment
-            return comment;
+            await Comment.findByIdAndDelete(commentId);
+            return await Post.findByIdAndUpdate(
+                postId,
+                { $pull: { comments: commentId } },
+                { new: true }
+            ).populate('comments');
         },
 	},
 };

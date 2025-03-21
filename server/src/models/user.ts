@@ -1,6 +1,5 @@
 import { Schema, model, Document } from 'mongoose';
 import Post from './Post';
-import Comment from './Comment';
 import bcrypt from 'bcrypt';
 
 export interface IUser extends Document {
@@ -8,7 +7,6 @@ export interface IUser extends Document {
     email: string;
     password: string;
     posts: Schema.Types.ObjectId[];
-    comments: Schema.Types.ObjectId[];
     likedPosts: Schema.Types.ObjectId[];
     dislikedPosts: Schema.Types.ObjectId[];
     isCorrectPassword(password: string): Promise<boolean>;
@@ -34,7 +32,6 @@ const userSchema = new Schema<IUser>(
             minlength: 8,
         },
         posts: [ Post.schema! ],
-        comments: [ Comment.schema! ],
         likedPosts: [ Post.schema! ],
         dislikedPosts: [ Post.schema! ],
     }

@@ -21,7 +21,7 @@ const Post = ({ post }: { post: PostProps }): JSX.Element => {
 	// todo finish building like and dislike workflow in app (update state for user, send mutation to server)
 	function updateLikes() {
 		// update likes in database
-		const [addLike, { loading }] = useMutation(LIKE_POST, {
+		const [addLike] = useMutation(LIKE_POST, {
 			variables: { postId: post._id },
 		});
 		setLikes(likes + 1);

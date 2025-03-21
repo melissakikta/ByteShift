@@ -21,11 +21,6 @@ export const QUERY_GET_ALL_USERS_ALL_DATA = gql`
 				  	content
 				}
 			}
-			comments {
-				_id
-				username
-				content
-			}
 			likedPosts {
 				_id
 				type
@@ -37,8 +32,6 @@ export const QUERY_GET_ALL_USERS_ALL_DATA = gql`
 				dislikes
 				comments {
 					_id
-					username
-					content
 				}
 			}
 			dislikedPosts {
@@ -51,9 +44,7 @@ export const QUERY_GET_ALL_USERS_ALL_DATA = gql`
 				likes
 				dislikes
 				comments {
-					_id 
-					username
-					content
+					_id
 				}
 			}
 		}
@@ -97,11 +88,6 @@ export const QUERY_ME = gql`
 					username
 					createdAt
 				}
-				createdAt
-			}
-			comments {
-				_id
-				content
 				createdAt
 			}
 			likedPosts {
@@ -152,12 +138,6 @@ export const QUERY_ME = gql`
 // 					createdAt
 // 				}
 // 				createdAt
-// 			}    
-// 			comments {
-// 				_id
-// 				username
-// 				content
-// 				createdAt 
 // 			}
 // 			likedPosts {
 // 				_id

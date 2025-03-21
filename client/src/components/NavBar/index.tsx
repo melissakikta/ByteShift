@@ -1,4 +1,3 @@
-import React from 'react';
 import { Menu } from 'antd';
 import { NavLink } from 'react-router-dom';
 import '../../App.css';
@@ -8,7 +7,7 @@ const NavBar = () => {
     <Menu 
       mode="horizontal" 
       theme="dark" 
-      style={{ justifiedContent: "center", background: "var(--secondary)", color: "var(--primary)" }}>
+      style={{ justifyContent: "center", background: "var(--secondary)", color: "var(--primary)" }}>
 
       <Menu.Item 
         key="posts"

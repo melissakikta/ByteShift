@@ -1,14 +1,13 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import App from './App.jsx'
-import Entry from './pages/EntryPage'
+import Entry from './Pages/EntryPage'
 import Login from './components/SignIn/Login'
 import SignUp from './components/SignIn/Signup'
-import PostDisplay from './pages/PostDisplay'
-import Form from './pages/NewPost'
-import ErrorPage from './pages/Error'
+import PostDisplay from './Pages/PostDisplay'
+import Form from './Pages/NewPost'
+import ErrorPage from './Pages/Error'
 
 const router = createBrowserRouter([
   {

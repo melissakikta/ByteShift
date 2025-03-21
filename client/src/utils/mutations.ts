@@ -103,6 +103,11 @@ export const DELETE_POST = gql`
 		deletePost(postId: $postId) {
 			_id
 			username
+			type
+			title
+			content
+			link
+			imgURL
 		}
 	}
 `;
@@ -112,6 +117,8 @@ export const DELETE_COMMENT = gql`
 		deleteComment(postId: $postId, commentId: $commentId) {
 			_id
 			username
+			content
+			createdAt
 		}
 	}
 `;

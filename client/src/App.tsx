@@ -1,5 +1,4 @@
 import "antd/dist/reset.css"; // Ensures the latest version styles are applied
-import React from 'react';
 import {
   ApolloClient,
   InMemoryCache,

@@ -15,3 +15,8 @@ const PostDisplay: React.FC<PostDisplayProps> = ({ title, content }) => {
 };
 
 export default PostDisplay;
+
+//use state of posts update posts 
+// array of the post objects
+//when loading the page, it will use the mutation
+//use the function of Post from Post/Post.tsx

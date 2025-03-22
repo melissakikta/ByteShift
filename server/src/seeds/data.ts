@@ -1,10 +1,33 @@
-import fs from 'fs';
+import mongoose from 'mongoose';
 
-const rawData = fs.readFileSync('./seeds/seedData.json', 'utf8');
-const seedData = JSON.parse(rawData);
+const UserSchema = new mongoose.Schema({
+  username: { type: String, required: true, unique: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  posts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Post' }],
+  comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }],
+  likedPosts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Post' }],
+  dislikedPosts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Post' }]
+});
 
-const commentsData = seedData.comments;
-const postsData = seedData.posts;
-const usersData = seedData.users;
+const PostSchema = new mongoose.Schema({
+  username: { type: String, required: true },
+  type: { type: String, required: true },
+  title: { type: String, required: true },
+  content: { type: String, required: true },
+  link: { type: String },
+  imgURL: { type: String },
+  likes: { type: Number, default: 0 },
+  dislikes: { type: Number, default: 0 },
+  comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }]
+});
 
-export { commentsData, postsData, usersData };
+const CommentSchema = new mongoose.Schema({
+  username: { type: String, required: true },
+  content: { type: String, required: true },
+  createdAt: { type: String, default: Date.now }
+});
+
+export const User = mongoose.model('User', UserSchema);
+export const Post = mongoose.model('Post', PostSchema);
+export const Comment = mongoose.model('Comment', CommentSchema);

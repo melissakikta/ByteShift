@@ -9,8 +9,7 @@ import db from './dbconfig/connection.js';
 
 import type { Request, Response } from 'express';
 
-const PORT = process.env.PORT || 3001;
-const app = express();
+
 
 const server = new ApolloServer({
 	typeDefs,
@@ -19,6 +18,9 @@ const server = new ApolloServer({
 
 const startApolloServer = async () => {
 	await server.start();
+
+	const PORT = process.env.PORT || 3001;
+const app = express();
 
 	app.use(express.urlencoded({ extended: true }));
 	app.use(express.json());

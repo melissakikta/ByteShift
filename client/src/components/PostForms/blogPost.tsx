@@ -51,7 +51,7 @@ const BlogPost: React.FC = () => {
 
   return (
     <div style={{ maxWidth: 500, margin: "0 auto", padding: "20px" }}>
-      <Title level={3} style={{ textAlign: "center" }}>
+      <Title level={3} style={{ textAlign: "center", fontFamily: "var(--font-header)", fontSize: "4rem" }}>
       <h2>Share a Blog Post</h2>
       </Title>
 
@@ -66,6 +66,8 @@ const BlogPost: React.FC = () => {
           backgroundColor: "var(--secondary)", // Ensure background color
           color: "var(--primary)", // Ensure text color
           boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)", // Optional shadow for a modern look
+          fontFamily: "var(--font-body)",
+          fontSize: "1.5rem",
         }}
       >
         {/* Title */}

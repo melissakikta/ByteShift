@@ -35,30 +35,33 @@ const Signup: React.FC = () => {
   return (
     <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}}>
       <Card style={{ width: 400, textAlign: 'center', padding: '20px', background: "var(--primary)", color: "var(--secondary)" }}>
-        <Title level={2} style={{ color: "var(--tertiary)"}}>Sign Up</Title>
+        <Title level={2} style={{ color: "var(--tertiary)", fontFamily: "var(--font-header)", fontSize: "2rem" }}>Sign Up</Title>
 
         {data ? (
           <Text type="success">
             Your login was successful. Click <Link to="/collection">here</Link> to see your team's posts.
           </Text>
         ) : (
+          
           <Form
             form={form}
             layout="vertical"
             name="signup"
             onFinish={handleFormSubmit}
+            style={{ maxWidth: 400, margin: '0 auto', fontFamily: "var(--font-body)" }}
             autoComplete="off"
           >
             <Form.Item
+              label="Username"
               name="username"
-              rules={[
-                { required: true, message: 'Please input your username!'},
-              ]}
+              rules={[{ required: true, message: 'Please input your username!'},]}
+              style={{ marginBottom: '1rem' }}
               >
               <Input prefix={<UserOutlined />} placeholder="Username" />
             </Form.Item>
 
             <Form.Item
+              label="Email"
               name="email"
               rules={[
                 { required: true, message: 'Please input your email!' },
@@ -69,6 +72,7 @@ const Signup: React.FC = () => {
             </Form.Item>
 
             <Form.Item
+              label="Password"
               name="password"
               rules={[{ required: true, message: 'Please input your password!' }]}
             >
@@ -76,8 +80,8 @@ const Signup: React.FC = () => {
             </Form.Item>
 
             <Form.Item>
-              <Button type="primary" htmlType="submit"  className="custom-menu-item" loading={loading}>
-                Sign Up
+              <Button type="primary" htmlType="submit"  className="custom-menu-item" style={{fontSize: "1.5rem" }} block loading={loading}>
+               {loading ? "Signing up..." : "Sign Up"}
               </Button>
             </Form.Item>
           </Form>

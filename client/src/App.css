@@ -1,9 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato:wght@300;400;700&display=swap');
+
 :root {
   --primary: #2e294e;
   --secondary: #1B998B;
   --tertiary: #EC6F6F;
   --quaternary: #C5D86D;
-  --warning: #E71D36
+  --warning: #E71D36;
+
+  --font-header: 'Abril Fatface', impact, serif;
+  --font-body: 'Lato', sans-serif;
 }
 
 .custom-menu-item {
@@ -13,7 +18,8 @@
 }
 
 .custom-menu-item:hover {
-  background: var(--quaternary);
+  background: var(--quaternary) !important;
+  color: var(--primary) !important;
 }
 
 .custom-menu-item button {
@@ -25,5 +31,51 @@
 }
 
 .custom-menu-item button:hover {
-  background: var(--quaternary);
+  background: var(--quaternary) !important;
+}
+
+.NavLink:hover {
+  color: var(--quaternary) !important;
+}
+
+.footer-link {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer-link:hover {
+  color: var(--quaternary) !important;
+}
+
+.ant-form-item-label > label {
+  color: var(--secondary) !important;
+  font-family: var(--font-body) !important;
+  font-size: 1.5rem !important;
+}
+
+@media (max-width: 768px) {
+  /* Stack Footer links vertically */
+  .footer-container{
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  
+  .footer-links {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  /*NavBar links vertical */
+  .NavLink {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .Title {
+    font-size: 3rem !important;
+  }
 }

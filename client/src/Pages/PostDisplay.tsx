@@ -4,6 +4,7 @@ import type PostType from '../interfaces/Post';
 import { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_GET_POSTS } from '../utils/queries';
+import { Row, Col } from 'antd';
 
 const PostDisplay: React.FC = () => {
 	const defaultPost: PostType = {
@@ -22,19 +23,28 @@ const PostDisplay: React.FC = () => {
 
 	const [posts, setPosts] = useState<PostType[]>([defaultPost]);
 
-	const postList = useQuery(QUERY_GET_POSTS);
+	const { data, loading, error } = useQuery(QUERY_GET_POSTS);
 	// todo remove console log after testing data returns for query
-	console.log(postList.data);
-	setPosts(postList.data.posts);
+	console.log(data);
+	
+	//Set posts if the query return data
+	if (data && data.posts !== posts) {
+		setPosts(data.posts);
+	}
+
+	if (loading) return <div>Loading...</div>;
+	if (error) return <div>Error: {error.message}</div>;
 
 	return (
-		<>
-			<div>
+		<div>
+			<Row gutter={[16, 16]}>
 				{posts.map((post) => (
-					<Post post={post} />
+					<Col xs={24} sm={12} md={8} lg={6} key={post._id}>
+						<Post post={post} /> {/* Pass post data to Post Component */}
+					</Col>
 				))}
-			</div>
-		</>
+			</Row>
+		</div>
 	);
 };
 

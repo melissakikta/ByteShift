@@ -1,46 +1,296 @@
 {
-    "comments": [
-        { "username": "Alice", "content": "This is a great post!", "createdAt": "2023-10-01T12:00:00Z" },
-        { "username": "Bob", "content": "Thanks for sharing!", "createdAt": "2023-10-01T12:00:00Z" },
-        { "username": "Charlie", "content": "I found this very helpful.", "createdAt": "2023-10-01T12:00:00Z" }
+    "users": [
+      {
+        "username": "john_doe",
+        "email": "john@example.com",
+        "password": "password123",
+        "posts": [],
+        "comments": [],
+        "likedPosts": [],
+        "dislikedPosts": []
+      },
+      {
+        "username": "jane_doe",
+        "email": "jane@example.com",
+        "password": "password456",
+        "posts": [],
+        "comments": [],
+        "likedPosts": [],
+        "dislikedPosts": []
+      }
     ],
     "posts": [
-        {
-            "username": "Alice",
-            "type": "Informative",
-            "title": "Understanding Mongoose",
-            "content": "Mongoose is a powerful tool for MongoDB.",
-            "imgURL": "http://example.com/image1.jpg",
-            "likes": 10,
-            "dislikes": 2,
-            "createdAt": "2023-10-01T12:00:00Z"
+      {
+        "username": "john_doe",
+        "type": "article",
+        "title": "My First Post",
+        "content": "This is the content of my first post.",
+        "link": "http://example.com/my-first-post",
+        "imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+        "likes": 0,
+        "dislikes": 0,
+        "comments": []
+      },
+      {
+        "username": "jane_doe",
+        "type": "article",
+        "title": "My Second Post",
+        "content": "This is the content of my second post.",
+        "link": "http://example.com/my-second-post",
+        "imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+        "likes": 0,
+        "dislikes": 0,
+        "comments": []
+      },
+      {
+        "username": "john_doe",
+        "type": "article",
+        "title": "My Third Post",
+        "content": "This is the content of my third post.",
+        "link": "http://example.com/my-third-post",
+        "imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+        "likes": 0,
+        "dislikes": 0,
+        "comments": []
+      },
+      {
+        "username": "jane_doe",
+        "type": "article",
+        "title": "My Fourth Post",
+        "content": "This is the content of my fourth post.",
+        "link": "http://example.com/my-fourth-post",
+        "imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+        "likes": 0,
+        "dislikes": 0,
+        "comments": []
+      },
+      {
+        "username": "john_doe",
+        "type": "article",
+        "title": "My Fifth Post",
+        "content": "This is the content of my fifth post.",
+        "link": "http://example.com/my-fifth-post",
+        "imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+        "likes": 0,
+        "dislikes": 0,
+        "comments": []
+      },
+      {
+        "username": "jane_doe",
+        "type": "article",
+        "title": "My Sixth Post",
+        "content": "This is the content of my sixth post.",
+        "link": "http://example.com/my-sixth-post",
+        "imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+        "likes": 0,
+        "dislikes": 0,
+        "comments": []      
+      },
+      {
+        "username": "john_doe",
+        "type": "article",
+        "title": "My Seventh Post",
+        "content": "This is the content of my seventh post.",
+        "link": "http://example.com/my-seventh-post",
+        "imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+        "likes": 0,
+        "dislikes": 0,
+        "comments": []
+      },
+      {
+        "username": "jane_doe",
+        "type": "article",
+        "title": "My Eighth Post",
+        "content": "This is the content of my eighth post.",
+        "link": "http://example.com/my-eighth-post",
+        "imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+        "likes": 0,
+        "dislikes": 0,
+        "comments": []
+      },
+      {
+        "username": "john_doe",
+        "type": "article",
+        "title": "My Ninth Post",
+        "content": "This is the content of my ninth post.",
+        "link": "http://example.com/my-ninth-post",
+        "imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+        "likes": 0,
+        "dislikes": 0,
+        "comments": []
+      },
+      {
+        "username": "jane_doe",
+        "type": "article",
+        "title": "My Tenth Post",
+        "content": "This is the content of my tenth post.",
+        "link": "http://example.com/my-tenth-post",
+        "imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+        "likes": 0,
+        "dislikes": 0,
+        "comments": []
+      },
+      {
+        "username": "john_doe",
+        "type": "article",
+        "title": "My Eleventh Post",
+        "content": "This is the content of my eleventh post.",
+        "link": "http://example.com/my-eleventh-post",
+        "imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+        "likes": 0,
+        "dislikes": 0,
+        "comments": []      
+      },
+      {
+        "username": "jane_doe",
+        "type": "article",
+        "title": "My Twelfth Post",
+        "content": "This is the content of my twelfth post.",
+        "link": "http://example.com/my-twelfth-post",
+        "imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+        "likes": 0,
+        "dislikes": 0,
+        "comments": []      
+      },
+      {
+        "username": "john_doe",
+        "type": "article",
+        "title": "My Thirteenth Post",
+        "content": "This is the content of my thirteenth post.",
+        "link": "http://example.com/my-thirteenth-post",
+        "imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+        "likes": 0,
+        "dislikes": 0,
+        "comments": []
+      },    
+      {
+        "username": "jane_doe",
+        "type": "article",
+        "title": "My Fourteenth Post",
+        "content": "This is the content of my fourteenth post.",
+        "link": "http://example.com/my-fourteenth-post",
+        "imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+        "likes": 0,
+        "dislikes": 0,
+        "comments": []
         },
-        {
-            "username": "Bob",
-            "type": "Opinion",
-            "title": "Why I Love MongoDB",
-            "content": "MongoDB is great for unstructured data.",
-            "imgURL": "http://example.com/image2.jpg",
-            "likes": 5,
-            "dislikes": 1,
-            "createdAt": "2023-10-01T12:00:00Z"
-        }
+      {
+        "username": "john_doe",
+        "type": "article",
+        "title": "My Fifteenth Post",
+        "content": "This is the content of my fifteenth post.",
+        "link": "http://example.com/my-fifteenth-post",
+        "imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+        "likes": 0,
+        "dislikes": 0,
+        "comments": []
+      },
+      {
+        "username": "jane_doe",
+        "type": "article",
+        "title": "My Sixteenth Post",
+        "content": "This is the content of my sixteenth post.",
+        "link": "http://example.com/my-sixteenth-post",
+        "imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+        "likes": 0,
+        "dislikes": 0,
+        "comments": []
+      },
+      {
+        "username": "john_doe",
+        "type": "article",
+        "title": "My Seventeenth Post",
+        "content": "This is the content of my seventeenth post.",
+        "link": "http://example.com/my-seventeenth-post",
+        "imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+        "likes": 0,
+        "dislikes": 0,
+        "comments": []
+      },
+      {
+        "username": "jane_doe",
+        "type": "article",
+        "title": "My Eighteenth Post",
+        "content": "This is the content of my eighteenth post.",
+        "link": "http://example.com/my-eighteenth-post",
+        "imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+        "likes": 0,
+        "dislikes": 0,
+        "comments": []
+      },
+      {
+        "username": "john_doe",
+        "type": "article",
+        "title": "My Nineteenth Post",
+        "content": "This is the content of my nineteenth post.",
+        "link": "http://example.com/my-nineteenth-post",
+        "imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+        "likes": 0,
+        "dislikes": 0,
+        "comments": []          
+      },
+      {
+        "username": "jane_doe",
+        "type": "article",
+        "title": "My Twentieth Post",
+        "content": "This is the content of my twentieth post.",
+        "link": "http://example.com/my-twentieth-post",
+        "imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+        "likes": 0,
+        "dislikes": 0,
+        "comments": []
+      },
+      {
+        "username": "john_doe",
+        "type": "article",
+        "title": "My Twenty-first Post",
+        "content": "This is the content of my twenty-first post.",
+        "link": "http://example.com/my-twenty-first-post",
+        "imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+        "likes": 0,
+        "dislikes": 0,
+        "comments": []
+      }
     ],
-    "users": [
-        {
-            "username": "Alice",
-            "email": "alice@example.com",
-            "password": "password123"
-        },
-        {
-            "username": "Bob",
-            "email": "bob@example.com",
-            "password": "password456"
-        },
-        {
-            "username": "Charlie",
-            "email": "charlie@example.com",
-            "password": "password789"
-        }
+    "comments": [
+      {
+        "username": "jane_doe",
+        "content": "Great post!"
+      },
+      {
+        "username": "john_doe",
+        "content": "Thanks for sharing!"
+      },
+      {
+        "username": "jane_doe",
+        "content": "I totally agree!"
+      },
+      {
+        "username": "john_doe",
+        "content": "Thanks for the feedback!"
+      },
+      {
+        "username": "jane_doe",
+        "content": "Great post!"
+      },
+      {
+        "username": "john_doe",
+        "content": "Thanks for sharing!"
+      },
+      {
+        "username": "jane_doe",
+        "content": "I totally agree!"
+      },
+      {
+        "username": "john_doe",
+        "content": "Thanks for the feedback!"
+      },
+      {
+        "username": "jane_doe",
+        "content": "Great post!"
+      }
     ]
-}
+  }
+
+
+

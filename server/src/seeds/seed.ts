@@ -1,47 +1,42 @@
 import mongoose from 'mongoose';
-import { User, Post, Comment } from '../models'; // Adjusted the path to point to the correct location
-import db from '../dbconfig/connection.js'; // Adjusted the path to point to the correct database connection file
-import { commentsData, postsData, usersData } from './data'; // Import the sample data
+import { User, Post, Comment } from '../models/index'; // Adjust the import path as necessary
+import seedData from './seedData.json';
+import db from '../dbconfig/connection';
+import { IUser } from '../models/user';
+import { IPost } from '../models/Post';
+import { IComment } from '../models/Comment';
 
-async function seed() {
-    try {
-        // Connect to MongoDB
-        await db // Wait for the connection to be established
+const seedDatabase = async () => {
+    db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-        // Clear existing data
-        await User.deleteMany({});
-        await Post.deleteMany({});
-        await Comment.deleteMany({});
+  await User.deleteMany({});
+  await Post.deleteMany({});
+  await Comment.deleteMany({});
 
-        // Create new comments
-        const comments = await Comment.insertMany(commentsData);
+  const users: IUser[] = await User.insertMany(seedData.users);
+  const posts: IPost[] = await Post.insertMany(seedData.posts);
+  const comments: IComment[] = await Comment.insertMany(seedData.comments);
 
-        // Create new posts with associated comments
-        const posts = await Post.insertMany(
-            postsData.map((post: typeof postsData[0]) => ({
-                ...post,
-                comments: comments.map(comment => comment._id), // Associate all comments with each post
-            }))
-        );
+//   randomly assign comments to posts
+  for (const comment of comments) {
+    const randomPost = posts[Math.floor(Math.random() * posts.length)];
+    randomPost.comments.push(comment._id as mongoose.Schema.Types.ObjectId);
+    await randomPost.save();
+  }
 
-        // Create new users and associate their posts
-        const users = await User.insertMany(
-            usersData.map((user: typeof usersData[0], index: number) => ({
-                ...user,
-                posts: posts[index] ? [posts[index]._id] : [], // Associate user with their post
-            }))
-        );
+//   randomly assign posts to users
+  for (const user of users) {
+    const randomPosts = posts.filter(post => post.username === user.username);
+    user.posts.push(...randomPosts.map(post => post._id as mongoose.Schema.Types.ObjectId));
+    await user.save();
+  }
 
-        console.log('Users generated: ', users);
 
-        console.log('Seeding completed!');
-    } catch (error) {
-        console.error('Seeding failed:', error);
-    } finally {
-        // Close the connection
-        await mongoose.connection.close();
-    }
-}
+  console.log('Database seeded!');
+  mongoose.connection.close();
+};
 
-// Execute the seed function
-seed();
+seedDatabase().catch(err => {
+  console.error(err);
+  mongoose.connection.close();
+});

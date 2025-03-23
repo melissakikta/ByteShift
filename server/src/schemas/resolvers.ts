@@ -1,6 +1,6 @@
 import { GraphQLError } from 'graphql';
-import { signToken } from '../services/auth';
-import { User, Post, Comment } from '../models/index';
+import { signToken } from '../services/auth.js';
+import { User, Post, Comment } from '../models/index.js';
 import { Schema } from 'mongoose';
 
 // Define types for the arguments

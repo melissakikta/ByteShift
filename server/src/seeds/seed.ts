@@ -1,12 +1,12 @@
 import mongoose from 'mongoose';
 import { User, Post, Comment } from '../models'; // Adjusted the path to point to the correct location
-import db from '../dbconfig/connection'; // Adjusted the path to point to the correct database connection file
+import db from '../dbconfig/connection.js'; // Adjusted the path to point to the correct database connection file
 import { commentsData, postsData, usersData } from './data'; // Import the sample data
 
 async function seed() {
     try {
         // Connect to MongoDB
-        await db; // Wait for the connection to be established
+        await db // Wait for the connection to be established
 
         // Clear existing data
         await User.deleteMany({});
@@ -31,6 +31,8 @@ async function seed() {
                 posts: posts[index] ? [posts[index]._id] : [], // Associate user with their post
             }))
         );
+
+        console.log('Users generated: ', users);
 
         console.log('Seeding completed!');
     } catch (error) {

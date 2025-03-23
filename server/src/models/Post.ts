@@ -1,5 +1,5 @@
 import { Schema, model, Document } from 'mongoose';
-import Comment from './Comment';
+import Comment from './Comment.js';
 
 export interface IPost extends Document {
     username: string;

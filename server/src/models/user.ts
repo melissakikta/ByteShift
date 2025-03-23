@@ -1,5 +1,5 @@
 import { Schema, model, Document } from 'mongoose';
-import Post from './Post';
+import Post from './Post.js';
 import bcrypt from 'bcrypt';
 
 export interface IUser extends Document {

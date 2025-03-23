@@ -8,14 +8,14 @@ const { Text, Paragraph } = Typography;
 
 const Comment: React.FC<{ comment: CommentProps }> = ({ comment }) => {
     return (
-        <Card style={{ marginBottom: '16px', backgroundColor: "var(--secondary)", color: "var(--primary)", borderRadius: "8px" }}>
+        <Card style={{ marginBottom: '16px', backgroundColor: "var(--secondary)", color: "var(--primary)", fontFamily: "var(--font-body)", fontSize: "1rem", borderRadius: "8px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                 <Avatar icon={<UserOutlined />} />
                 <Text strong>{comment.username}</Text>
             </div>
 
             <Paragraph style={{ marginTop: "8px" }}>{comment.content}</Paragraph>
-            <Text type="secondary" style={{ fontSize: "12px"}}>
+            <Text type="secondary" style={{ fontFamily: "var(--font-body)", fontSize: "1rem"}}>
                 {dayjs(comment.createdAt).format("MM DD, YYYY h:mm A")}
             </Text>
         </Card>

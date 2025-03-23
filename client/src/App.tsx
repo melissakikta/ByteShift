@@ -1,4 +1,6 @@
 import "antd/dist/reset.css"; // Ensures the latest version styles are applied
+import "./App.css";
+
 import {
   ApolloClient,
   InMemoryCache,
@@ -9,6 +11,8 @@ import { setContext } from '@apollo/client/link/context';
 import { Outlet } from 'react-router-dom';
 //import Ant Design's Layout component
 import { Layout } from 'antd'; // Import Ant Design's Layout components
+
+import {ConfigProvider } from 'antd';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -38,25 +42,39 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+//theme configuaration for the app
+const themeConfig = {
+  token: {
+    fontFamily: "'Abril Fatface', impact, serif"
+  },
+  components: {
+    Typography: {
+      titleFontSize: 24,
+      fontFamily: "'Lato', sans-serif"},
+  },
+};
+
 function App() {
   return (
-    <ApolloProvider client={client}>
-      <Layout style={{ minHeight: "100vh", display: "flex", flexDirection: "column", background: "var(--primary)" }}>
-        <Layout.Header style={{ textAlign: "center", padding: "20px 0" }}>
-          <Header />
-        </Layout.Header>
+    <ConfigProvider theme={themeConfig}>
+      <ApolloProvider client={client}>
+        <Layout style={{ minHeight: "100vh", display: "flex", flexDirection: "column", background: "var(--primary)" }}>
+          <Layout.Header style={{ textAlign: "center", padding: "0px 0" }}>
+            <Header />
+          </Layout.Header>
 
-          <Navbar />
+            <Navbar />
 
-        <Layout.Content style={{ flex: "1", padding: "20px", maxWidth: "1200px", margin: "auto" }}>
-          <Outlet />
-        </Layout.Content>
+          <Layout.Content style={{ flex: "1", padding: "20px", maxWidth: "1200px", margin: "auto" }}>
+            <Outlet />
+          </Layout.Content>
 
-        <Layout.Footer style={{ textAlign: "center" }}>
-          <Footer />
-        </Layout.Footer>
-      </Layout>
-    </ApolloProvider>
+          <Layout.Footer style={{ justifyContent: "center", marginTop: "25px", padding: "0px" }}>
+            <Footer />
+          </Layout.Footer>
+        </Layout>
+      </ApolloProvider>
+    </ConfigProvider>
   );
 }
 

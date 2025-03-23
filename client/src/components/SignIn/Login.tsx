@@ -31,16 +31,17 @@ const Login = () => {
   
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', margin: '0 auto', background: "var(--primary)" }}>
-      <AntCard style={{ width: 400, textAlign: 'center', padding: '2rem' }}>
-        <Title level={3} style={{ textAlign: 'center', color: "var(--tertiary)" }}>Login</Title>
+      <AntCard style={{width: 400, textAlign: 'center', padding: '20px', background: "var(--primary)", color: "var(--secondary)" }}>
+        <Title level={2} style={{ textAlign: 'center', color: "var(--tertiary)", fontFamily: "var(--font-header)", fontSize: "2rem" }}>Login</Title>
 
         {error && <Alert message="Incorrect username and/or password, please try again." type="error" showIcon style={{ marginBottom: 16, background: "white", color: "var(--warning)" }} />}
         
         <Form
           form={form}
           layout="vertical"
+          name="login"
           onFinish={handleFormSubmit}
-          style={{ maxWidth: 400, margin: '0 auto' }}
+          style={{ maxWidth: 400, margin: '0 auto', fontFamily: "var(--font-body)", color: "var(--secondary)" }}
           autoComplete="off"
         >
           {/* Username Input */}
@@ -48,7 +49,7 @@ const Login = () => {
             label="Username"
             name="username"
             rules={[{ required: true, message: 'Please input your username!' }]}
-            style={{ marginBottom: '1rem' }}
+            style={{ marginBottom: '1rem', color: "var(--secondary)" }}
           >
             <Input prefix={<LockOutlined />} placeholder="Username" />
           </Form.Item>
@@ -65,7 +66,7 @@ const Login = () => {
 
           {/* Submit Button */}
           <Form.Item>
-              <Button type="primary" htmlType="submit"  className="custom-menu-item" block loading={loading}>
+              <Button type="primary" htmlType="submit"  className="custom-menu-item" style={{fontSize: "1.5rem" }} block loading={loading}>
                 {loading ? "Logging in..." : "Login"}
               </Button>
 

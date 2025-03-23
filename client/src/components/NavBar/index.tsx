@@ -7,13 +7,13 @@ const NavBar = () => {
     <Menu 
       mode="horizontal" 
       theme="dark" 
-      style={{ justifyContent: "center", background: "var(--secondary)", color: "var(--primary)" }}>
+      style={{ justifyContent: "center", background: "var(--secondary)", color: "var(--primary)", marginTop: "25px", marginBottom: "25px" }}>
 
       <Menu.Item 
         key="posts"
         className="custom-menu-item"
       >
-        <NavLink to="/collection" style={{ padding: "10px", display: "block" }}>
+        <NavLink to="/collection" style={{ padding: "5px", display: "block", color: "var(--primary)", fontSize: "1.5rem" }}>
         Posts
         </NavLink>
       </Menu.Item>
@@ -22,7 +22,7 @@ const NavBar = () => {
         key="new-post"
         className="custom-menu-item"
       >
-        <NavLink to="/form" style={{ padding: "10px", display: "block" }}>
+        <NavLink to="/form" style={{ padding: "5px", display: "block", color: "var(--primary)", fontSize: "1.5rem" }}>
         New Post
         </NavLink>
       </Menu.Item>
@@ -31,7 +31,7 @@ const NavBar = () => {
         key="logout"
         className="custom-menu-item"
       >
-        <NavLink to="/" style={{ padding: "10px", display: "block" }}>
+        <NavLink to="/" style={{ padding: "5px", display: "block", color: "var(--primary)", fontSize: "1.5rem" }}>
         Logout
         </NavLink>
       </Menu.Item>

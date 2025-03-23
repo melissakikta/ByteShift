@@ -12,7 +12,7 @@ export default function ErrorPage() {
   console.error(error);
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', background: '#f5f5f5' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', background: 'var(--tertiary)', color: 'var(--primary)', fontFamily: 'var(--font-body)', fontSize: '1.5rem' }}>
       <Result
         status="500"
         title="Oops! Something Went Wrong"

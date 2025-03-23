@@ -1,14 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import type PostProps from '../../interfaces/Post';
 import type CommentProps from '../../interfaces/Comment';
 import Comment from '../Comment/Comment';
 import AuthService from '../../utils/auth';
 
 import { useMutation, useQuery } from '@apollo/client';
-import { useState } from 'react';
+import { Button, Typography, Card, Row, Col } from 'antd';
 
 import { QUERY_GET_COMMENTS_FOR_POST } from '../../utils/queries';
 import { LIKE_POST, DISLIKE_POST, ADD_TO_LIKED_POSTS, ADD_TO_DISLIKED_POSTS } from '../../utils/mutations';
+
+const { Title, Text } = Typography;
 
 const Post = ({ post }: { post: PostProps }): React.ReactElement => {
 	// query for comments, likes, and dislikes and store in state
@@ -54,60 +56,102 @@ const Post = ({ post }: { post: PostProps }): React.ReactElement => {
 
 	function generateBlogPost() {
 		return (
-			<>
-				<div className='post-header'>
-					<h3>{post.title}</h3>
-					<span>{post.username}</span>
-				</div>
-				<div>{post.content}</div>
-				{post.imgURL ? <img src={post.imgURL} /> : <></>}
-				<button type='button' onClick={() => updateLikes()}>likes ({post.likes})</button>
-				<button type='button' onClick={() => updateDislikes()}>dislikes ({post.dislikes})</button>
-				<div>
-					{comments.map((comment) => (
-						<Comment comment={comment} />
-					))}
-				</div>
-			</>
+			<Card className="custom-menu-item" style={{ marginBottom: '20px', fontFamily: 'var(--font-body)', fontSize: '1.5rem' }}>
+        <Row>
+          <Col span={24}>
+            <Title level={3}>{post.title}</Title>
+            <Text>{post.username}</Text>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={24}>
+            <Text>{post.content}</Text>
+            {post.imgURL && <img src={post.imgURL} alt="Post Image" style={{ width: '100%', marginTop: '10px' }} />}
+          </Col>
+        </Row>
+        <Row>
+          <Col span={12}>
+            <Button type="primary" onClick={() => updateLikes()} style={{ marginRight: '10px' }}>
+              Likes ({post.likes})
+            </Button>
+            <Button danger onClick={() => updateDislikes()}>
+              Dislikes ({post.dislikes})
+            </Button>
+          </Col>
+        </Row>
+        <div>
+          {comments.map((comment) => (
+            <Comment key={comment._id} comment={comment} />
+          ))}
+        </div>
+      </Card>
 		);
 	}
 
 	function generateCodePost() {
 		return (
-			<>
-				<div className='post-header'>
-					<h3>{post.title}</h3>
-					<span>{post.username}</span>
-				</div>
-				<code>{post.content}</code>
-				<button type='button' onClick={() => updateLikes()}>likes ({post.likes})</button>
-				<button type='button' onClick={() => updateDislikes()}>dislikes ({post.dislikes})</button>
-				<div>
-					{comments.map((comment) => (
-						<Comment comment={comment} />
-					))}
-				</div>
-			</>
+			<Card className="custom-menu-item" style={{ marginBottom: '20px', fontFamily: 'var(--font-body)', fontSize: '1.5rem'  }}>
+        <Row>
+          <Col span={24}>
+            <Title level={3}>{post.title}</Title>
+            <Text>{post.username}</Text>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={24}>
+            <code>{post.content}</code>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={12}>
+            <Button type="primary" onClick={() => updateLikes()} style={{ marginRight: '10px' }}>
+              Likes ({post.likes})
+            </Button>
+            <Button danger onClick={() => updateDislikes()}>
+              Dislikes ({post.dislikes})
+            </Button>
+          </Col>
+        </Row>
+        <div>
+          {comments.map((comment) => (
+            <Comment key={comment._id} comment={comment} />
+          ))}
+        </div>
+      </Card>
 		);
 	}
 
 	function generateLinkPost() {
 		return (
-			<>
-				<div className='post-header'>
-					<h3>{post.title}</h3>
-					<span>{post.username}</span>
-				</div>
-				<div>{post.content}</div>
-				<iframe src={post.link} title="user shared embedded link"></iframe>
-				<button type='button' onClick={() => updateLikes()}>likes ({post.likes})</button>
-				<button type='button' onClick={() => updateDislikes()}>dislikes ({post.dislikes})</button>
-				<div>
-					{comments.map((comment) => (
-						<Comment comment={comment} />
-					))}
-				</div>
-			</>
+			<Card className="custom-menu-item" style={{ marginBottom: '20px', fontFamily: 'var(--font-body)', fontSize: '1.5rem'  }}>
+        <Row>
+          <Col span={24}>
+            <Title level={3}>{post.title}</Title>
+            <Text>{post.username}</Text>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={24}>
+            <Text>{post.content}</Text>
+            <iframe src={post.link} title="user shared embedded link" style={{ width: '100%', height: '300px', marginTop: '10px' }}></iframe>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={12}>
+            <Button type="primary" onClick={() => updateLikes()} style={{ marginRight: '10px' }}>
+              Likes ({post.likes})
+            </Button>
+            <Button danger onClick={() => updateDislikes()}>
+              Dislikes ({post.dislikes})
+            </Button>
+          </Col>
+        </Row>
+        <div>
+          {comments.map((comment) => (
+            <Comment key={comment._id} comment={comment} />
+          ))}
+        </div>
+      </Card>
 		);
 	}
 

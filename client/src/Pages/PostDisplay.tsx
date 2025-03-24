@@ -26,10 +26,19 @@ const PostDisplay: React.FC = () => {
 	const { data, loading, error } = useQuery(QUERY_GET_POSTS);
 	// todo remove console log after testing data returns for query
 	console.log(data);
-	
+	console.log(loading);
+	console.log(error);
+	console.log(posts);
+
 	//Set posts if the query return data
-	if (data && data.posts !== posts) {
-		setPosts(data.posts);
+	// if (data && data.posts !== posts) {
+	// 	setPosts(data.posts);
+	// }
+
+	if (data !== undefined && data.getPosts !== posts) {
+		setPosts(data.getPosts);
+	} else {
+		console.log("No data returned from query");
 	}
 
 	if (loading) return <div>Loading...</div>;
@@ -38,9 +47,9 @@ const PostDisplay: React.FC = () => {
 	return (
 		<div>
 			<Row gutter={[16, 16]}>
-				{posts.map((post) => (
-					<Col xs={24} sm={12} md={8} lg={6} key={post._id}>
-						<Post post={post} /> {/* Pass post data to Post Component */}
+				{posts.map((loadingPost) => (
+					<Col xs={24} sm={12} md={8} lg={6} key={loadingPost._id}>
+						<Post post={loadingPost} /> {/* Pass post data to Post Component */}
 					</Col>
 				))}
 			</Row>

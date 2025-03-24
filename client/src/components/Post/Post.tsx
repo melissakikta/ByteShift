@@ -12,7 +12,11 @@ import { LIKE_POST, DISLIKE_POST, ADD_TO_LIKED_POSTS, ADD_TO_DISLIKED_POSTS } fr
 
 const { Title, Text } = Typography;
 
-const Post = ({ post }: { post: PostType }): React.ReactElement => {
+interface PostProps {
+	post: PostType;
+}
+
+const Post: React.FC<PostProps> = ({ post }) => {
 	// query for comments, likes, and dislikes and store in state
 	// array of comments, query for 3 most recent comments
 	const [comments, setComments] = useState<CommentProps[]>([]);
@@ -55,6 +59,7 @@ const Post = ({ post }: { post: PostType }): React.ReactElement => {
 	}
 
 	function generateBlogPost() {
+		console.log(post);
 		return (
 			<Card className="custom-menu-item" style={{ marginBottom: '20px', fontFamily: 'var(--font-body)', fontSize: '1.5rem' }}>
 				<Row>
@@ -89,6 +94,7 @@ const Post = ({ post }: { post: PostType }): React.ReactElement => {
 	}
 
 	function generateCodePost() {
+		console.log(post);
 		return (
 			<Card className="custom-menu-item" style={{ marginBottom: '20px', fontFamily: 'var(--font-body)', fontSize: '1.5rem' }}>
 				<Row>
@@ -122,6 +128,7 @@ const Post = ({ post }: { post: PostType }): React.ReactElement => {
 	}
 
 	function generateLinkPost() {
+		console.log(post);
 		return (
 			<Card className="custom-menu-item" style={{ marginBottom: '20px', fontFamily: 'var(--font-body)', fontSize: '1.5rem' }}>
 				<Row>
@@ -155,17 +162,20 @@ const Post = ({ post }: { post: PostType }): React.ReactElement => {
 		);
 	}
 
-	useQuery(QUERY_GET_COMMENTS_FOR_POST, {
-		variables: { postId: post._id },
-		onCompleted: (data) => {
-			setComments(data.getCommentsForPost.map((comments: CommentProps) => ({
-				_id: comments._id,
-				username: comments.username,
-				content: comments.content,
-				createdAt: comments.createdAt
-			})));
-		}
-	});
+	// default post for testing has no working ID to query for comments
+	if (post.title !== "test title") {
+		useQuery(QUERY_GET_COMMENTS_FOR_POST, {
+			variables: { postId: post._id },
+			onCompleted: (data) => {
+				setComments(data.getCommentsForPost.map((comments: CommentProps) => ({
+					_id: comments._id,
+					username: comments.username,
+					content: comments.content,
+					createdAt: comments.createdAt
+				})));
+			}
+		});
+	}
 
 	const typeOfPost = post.type;
 	console.log(typeOfPost);
@@ -180,7 +190,7 @@ const Post = ({ post }: { post: PostType }): React.ReactElement => {
 		console.log("link post");
 		generateLinkPost();
 	} else {
-	return <div>Unknown post type</div>;
+		return <div>Unknown post type</div>;
 	}
 };
 

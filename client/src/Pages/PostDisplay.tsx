@@ -34,11 +34,13 @@ const PostDisplay: React.FC = () => {
 	// if (data && data.posts !== posts) {
 	// 	setPosts(data.posts);
 	// }
-
-	if (data.getPosts.length() != 0 && data.getPosts !== posts) {
-		setPosts(data.getPosts);
-	} else {
-		console.log("No data returned from query");
+	if (!loading) {
+		console.log("data.getPosts", data.getPosts);
+		if (data.getPosts.length !== 0 && data.getPosts !== posts) {
+			setPosts(data.getPosts);
+		} else {
+			console.log("No data returned from query");
+		}
 	}
 
 	if (loading) return <div>Loading...</div>;

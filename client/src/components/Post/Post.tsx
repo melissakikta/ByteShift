@@ -167,17 +167,21 @@ const Post = ({ post }: { post: PostType }): React.ReactElement => {
 		}
 	});
 
+	const typeOfPost = post.type;
+	console.log(typeOfPost);
 	if (!post) return <div>No post to display</div>;
-	if (post.type === 'blog') {
+	if (typeOfPost === "blog") {
+		console.log("blog post");
 		generateBlogPost();
-	}
-	if (post.type === 'code') {
+	} else if (typeOfPost === "code") {
+		console.log("code post");
 		generateCodePost();
-	}
-	if (post.type === 'link') {
+	} else if (typeOfPost === "link") {
+		console.log("link post");
 		generateLinkPost();
-	}
+	} else {
 	return <div>Unknown post type</div>;
+	}
 };
 
 export default Post;

@@ -35,7 +35,7 @@ const PostDisplay: React.FC = () => {
 	// 	setPosts(data.posts);
 	// }
 
-	if (data !== undefined && data.getPosts !== posts) {
+	if (data.getPosts.length() != 0 && data.getPosts !== posts) {
 		setPosts(data.getPosts);
 	} else {
 		console.log("No data returned from query");

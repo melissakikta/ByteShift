@@ -47,8 +47,8 @@ const BlogPost: React.FC = () => {
 
 	return (
 		<div style={{ maxWidth: 500, margin: "0 auto", padding: "20px" }}>
-			<Title level={3} style={{ textAlign: "center", fontFamily: "var(--font-header)", fontSize: "4rem" }}>
-				<h2>Share a Blog Post</h2>
+			<Title level={3} style={{ textAlign: "center", fontFamily: "var(--font-header)", fontSize: "3rem", color: "var(--tertiary)" }}>
+				Share a Blog Post
 			</Title>
 
 			<Form
@@ -68,7 +68,7 @@ const BlogPost: React.FC = () => {
 			>
 				{/* Title */}
 				<Form.Item
-					label="Title"
+					label={<span style={{ color: "var(--primary)" }}>Title</span>}
 					name="title"
 					rules={[{ required: true, message: "Please enter a title." }]}
 				>
@@ -77,7 +77,7 @@ const BlogPost: React.FC = () => {
 
 				{/* Blog */}
 				<Form.Item
-					label="Blog Content"
+					label={<span style={{ color: "var(--primary)" }}>Blog Content</span>}
 					name="blog"
 					rules={[
 						{ required: true, message: "Please enter your blog content here." }]}
@@ -88,7 +88,7 @@ const BlogPost: React.FC = () => {
 				{/* Image URL */}
 
 				<Form.Item
-					label="Image URL (Optional)"
+					label={<span style={{ color: "var(--primary)" }}>Image URL (Optional)</span>}
 					name="imgURL">
 					<Input placeholder="Enter an image URL here" />
 				</Form.Item>

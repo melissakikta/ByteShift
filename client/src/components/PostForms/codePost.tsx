@@ -47,8 +47,8 @@ const CodePost: React.FC = () => {
 
 	return (
 		<div style={{ maxWidth: 500, margin: "0 auto", padding: "20px" }}>
-			<Title level={3} style={{ textAlign: "center", fontFamily: "var(--font-header)", fontSize: "4rem" }}>
-				<h2>Share a Code Snippet</h2>
+			<Title level={3} style={{ textAlign: "center", fontFamily: "var(--font-header)", fontSize: "3rem", color: "var(--tertiary)" }}>
+				Share a Code Snippet
 			</Title>
 
 			<Form
@@ -68,7 +68,7 @@ const CodePost: React.FC = () => {
 			>
 				{/* Title */}
 				<Form.Item
-					label="Title"
+					label={<span style={{ color: "var(--primary)" }}>Title</span>}
 					name="title"
 					rules={[{ required: true, message: "Please enter a title." }]}
 				>
@@ -77,7 +77,7 @@ const CodePost: React.FC = () => {
 
 				{/* Code */}
 				<Form.Item
-					label="Code Snippet"
+					label={<span style={{ color: "var(--primary)" }}>Code Snippet</span>}
 					name="code"
 					rules={[
 						{ required: true, message: "Please enter your code." }]}

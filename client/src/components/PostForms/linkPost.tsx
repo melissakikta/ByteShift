@@ -46,8 +46,8 @@ const LinkPost: React.FC = () => {
 
 	return (
 		<div style={{ maxWidth: 500, margin: "0 auto", padding: "20px" }}>
-			<Title level={3} style={{ textAlign: "center", fontFamily: "var(--font-header)", fontSize: "4rem" }}>
-				<h2>Share a Link</h2>
+			<Title level={3} style={{ textAlign: "center", fontFamily: "var(--font-header)", fontSize: "3rem", color: "var(--tertiary)" }}>
+				Share a Link
 			</Title>
 
 			<Form
@@ -67,7 +67,7 @@ const LinkPost: React.FC = () => {
 			>
 				{/* Title */}
 				<Form.Item
-					label="Title"
+					label={<span style={{ color: "var(--primary)" }}>Title</span>}
 					name="title"
 					rules={[{ required: true, message: "Please enter a title." }]}
 				>
@@ -76,7 +76,7 @@ const LinkPost: React.FC = () => {
 
 				{/* Link */}
 				<Form.Item
-					label="Link URL"
+					label={<span style={{ color: "var(--primary)" }}>Link URL</span>}
 					name="link"
 					rules={[
 						{ required: true, message: "Please enter a link." },

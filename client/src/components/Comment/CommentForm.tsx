@@ -82,7 +82,7 @@ const CommentForm: React.FC<CommentFormProps> = ({ postId }) => {
               Submit Comment
             </Button>
             <Button
-              type="default"
+              type="primary"
               onClick={() => {
                 form.resetFields();
               }}

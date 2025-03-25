@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import type PostType from '../../interfaces/Post';
 import type CommentProps from '../../interfaces/Comment';
 import CommentForm from '../Comment/CommentForm';
@@ -24,8 +24,8 @@ const Post: React.FC<PostProps> = ({ post }) => {
 	const [comments, setComments] = useState<CommentProps[]>([]);
 
 	// todo add mutation and tracking for likes and dislikes onClick
-	const [likes, setLikes] = useState<number>(0);
-	const [dislikes, setDislikes] = useState<number>(0);
+	const [likes, setLikes] = useState<number>(post.likes || 0);
+	const [dislikes, setDislikes] = useState<number>(post.dislikes || 0);
 
 	function loggedUser() {
 		// return user from local storage
@@ -42,39 +42,46 @@ const Post: React.FC<PostProps> = ({ post }) => {
 	// todo finish building like and dislike workflow in app (update state for user, send mutation to server)
 	//function to update likes count
 	async function updateLikes() {
+		setLikes((prevLikes) => prevLikes + 1);
 		try{
 			await addLike({variables: { postId: post._id }});
 			await addToLikedPosts({variables: { postId: post._id, userId: loggedUser() } });
-			setLikes((prevLikes) => prevLikes + 1);
 		} catch (error) {
 			console.error("Error updating likes:", error);
+			setLikes((prevLikes) => prevLikes - 1);
 		}
 	}
 
 	//function to update dislikes count
 	async function updateDislikes() {
+		setDislikes((prevDislikes) => prevDislikes + 1);
 		try{
 			await addDislike({variables: { postId: post._id }});
 			await addToDislikedPosts({variables: { postId: post._id, userId: loggedUser() } });
-			setDislikes((prevdislikes) => prevdislikes + 1);
 		} catch (error) {
 			console.error("Error updating dislikes:", error);
+			setDislikes((prevDislikes) => prevDislikes - 1);
 		}
 	}
 	
 	//fetch comments
-	// const { data } = useQuery(QUERY_GET_COMMENTS_FOR_POST, {
-	// 	variables: { postId: post._id },
-	// 	onCompleted: (data) => {
-	// 		setComments(
-	// 			data.getCommentsForPost.map((comments: CommentProps) => ({
-	// 				_id: comments._id,
-	// 				username: comments.username,
-	// 				content: comments.content,
-	// 				createdAt: comments.createdAt
-	// 		})));
-	// 	}
-	// });
+	const { data } = useQuery(QUERY_GET_COMMENTS_FOR_POST, {
+		variables: { postId: post._id },
+		skip: post.title === "test title",
+	});
+
+	useEffect(() => {
+		if (data && data.getCommentsForPost) {
+			setComments(
+				data.getCommentsForPost.map((comments: CommentProps) => ({
+					_id: comments._id,
+					username: comments.username,
+					content: comments.content,
+					createdAt: comments.createdAt
+				}))
+			);
+		}
+	});
 
 	function generateBlogPost() {
 		console.log(post);
@@ -94,10 +101,10 @@ const Post: React.FC<PostProps> = ({ post }) => {
 				</Row>
 				<Row>
 					<Col span={12}>
-					<Button type="primary" onClick={() => updateLikes()} style={{ marginRight: '10px', fontSize: '1.5rem' }}>
+					<Button type="primary" onClick={() => updateLikes()} style={{ marginRight: '10px', fontSize: '1rem' }}>
 							Likes ({likes})
 						</Button>
-						<Button type="primary" onClick={updateDislikes} style={{ marginRight: '10px', fontSize: '1.5rem' }}>
+						<Button type="primary" onClick={updateDislikes} style={{ marginRight: '10px', fontSize: '1rem' }}>
 							Dislikes ({dislikes})
 						</Button>
 					</Col>
@@ -126,15 +133,15 @@ const Post: React.FC<PostProps> = ({ post }) => {
 				</Row>
 				<Row>
 					<Col span={24}>
-						<code style={{fontSize: '1.5rem', background: 'var(--code)', color: 'white', padding: '8px', fontFamily: 'monaco'}}>{post.content}</code>
+						<code style={{fontSize: '1rem', background: 'var(--code)', color: 'white', padding: '6px', fontFamily: 'monaco'}}>{post.content}</code>
 					</Col>
 				</Row>
 				<Row>
 					<Col span={12}>
-					<Button type="primary" onClick={() => updateLikes()} style={{ marginRight: '10px', fontSize: '1.5rem' }}>
+					<Button type="primary" onClick={() => updateLikes()} style={{ marginRight: '10px', fontSize: '1rem' }}>
 							Likes ({likes})
 						</Button>
-						<Button type="primary" onClick={updateDislikes} style={{ marginRight: '10px', fontSize: '1.5rem' }}>
+						<Button type="primary" onClick={updateDislikes} style={{ marginRight: '10px', fontSize: '1rem' }}>
 							Dislikes ({dislikes})
 						</Button>
 					</Col>
@@ -169,10 +176,10 @@ const Post: React.FC<PostProps> = ({ post }) => {
 				</Row>
 				<Row>
 					<Col span={12}>
-						<Button type="primary" onClick={() => updateLikes()} style={{ marginRight: '10px', fontSize: '1.5rem' }}>
+						<Button type="primary" onClick={() => updateLikes()} style={{ marginRight: '10px', fontSize: '1rem' }}>
 							Likes ({likes})
 						</Button>
-						<Button type="primary" onClick={updateDislikes} style={{ marginRight: '10px', fontSize: '1.5rem' }}>
+						<Button type="primary" onClick={updateDislikes} style={{ marginRight: '10px', fontSize: '1rem' }}>
 							Dislikes ({dislikes})
 						</Button>
 					</Col>

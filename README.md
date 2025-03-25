@@ -32,7 +32,7 @@ Here are screenshots of the appilcation ByteShift
 ![Navigation](./assets/images/display.png)
 
 
-<u><strong>Post Form</strong></u>
+<u><strong>New Post Form</strong></u>
 
 ![Navigation](./assets/images/form.png)
 
@@ -57,7 +57,7 @@ For CI/CD purposes, GitHub Actions were used.
 [GitHub Actions](https://github.com/features/actions)
 
 
-This application was created to requiresthe use of Express.js, MongoDB database, and Mongoose ODM. 
+This application was created to require the use of Express.js, MongoDB database, and Mongoose ODM. 
 
 [MongoDB Docs](https://www.mongodb.com/docs/)
 

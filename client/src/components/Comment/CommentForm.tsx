@@ -48,7 +48,7 @@ const CommentForm: React.FC<CommentFormProps> = ({ postId }) => {
 
   return (
     <div style={{ maxWidth: 500, margin: "0 auto", padding: "20px" }}>
-      <Title level={3} style={{ textAlign: "center", fontFamily: "var(--font-header)", fontSize: "3rem", color: "var(--tertiary)" }}>
+      <Title level={3} style={{ textAlign: "center", fontFamily: "var(--font-header)", fontSize: "2rem", color: "var(--tertiary)" }}>
         Add a Comment
       </Title>
 

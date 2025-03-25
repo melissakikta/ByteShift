@@ -50,7 +50,7 @@ const PostDisplay: React.FC = () => {
 		<div>
 			<Row gutter={[16, 16]}>
 				{posts.map((loadingPost) => (
-					<Col xs={24} sm={24} md={18} lg={12} xl={8} key={loadingPost._id}>
+					<Col xs={24} sm={24} md={16} lg={8} xl={6} key={loadingPost._id}>
 						<div style={{width: "100%"}}>
 							<Post post={loadingPost} /> {/* Pass post data to Post Component */}
 						</div>

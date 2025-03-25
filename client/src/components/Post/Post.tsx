@@ -43,6 +43,7 @@ const Post: React.FC<PostProps> = ({ post }) => {
 		setLikes(likes + 1);
 		addLike();
 		addToLikedPosts();
+		console.log(likes);
 	}
 
 	function updateDislikes() {
@@ -56,6 +57,7 @@ const Post: React.FC<PostProps> = ({ post }) => {
 		setDislikes(dislikes + 1);
 		addDislike();
 		addToDislikedPosts();
+		console.log(dislikes);
 	}
 
 	function generateBlogPost() {
@@ -77,10 +79,10 @@ const Post: React.FC<PostProps> = ({ post }) => {
 				<Row>
 					<Col span={12}>
 						<Button type="primary" onClick={() => updateLikes()} style={{ marginRight: '10px' }}>
-							Likes ({post.likes})
+							Likes ({likes})
 						</Button>
 						<Button danger onClick={() => updateDislikes()}>
-							Dislikes ({post.dislikes})
+							Dislikes ({dislikes})
 						</Button>
 					</Col>
 				</Row>
@@ -111,10 +113,10 @@ const Post: React.FC<PostProps> = ({ post }) => {
 				<Row>
 					<Col span={12}>
 						<Button type="primary" onClick={() => updateLikes()} style={{ marginRight: '10px' }}>
-							Likes ({post.likes})
+							Likes ({likes})
 						</Button>
 						<Button danger onClick={() => updateDislikes()}>
-							Dislikes ({post.dislikes})
+							Dislikes ({dislikes})
 						</Button>
 					</Col>
 				</Row>
@@ -146,10 +148,10 @@ const Post: React.FC<PostProps> = ({ post }) => {
 				<Row>
 					<Col span={12}>
 						<Button type="primary" onClick={() => updateLikes()} style={{ marginRight: '10px' }}>
-							Likes ({post.likes})
+							Likes ({likes})
 						</Button>
 						<Button danger onClick={() => updateDislikes()}>
-							Dislikes ({post.dislikes})
+							Dislikes ({dislikes})
 						</Button>
 					</Col>
 				</Row>
@@ -182,13 +184,13 @@ const Post: React.FC<PostProps> = ({ post }) => {
 	if (!post) return <div>No post to display</div>;
 	if (typeOfPost === "blog") {
 		console.log("blog post");
-		generateBlogPost();
+		return generateBlogPost();
 	} else if (typeOfPost === "code") {
 		console.log("code post");
-		generateCodePost();
+		return generateCodePost();
 	} else if (typeOfPost === "link") {
 		console.log("link post");
-		generateLinkPost();
+		return generateLinkPost();
 	} else {
 		return <div>Unknown post type</div>;
 	}

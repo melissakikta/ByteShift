@@ -150,7 +150,7 @@ const Post: React.FC<PostProps> = ({ post }) => {
 						<Button type="primary" onClick={() => updateLikes()} style={{ marginRight: '10px' }}>
 							Likes ({likes})
 						</Button>
-						<Button danger onClick={() => updateDislikes()}>
+						<Button danger onClick={updateDislikes}>
 							Dislikes ({dislikes})
 						</Button>
 					</Col>

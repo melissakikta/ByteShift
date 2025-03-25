@@ -1,10 +1,10 @@
 import mongoose from 'mongoose';
-import { User, Post, Comment } from '../models/index'; // Adjust the import path as necessary
-import seedData from './seedData.json';
-import db from '../dbconfig/connection';
-import { IUser } from '../models/User';
-import { IPost } from '../models/Post';
-import { IComment } from '../models/Comment';
+import { User, Post, Comment } from '../models/index.js'; // Adjust the import path as necessary
+import seedData from './seedData.json' with { type: "json" };
+import db from '../dbconfig/connection.js';
+import { IUser } from '../models/User.js';
+import { IPost } from '../models/Post.js';
+import { IComment } from '../models/Comment.js';
 
 const seedDatabase = async () => {
 	await db();
@@ -14,8 +14,8 @@ const seedDatabase = async () => {
 	await Comment.deleteMany({});
 
 	const users: IUser[] = await User.insertMany(seedData.users);
-	const posts: IPost[] = await Post.insertMany(seedData.posts);
 	const comments: IComment[] = await Comment.insertMany(seedData.comments);
+	const posts: IPost[] = await Post.insertMany(seedData.posts);
 
 	//   randomly assign comments to posts
 	for (const comment of comments) {

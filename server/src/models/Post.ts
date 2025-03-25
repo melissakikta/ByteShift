@@ -6,6 +6,7 @@ export interface IPost extends Document {
     type: string;
     title: string;
     content: string;
+    link: string;
     imgURL: string;
     likes: number;
     dislikes: number;
@@ -31,6 +32,9 @@ const postSchema = new Schema<IPost>(
             type: String,
             required: true,
         },
+        link: {
+            type: String,
+        }, 
         imgURL: {
             type: String,
         },
@@ -42,7 +46,7 @@ const postSchema = new Schema<IPost>(
             type: Number,
             default: 0,
         },
-        comments: [ Comment.schema! ],
+        comments: [ Comment.schema ],
         createdAt: {
             type: Date,
             default: Date.now,

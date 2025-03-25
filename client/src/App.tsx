@@ -65,7 +65,7 @@ function App() {
 
             <Navbar />
 
-          <Layout.Content style={{ flex: "1", padding: "20px", maxWidth: "1200px", margin: "auto" }}>
+          <Layout.Content style={{ flex: "1", padding: "20px", maxWidth: "100%", margin: "auto" }}>
             <Outlet />
           </Layout.Content>
 

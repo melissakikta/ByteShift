@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import type PostType from '../../interfaces/Post';
 import type CommentProps from '../../interfaces/Comment';
+import CommentForm from '../Comment/CommentForm';
+
 import Comment from '../Comment/Comment';
 import AuthService from '../../utils/auth';
 
@@ -31,34 +33,48 @@ const Post: React.FC<PostProps> = ({ post }) => {
 		return user.data.id;
 	}
 
+	//useMutation hooks
+	const [addLike] = useMutation(LIKE_POST);
+	const [addToLikedPosts] = useMutation(ADD_TO_LIKED_POSTS);
+	const [addDislike] = useMutation(DISLIKE_POST);
+	const [addToDislikedPosts] = useMutation(ADD_TO_DISLIKED_POSTS);
+
 	// todo finish building like and dislike workflow in app (update state for user, send mutation to server)
-	function updateLikes() {
-		// update likes in database
-		const [addLike] = useMutation(LIKE_POST, {
-			variables: { postId: post._id },
-		});
-		const [addToLikedPosts] = useMutation(ADD_TO_LIKED_POSTS, {
-			variables: { postId: post._id, userId: loggedUser },
-		});
-		setLikes(likes + 1);
-		addLike();
-		addToLikedPosts();
-		console.log(likes);
+	//function to update likes count
+	async function updateLikes() {
+		try{
+			await addLike({variables: { postId: post._id }});
+			await addToLikedPosts({variables: { postId: post._id, userId: loggedUser() } });
+			setLikes((prevLikes) => prevLikes + 1);
+		} catch (error) {
+			console.error("Error updating likes:", error);
+		}
 	}
 
-	function updateDislikes() {
-		// update dislikes in database
-		const [addDislike] = useMutation(DISLIKE_POST, {
-			variables: { postId: post._id },
-		});
-		const [addToDislikedPosts] = useMutation(ADD_TO_DISLIKED_POSTS, {
-			variables: { postId: post._id, userId: loggedUser },
-		});
-		setDislikes(dislikes + 1);
-		addDislike();
-		addToDislikedPosts();
-		console.log(dislikes);
+	//function to update dislikes count
+	async function updateDislikes() {
+		try{
+			await addDislike({variables: { postId: post._id }});
+			await addToDislikedPosts({variables: { postId: post._id, userId: loggedUser() } });
+			setDislikes((prevdislikes) => prevdislikes + 1);
+		} catch (error) {
+			console.error("Error updating dislikes:", error);
+		}
 	}
+	
+	//fetch comments
+	// const { data } = useQuery(QUERY_GET_COMMENTS_FOR_POST, {
+	// 	variables: { postId: post._id },
+	// 	onCompleted: (data) => {
+	// 		setComments(
+	// 			data.getCommentsForPost.map((comments: CommentProps) => ({
+	// 				_id: comments._id,
+	// 				username: comments.username,
+	// 				content: comments.content,
+	// 				createdAt: comments.createdAt
+	// 		})));
+	// 	}
+	// });
 
 	function generateBlogPost() {
 		console.log(post);
@@ -86,6 +102,9 @@ const Post: React.FC<PostProps> = ({ post }) => {
 						</Button>
 					</Col>
 				</Row>
+
+				<CommentForm postId={post._id} />
+
 				<div>
 					{comments.map((comment) => (
 						<Comment key={comment._id} comment={comment} />

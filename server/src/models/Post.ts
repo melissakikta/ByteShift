@@ -6,8 +6,8 @@ export interface IPost extends Document {
     type: string;
     title: string;
     content: string;
-    link: string;
-    imgURL: string;
+    link?: string;
+    imgURL?: string;
     likes: number;
     dislikes: number;
     comments: Schema.Types.ObjectId[];

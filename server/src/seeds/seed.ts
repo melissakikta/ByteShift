@@ -3,7 +3,7 @@ import { User, Post, Comment } from '../models/index.js'; // Adjust the import p
 import seedData from './seedData.json' with { type: "json" };
 import db from '../dbconfig/connection.js';
 import { IUser } from '../models/User.js';
-import { IPost } from '../models/Post.js';
+import { IPost } from '../models/Post';
 import { IComment } from '../models/Comment.js';
 
 const seedDatabase = async () => {

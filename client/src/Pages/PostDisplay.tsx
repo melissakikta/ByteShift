@@ -35,7 +35,7 @@ const PostDisplay: React.FC = () => {
 	// 	setPosts(data.posts);
 	// }
 	if (!loading) {
-		console.log("data.getPosts", data.getPosts);
+		console.log("data.getPosts ", data.getPosts);
 		if (data.getPosts.length !== 0 && data.getPosts !== posts) {
 			setPosts(data.getPosts);
 		} else {

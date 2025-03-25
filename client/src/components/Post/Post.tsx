@@ -82,22 +82,22 @@ const Post: React.FC<PostProps> = ({ post }) => {
 			<Card className="custom-menu-item" style={{ marginBottom: '20px', fontFamily: 'var(--font-body)', fontSize: '1.5rem' }}>
 				<Row>
 					<Col span={24}>
-						<Title level={3}>{post.title}</Title>
-						<Text>{post.username}</Text>
+						<Title level={3} style={{ fontFamily: 'var(--font-body)', fontSize: '2rem'}}>{post.title}</Title>
+						<Text style={{ fontFamily: 'var(--font-body)', fontSize: '1.5rem'}}>{post.username}</Text>
 					</Col>
 				</Row>
 				<Row>
 					<Col span={24}>
-						<Text>{post.content}</Text>
+						<Text style={{ fontFamily: 'var(--font-body)', fontSize: '1.5rem'}}>{post.content}</Text>
 						{post.imgURL && <img src={post.imgURL} alt="Post Image" style={{ width: '100%', marginTop: '10px' }} />}
 					</Col>
 				</Row>
 				<Row>
 					<Col span={12}>
-						<Button type="primary" onClick={() => updateLikes()} style={{ marginRight: '10px' }}>
+					<Button type="primary" onClick={() => updateLikes()} style={{ marginRight: '10px', fontSize: '1.5rem' }}>
 							Likes ({likes})
 						</Button>
-						<Button danger onClick={() => updateDislikes()}>
+						<Button type="primary" onClick={updateDislikes} style={{ marginRight: '10px', fontSize: '1.5rem' }}>
 							Dislikes ({dislikes})
 						</Button>
 					</Col>
@@ -120,25 +120,28 @@ const Post: React.FC<PostProps> = ({ post }) => {
 			<Card className="custom-menu-item" style={{ marginBottom: '20px', fontFamily: 'var(--font-body)', fontSize: '1.5rem' }}>
 				<Row>
 					<Col span={24}>
-						<Title level={3}>{post.title}</Title>
-						<Text>{post.username}</Text>
+						<Title level={3} style={{ fontFamily: 'var(--font-body)', fontSize: '2rem'}}>{post.title}</Title>
+						<Text style={{ fontFamily: 'var(--font-body)', fontSize: '1.5rem'}}>{post.username}</Text>
 					</Col>
 				</Row>
 				<Row>
 					<Col span={24}>
-						<code>{post.content}</code>
+						<code style={{fontSize: '1.5rem', background: 'var(--code)', color: 'white', padding: '8px', fontFamily: 'monaco'}}>{post.content}</code>
 					</Col>
 				</Row>
 				<Row>
 					<Col span={12}>
-						<Button type="primary" onClick={() => updateLikes()} style={{ marginRight: '10px' }}>
+					<Button type="primary" onClick={() => updateLikes()} style={{ marginRight: '10px', fontSize: '1.5rem' }}>
 							Likes ({likes})
 						</Button>
-						<Button danger onClick={() => updateDislikes()}>
+						<Button type="primary" onClick={updateDislikes} style={{ marginRight: '10px', fontSize: '1.5rem' }}>
 							Dislikes ({dislikes})
 						</Button>
 					</Col>
 				</Row>
+
+				<CommentForm postId={post._id} />
+
 				<div>
 					{comments.map((comment) => (
 						<Comment key={comment._id} comment={comment} />
@@ -154,26 +157,29 @@ const Post: React.FC<PostProps> = ({ post }) => {
 			<Card className="custom-menu-item" style={{ marginBottom: '20px', fontFamily: 'var(--font-body)', fontSize: '1.5rem' }}>
 				<Row>
 					<Col span={24}>
-						<Title level={3}>{post.title}</Title>
-						<Text>{post.username}</Text>
+						<Title level={3} style={{ fontFamily: 'var(--font-body)', fontSize: '2rem'}}>{post.title} </Title>
+						<Text style={{ fontFamily: 'var(--font-body)', fontSize: '1.5rem'}}>{post.username}</Text>
 					</Col>
 				</Row>
 				<Row>
 					<Col span={24}>
-						<Text>{post.content}</Text>
+						<Text style={{ fontFamily: 'var(--font-body)', fontSize: '1.5rem'}}>{post.content}</Text>
 						<iframe src={post.link} title="user shared embedded link" style={{ width: '100%', height: '300px', marginTop: '10px' }}></iframe>
 					</Col>
 				</Row>
 				<Row>
 					<Col span={12}>
-						<Button type="primary" onClick={() => updateLikes()} style={{ marginRight: '10px' }}>
+						<Button type="primary" onClick={() => updateLikes()} style={{ marginRight: '10px', fontSize: '1.5rem' }}>
 							Likes ({likes})
 						</Button>
-						<Button danger onClick={updateDislikes}>
+						<Button type="primary" onClick={updateDislikes} style={{ marginRight: '10px', fontSize: '1.5rem' }}>
 							Dislikes ({dislikes})
 						</Button>
 					</Col>
 				</Row>
+
+				<CommentForm postId={post._id} />
+
 				<div>
 					{comments.map((comment) => (
 						<Comment key={comment._id} comment={comment} />

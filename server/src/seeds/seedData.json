@@ -26,7 +26,7 @@
 			"title": "My First Post",
 			"content": "This is the content of my first blog post.",
 			"link": "",
-			"imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+			"imgURL": "https://picsum.photos/200",
 			"likes": 0,
 			"dislikes": 0,
 			"comments": []
@@ -36,7 +36,7 @@
 			"type": "blog",
 			"title": "My Second Post",
 			"content": "This is the content of my second blog post.",
-			"imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+			"imgURL": "https://picsum.photos/200",
 			"likes": 0,
 			"dislikes": 0,
 			"comments": []
@@ -47,7 +47,7 @@
 			"title": "My Third Post",
 			"content": "This is the content of my third blog post.",
 			"link": "",
-			"imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+			"imgURL": "https://picsum.photos/200",
 			"likes": 0,
 			"dislikes": 0,
 			"comments": []
@@ -58,7 +58,7 @@
 			"title": "My Fourth Post",
 			"content": "This is the content of my fourth blog post.",
 			"link": "",
-			"imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+			"imgURL": "https://picsum.photos/200",
 			"likes": 0,
 			"dislikes": 0,
 			"comments": []
@@ -69,7 +69,7 @@
 			"title": "My Fifth Post",
 			"content": "<div>\n\t<crazyCode>Lot of words</crazyCode>\n</div>",
 			"link": "http://example.com/my-fifth-post",
-			"imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+			"imgURL": "https://picsum.photos/200",
 			"likes": 0,
 			"dislikes": 0,
 			"comments": []
@@ -80,7 +80,7 @@
 			"title": "My Sixth Post",
 			"content": "<html><body>\n\t<h1>My Sixth Post</h1>\n</body></html>",
 			"link": "http://example.com/my-sixth-post",
-			"imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+			"imgURL": "https://picsum.photos/200",
 			"likes": 0,
 			"dislikes": 0,
 			"comments": []
@@ -91,7 +91,7 @@
 			"title": "My Seventh Post",
 			"content": "<html><body>\n\t<h1>This is the content of my seventh post.</h1>\n</body></html>",
 			"link": "http://example.com/my-seventh-post",
-			"imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+			"imgURL": "https://picsum.photos/200",
 			"likes": 0,
 			"dislikes": 0,
 			"comments": []
@@ -102,7 +102,7 @@
 			"title": "My Eighth Post",
 			"content": "This is the content of my eighth post.",
 			"link": "http://example.com/my-eighth-post",
-			"imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+			"imgURL": "https://picsum.photos/200",
 			"likes": 0,
 			"dislikes": 0,
 			"comments": []
@@ -157,7 +157,7 @@
 			"title": "My Thirteenth Post",
 			"content": "This is the content of my thirteenth post.",
 			"link": "http://example.com/my-thirteenth-post",
-			"imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+			"imgURL": "https://picsum.photos/200",
 			"likes": 0,
 			"dislikes": 0,
 			"comments": []
@@ -168,7 +168,7 @@
 			"title": "My Fourteenth Post",
 			"content": "This is the content of my fourteenth post.",
 			"link": "http://example.com/my-fourteenth-post",
-			"imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+			"imgURL": "https://picsum.photos/200",
 			"likes": 0,
 			"dislikes": 0,
 			"comments": []
@@ -179,7 +179,7 @@
 			"title": "My Fifteenth Post",
 			"content": "This is the content of my fifteenth post.",
 			"link": "http://example.com/my-fifteenth-post",
-			"imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+			"imgURL": "https://picsum.photos/200",
 			"likes": 0,
 			"dislikes": 0,
 			"comments": []
@@ -190,7 +190,7 @@
 			"title": "My Sixteenth Post",
 			"content": "This is the content of my sixteenth post.",
 			"link": "http://example.com/my-sixteenth-post",
-			"imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+			"imgURL": "https://picsum.photos/200",
 			"likes": 0,
 			"dislikes": 0,
 			"comments": []
@@ -201,7 +201,7 @@
 			"title": "My Seventeenth Code Post",
 			"content": "This is the content of my seventeenth post.",
 			"link": "http://example.com/my-seventeenth-post",
-			"imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+			"imgURL": "https://picsum.photos/200",
 			"likes": 0,
 			"dislikes": 0,
 			"comments": []
@@ -212,7 +212,7 @@
 			"title": "My Eighteenth Code Post",
 			"content": "This is the content of my eighteenth post.",
 			"link": "http://example.com/my-eighteenth-post",
-			"imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+			"imgURL": "https://picsum.photos/200",
 			"likes": 0,
 			"dislikes": 0,
 			"comments": []
@@ -223,7 +223,7 @@
 			"title": "My Nineteenth Code Post",
 			"content": "This is the content of my nineteenth post.",
 			"link": "http://example.com/my-nineteenth-post",
-			"imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+			"imgURL": "https://picsum.photos/200",
 			"likes": 0,
 			"dislikes": 0,
 			"comments": []
@@ -234,7 +234,7 @@
 			"title": "My Twentieth Post",
 			"content": "This is the content of my twentieth post.",
 			"link": "http://example.com/my-twentieth-post",
-			"imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+			"imgURL": "https://picsum.photos/200",
 			"likes": 0,
 			"dislikes": 0,
 			"comments": []
@@ -245,7 +245,7 @@
 			"title": "My Twenty-first Post",
 			"content": "This is a link post.",
 			"link": "https://stackoverflow.com/questions/70106880/err-import-assertion-type-missing-for-import-of-json-file",
-			"imgURL": "https://catinaflat.blog/wp-content/uploads/2024/01/scottish-fold-cat.jpg",
+			"imgURL": "https://picsum.photos/200",
 			"likes": 0,
 			"dislikes": 0,
 			"comments": []

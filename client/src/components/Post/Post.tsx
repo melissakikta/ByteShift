@@ -30,7 +30,7 @@ const Post: React.FC<PostProps> = ({ post }) => {
 	function loggedUser() {
 		// return user from local storage
 		const user = AuthService.getProfile();
-		return user.data.id;
+		return user._id;
 	}
 
 	//useMutation hooks

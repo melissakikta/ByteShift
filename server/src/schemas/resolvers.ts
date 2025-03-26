@@ -37,7 +37,7 @@ interface AddCommentArgs {
 const resolvers = {
 	Query: {
         getUsersAllData: async () => {
-            return await User.find().populate('posts').populate('comments');
+            return await User.find().populate('posts');
         },
 
         me: async (_parent: any, _args: any, context: any) => {

@@ -13,7 +13,7 @@ const BlogPost: React.FC = () => {
 	const [addPost, { loading }] = useMutation(ADD_POST);
 
 	//Get current user
-	const user = AuthService.loggedIn() ? AuthService.getProfile().data.username : null;
+	const user = AuthService.loggedIn() ? AuthService.getProfile().username : null;
 
 	//Handle form submission
 	const handleSumbit = async (values: { title: string; blog: string; imgURL?: string }) => {

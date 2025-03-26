@@ -1,15 +1,14 @@
 import { type JwtPayload, jwtDecode } from 'jwt-decode';
 
 interface ExtendedJwt extends JwtPayload {
-  data:{
-    id: string;
-    username: string;
-    email: string;
-  }
+  _id: string;
+  username: string;
+  email: string;
 };
 
 class AuthService {
   getProfile() {
+    console.log(jwtDecode<ExtendedJwt>(this.getToken()!));
     return jwtDecode<ExtendedJwt>(this.getToken()!);
   }
 
@@ -39,7 +38,6 @@ class AuthService {
     localStorage.setItem('id_token', idToken);
     window.location.assign('/collection');
   }
-
 
   logout() {
     localStorage.removeItem('id_token');

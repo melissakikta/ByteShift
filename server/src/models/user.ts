@@ -31,11 +31,29 @@ const userSchema = new Schema<IUser>(
             required: true,
             minlength: 8,
         },
-        posts: [ Post.schema! ],
-        likedPosts: [ Post.schema! ],
-        dislikedPosts: [ Post.schema! ],
+        posts: [Post.schema!],
+        likedPosts: [Post.schema!],
+        dislikedPosts: [Post.schema!],
     }
 );
+
+// for seeding hooks
+userSchema.pre<IUser>('insertMany', async function (next, docs) {
+    try {
+        docs = docs.map(async (doc: IUser) => {
+            console.log(doc);
+            const saltRounds = 10;
+            doc.password = await bcrypt.hash(doc.password, saltRounds);
+            console.log(doc.password);
+            return doc;
+        });
+    } catch (err) {
+        console.error(err);
+    }
+    console.log(docs);
+
+    next();
+});
 
 // pre hook to hash the password before saving a new user or updating password field on a user
 userSchema.pre<IUser>('save', async function (next) {

@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import { User, Post, Comment } from '../models/index.js'; // Adjust the import path as necessary
 import seedData from './seedData.json' with { type: "json" };
 import db from '../dbconfig/connection.js';
-import { IUser } from '../models/User.js';
+// import { IUser } from '../models/User.js';
 import { IPost } from '../models/Post.js';
 import { IComment } from '../models/Comment.js';
 
@@ -13,7 +13,10 @@ const seedDatabase = async () => {
 	await Post.deleteMany({});
 	await Comment.deleteMany({});
 
-	const users: IUser[] = await User.insertMany(seedData.users);
+	for (const user of seedData.users) {
+		const newUser = new User(user);
+		await newUser.save();
+	}
 	const comments: IComment[] = await Comment.insertMany(seedData.comments);
 	const posts: IPost[] = await Post.insertMany(seedData.posts);
 
@@ -24,6 +27,7 @@ const seedDatabase = async () => {
 		await randomPost.save();
 	}
 
+	const users = await User.find();
 	//   randomly assign posts to users
 	for (const user of users) {
 		const randomPosts = posts.filter(post => post.username === user.username);

@@ -12,7 +12,7 @@ const Login = () => {
   const [login, { error }] = useMutation(LOGIN_USER);
   const [loading, setloading] = useState(false);
 
-  const handleFormSubmit = async (values: {username: string; password: string }) => {
+  const handleFormSubmit = async (values: {email: string; password: string }) => {
     setloading(true);
     try {
       const { data } = await login({
@@ -46,12 +46,12 @@ const Login = () => {
         >
           {/* Username Input */}
           <Form.Item
-            label="Username"
-            name="username"
-            rules={[{ required: true, message: 'Please input your username!' }]}
+            label="Email"
+            name="email"
+            rules={[{ required: true, message: 'Please input your email!' }]}
             style={{ marginBottom: '1rem', color: "var(--secondary)" }}
           >
-            <Input prefix={<LockOutlined />} placeholder="Username" />
+            <Input prefix={<LockOutlined />} placeholder="Email" />
           </Form.Item>
 
           {/* Password Input */}
@@ -72,7 +72,7 @@ const Login = () => {
 
               {error && (
                 <div>
-                  <p className="error-text">The provided credentials are incorrect</p>
+                  <p className="error-text" style={{ color: 'var(--warning)', fontSize: '1rem' }}>The provided credentials are incorrect.</p>
                 </div>
               )}
           </Form.Item>

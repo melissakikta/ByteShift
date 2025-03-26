@@ -16,7 +16,7 @@ const CommentForm: React.FC<CommentFormProps> = ({ postId }) => {
   const [addComment, { loading }] = useMutation(ADD_COMMENT);
 
   //Get current user
-  const user = AuthService.loggedIn() ? AuthService.getProfile().data.username : null;
+  const user = AuthService.loggedIn() ? AuthService.getProfile().username : null;
 
   //Handle form submission
   const handleSumbit = async (values: { content: string }) => {

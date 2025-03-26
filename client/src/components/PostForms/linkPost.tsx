@@ -11,11 +11,13 @@ const LinkPost: React.FC = () => {
 	//GraphQL Mutation Hook
 	const [addPost, { loading }] = useMutation(ADD_POST);
 
+	const username = AuthService.getProfile().username || null;
+	console.log(username);
 	//Get current user
 	const user = AuthService.loggedIn() ? AuthService.getProfile().username : null;
 
 	//Handle form submission
-	const handleSumbit = async (values: { title: string; link: string }) => {
+	const handleSumbit = async (values: { title: string; content: string; link: string }) => {
 
 		//Check if user is logged in
 		if (!user) {
@@ -30,7 +32,8 @@ const LinkPost: React.FC = () => {
 						username: user,
 						type: "link",
 						title: values.title,
-						content: values.link,
+						content: values.content,
+						link: values.link,
 					},
 				},
 			});
@@ -73,13 +76,22 @@ const LinkPost: React.FC = () => {
 				>
 					<Input placeholder="Enter a title here" />
 				</Form.Item>
+				
+				{/* Content */}
+				<Form.Item
+					label={<span style={{ color: "var(--primary)" }}>Description</span>}
+					name="content"
+					rules={[{ required: true, message: "Please enter a description for the shared content." }]}
+				>
+					<Input placeholder="Enter description here" />
+				</Form.Item>
 
 				{/* Link */}
 				<Form.Item
 					label={<span style={{ color: "var(--primary)" }}>Link URL</span>}
 					name="link"
 					rules={[
-						{ required: true, message: "Please enter a link." },
+						{ required: true, message: "Please enter a image URL." },
 						{ type: "url", message: "Please enter a valid URL." },
 					]}
 				>

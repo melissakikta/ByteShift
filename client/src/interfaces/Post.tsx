@@ -1,6 +1,5 @@
 import Comment from './Comment';
 
-// todo check on switching comments to id or if makes more sense to keep as Comment[]
 export default interface Post {
     _id: string;
     username: string;

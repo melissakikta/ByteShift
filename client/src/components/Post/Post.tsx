@@ -14,11 +14,7 @@ import { LIKE_POST, DISLIKE_POST, ADD_TO_LIKED_POSTS, ADD_TO_DISLIKED_POSTS } fr
 
 const { Title, Text } = Typography;
 
-interface PostProps {
-	post: PostType;
-}
-
-const Post: React.FC<PostProps> = ({ post }) => {
+const Post: React.FC<{ post: PostType }> = ({ post }) => {
 	// query for comments, likes, and dislikes and store in state
 	// array of comments, query for 3 most recent comments
 	const [comments, setComments] = useState<CommentProps[]>([]);

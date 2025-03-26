@@ -1,6 +1,7 @@
 import { Menu } from 'antd';
 import { NavLink } from 'react-router-dom';
 import '../../App.css';
+import auth from '../../utils/auth';
 
 const NavBar = () => {
   return(
@@ -30,6 +31,7 @@ const NavBar = () => {
       <Menu.Item 
         key="logout"
         className="custom-menu-item"
+        onClick={auth.logout}
       >
         <NavLink to="/" style={{ padding: "5px", display: "block", color: "var(--primary)", fontSize: "1.5rem" }}>
         Logout

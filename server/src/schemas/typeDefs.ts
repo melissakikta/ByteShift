@@ -51,6 +51,7 @@ const typeDefs = `#graphql
 	}
 
 	input AddCommentInput {
+		postId: ID!
 		username: String!
 		content: String!
 	}

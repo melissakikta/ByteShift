@@ -94,7 +94,6 @@ const Post: React.FC<{ post: PostType }> = ({ post }) => {
 	}, [data]);
 
 	function generateBlogPost() {
-		console.log(post);
 		return (
 			<Card className="custom-menu-item" style={{ marginBottom: '20px', fontFamily: 'var(--font-body)', fontSize: '1.5rem' }}>
 				<Row>
@@ -132,7 +131,6 @@ const Post: React.FC<{ post: PostType }> = ({ post }) => {
 	}
 
 	function generateCodePost() {
-		console.log(post);
 		return (
 			<Card className="custom-menu-item" style={{ marginBottom: '20px', fontFamily: 'var(--font-body)', fontSize: '1.5rem' }}>
 				<Row>
@@ -183,7 +181,6 @@ const Post: React.FC<{ post: PostType }> = ({ post }) => {
 	}
 
 	function generateLinkPost() {
-		console.log(post);
 		return (
 			<Card className="custom-menu-item" style={{ marginBottom: '20px', fontFamily: 'var(--font-body)', fontSize: '1.5rem' }}>
 				<Row>
@@ -236,16 +233,12 @@ const Post: React.FC<{ post: PostType }> = ({ post }) => {
 	}
 
 	const typeOfPost = post.type;
-	console.log(typeOfPost);
 	if (!post) return <div>No post to display</div>;
 	if (typeOfPost === "blog") {
-		console.log("blog post");
 		return generateBlogPost();
 	} else if (typeOfPost === "code") {
-		console.log("code post");
 		return generateCodePost();
 	} else if (typeOfPost === "link") {
-		console.log("link post");
 		return generateLinkPost();
 	} else {
 		return <div>Unknown post type</div>;

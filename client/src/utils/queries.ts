@@ -226,8 +226,8 @@ export const QUERY_GET_POSTS = gql`
 // `;
 
 export const QUERY_GET_COMMENTS_FOR_POST = gql`
-  	query getPost($postId: ID!) {
-		getPost(postId: $postId) {
+  	query getCommentsForPost($postId: ID!) {
+		getCommentsForPost(postId: $postId) {
 			_id
 			comments {
 				_id

@@ -25,8 +25,8 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_POST = gql`
-	mutation addPost($input: AddPostInput!) {
-		addPost(postInput: $input) {
+	mutation addPost($postInput: AddPostInput!) {
+		addPost(postInput: $postInput) {
 			_id
 			username
 			type

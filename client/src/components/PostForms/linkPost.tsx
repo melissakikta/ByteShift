@@ -11,8 +11,6 @@ const LinkPost: React.FC = () => {
 	//GraphQL Mutation Hook
 	const [addPost, { loading }] = useMutation(ADD_POST);
 
-	const username = AuthService.getProfile().username || null;
-	console.log(username);
 	//Get current user
 	const user = AuthService.loggedIn() ? AuthService.getProfile().username : null;
 
@@ -25,15 +23,26 @@ const LinkPost: React.FC = () => {
 			return;
 		}
 
+		if (!values.title || !values.content) {
+			message.error("Please enter a title and description content.");
+			return;
+		}
+
+		if (!values.link) {
+			message.error("Please enter a link URL.");
+			return;
+		}
+
 		try {
+			const url = values.link;
 			await addPost({
 				variables: {
-					input: {
+					postInput: {
 						username: user,
 						type: "link",
 						title: values.title,
 						content: values.content,
-						link: values.link,
+						link: url,
 					},
 				},
 			});
@@ -76,7 +85,7 @@ const LinkPost: React.FC = () => {
 				>
 					<Input placeholder="Enter a title here" />
 				</Form.Item>
-				
+
 				{/* Content */}
 				<Form.Item
 					label={<span style={{ color: "var(--primary)" }}>Description</span>}
@@ -91,7 +100,7 @@ const LinkPost: React.FC = () => {
 					label={<span style={{ color: "var(--primary)" }}>Link URL</span>}
 					name="link"
 					rules={[
-						{ required: true, message: "Please enter a image URL." },
+						{ required: true, message: "Please enter a valid URL." },
 						{ type: "url", message: "Please enter a valid URL." },
 					]}
 				>

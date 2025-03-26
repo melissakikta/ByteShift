@@ -87,7 +87,7 @@ const resolvers = {
                 user.posts.push(newPost._id as Schema.Types.ObjectId);
                 await user.save();
                 console.log(newPost);
-                return user.populate('posts');
+                return newPost;
             }
             catch (err) {
                 console.log(err);

@@ -8,7 +8,6 @@ interface ExtendedJwt extends JwtPayload {
 
 class AuthService {
   getProfile() {
-    console.log(jwtDecode<ExtendedJwt>(this.getToken()!));
     return jwtDecode<ExtendedJwt>(this.getToken()!);
   }
 

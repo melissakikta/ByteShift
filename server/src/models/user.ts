@@ -40,16 +40,13 @@ const userSchema = new Schema<IUser>(
 userSchema.pre<IUser>('insertMany', async function (next, docs) {
     try {
         docs = docs.map(async (doc: IUser) => {
-            console.log(doc);
             const saltRounds = 10;
             doc.password = await bcrypt.hash(doc.password, saltRounds);
-            console.log(doc.password);
             return doc;
         });
     } catch (err) {
         console.error(err);
     }
-    console.log(docs);
 
     next();
 });

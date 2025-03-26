@@ -27,7 +27,7 @@ const CodePost: React.FC = () => {
 		try {
 			await addPost({
 				variables: {
-					input: {
+					postInput: {
 						username: user,
 						type: "code",
 						title: values.title,

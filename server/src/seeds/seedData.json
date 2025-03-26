@@ -25,31 +25,19 @@
 			"type": "blog",
 			"title": "!!!My First Post!!!",
 			"content": "First!",
-			"link": "",
-			"imgURL": "https://picsum.photos/1",
-			"likes": 324,
-			"dislikes": 252,
-			"comments": []
-		},
-		{
-			"username": "jane_doe",
-			"type": "blog",
-			"title": "My Second Post",
-			"content": "This is the content of my second blog post.",
-			"imgURL": "https://picsum.photos/402",
+			"imgURL": "https://picsum.photos/100",
 			"likes": 0,
 			"dislikes": 0,
 			"comments": []
 		},
 		{
-			"username": "john_doe",
+			"username": "jane_doe",
 			"type": "blog",
-			"title": "I'm back!",
-			"content": "This is the content of my second, wonderful, blog post.",
-			"link": "",
-			"imgURL": "https://picsum.photos/302",
-			"likes": 3,
-			"dislikes": 59,
+			"title": "Cool Place",
+			"content": "This is where I'll dump the contents of my developer mind.",
+			"imgURL": "https://picsum.photos/402",
+			"likes": 243,
+			"dislikes": 86,
 			"comments": []
 		},
 		{
@@ -64,47 +52,50 @@
 			"comments": []
 		},
 		{
-			"username": "john_doe",
+			"username": "jane_doe",
 			"type": "code",
-			"title": "My Fifth Post",
-			"content": "<div>\n\t<crazyCode>\n\t\tLot of words\n\t</crazyCode>\n</div>",
-			"link": "http://example.com/my-fifth-post",
-			"imgURL": "https://picsum.photos/2",
-			"likes": 0,
-			"dislikes": 0,
+			"title": "I'll show you the ropes",
+			"content": "<html><body>\n\t<h1>My Post</h1>\n</body></html>",
+			"likes": 234,
+			"dislikes": 345,
 			"comments": []
 		},
 		{
-			"username": "jane_doe",
+			"username": "john_doe",
+			"type": "blog",
+			"title": "I'm back!",
+			"content": "This is the content of my second, wonderful, blog post.",
+			"link": "",
+			"imgURL": "https://picsum.photos/302",
+			"likes": 3,
+			"dislikes": 59,
+			"comments": []
+		},
+		{
+			"username": "john_doe",
 			"type": "code",
-			"title": "My Sixth Post",
-			"content": "<html><body>\n\t<h1>My Sixth Post</h1>\n</body></html>",
-			"link": "http://example.com/my-sixth-post",
-			"imgURL": "https://picsum.photos/2020",
-			"likes": 0,
-			"dislikes": 0,
+			"title": "Let's start coding...",
+			"content": "<div>\n\t<crazyCode>\n\t\tLot of words\n\t</crazyCode>\n</div>",
+			"likes": 123,
+			"dislikes": 456,
 			"comments": []
 		},
 		{
 			"username": "john_doe",
 			"type": "code",
 			"title": "My Seventh Post",
-			"content": "<html><body>\n\t<h1>This is the content of my seventh post.</h1>\n</body></html>",
-			"link": "http://example.com/my-seventh-post",
-			"imgURL": "https://picsum.photos/2022",
-			"likes": 0,
-			"dislikes": 0,
+			"content": "<html><body>\n\t<h1>\nThis is the content of my seventh post.\n</h1>\n</body></html>",
+			"likes": 345,
+			"dislikes": 234,
 			"comments": []
 		},
 		{
 			"username": "jane_doe",
 			"type": "code",
-			"title": "My Eighth Post",
-			"content": "This is the content of my eighth post.",
-			"link": "http://example.com/my-eighth-post",
-			"imgURL": "https://picsum.photos/2202",
-			"likes": 0,
-			"dislikes": 0,
+			"title": "More mindless devThoughts.messages",
+			"content": "We are all just bits on a wire...",
+			"likes": 456,
+			"dislikes": 123,
 			"comments": []
 		},
 		{
@@ -114,8 +105,8 @@
 			"content": "This is a good place for placeholder images of specific sizes.",
 			"link": "https://placehold.co/",
 			"imgURL": "",
-			"likes": 40,
-			"dislikes": 3,
+			"likes": 567,
+			"dislikes": 98,
 			"comments": []
 		},
 		{
@@ -125,8 +116,8 @@
 			"content": "Here's mutation information.",
 			"link": "https://graphql.org/learn/mutations/",
 			"imgURL": "",
-			"likes": 0,
-			"dislikes": 0,
+			"likes": 98,
+			"dislikes": 567,
 			"comments": []
 		},
 		{
@@ -136,8 +127,8 @@
 			"content": "This is a link post.",
 			"link": "https://www.apollographql.com/docs/react/data/queries",
 			"imgURL": "",
-			"likes": 0,
-			"dislikes": 0,
+			"likes": 234,
+			"dislikes": 345,
 			"comments": []
 		},
 		{
@@ -147,8 +138,8 @@
 			"content": "This is a link post.",
 			"link": "https://stackoverflow.com/questions/70106880/err-import-assertion-type-missing-for-import-of-json-file",
 			"imgURL": "",
-			"likes": 0,
-			"dislikes": 0,
+			"likes": 345,
+			"dislikes": 234,
 			"comments": []
 		},
 		{
@@ -158,8 +149,8 @@
 			"content": "This is the content of my thirteenth post.",
 			"link": "http://example.com/my-thirteenth-post",
 			"imgURL": "https://picsum.photos/200",
-			"likes": 0,
-			"dislikes": 0,
+			"likes": 456,
+			"dislikes": 123,
 			"comments": []
 		},
 		{
@@ -169,8 +160,8 @@
 			"content": "This is the content of my fourteenth post.",
 			"link": "http://example.com/my-fourteenth-post",
 			"imgURL": "https://picsum.photos/200",
-			"likes": 0,
-			"dislikes": 0,
+			"likes": 567,
+			"dislikes": 98,
 			"comments": []
 		},
 		{
@@ -180,8 +171,8 @@
 			"content": "This is the content of my fifteenth post.",
 			"link": "http://example.com/my-fifteenth-post",
 			"imgURL": "https://picsum.photos/200",
-			"likes": 0,
-			"dislikes": 0,
+			"likes": 98,
+			"dislikes": 567,
 			"comments": []
 		},
 		{
@@ -191,8 +182,8 @@
 			"content": "This is the content of my sixteenth post.",
 			"link": "http://example.com/my-sixteenth-post",
 			"imgURL": "https://picsum.photos/200",
-			"likes": 0,
-			"dislikes": 0,
+			"likes": 234,
+			"dislikes": 345,
 			"comments": []
 		},
 		{
@@ -200,10 +191,8 @@
 			"type": "code",
 			"title": "My Seventeenth Code Post",
 			"content": "This is the content of my seventeenth post.",
-			"link": "http://example.com/my-seventeenth-post",
-			"imgURL": "https://picsum.photos/200",
-			"likes": 0,
-			"dislikes": 0,
+			"likes": 345,
+			"dislikes": 234,
 			"comments": []
 		},
 		{
@@ -211,10 +200,8 @@
 			"type": "code",
 			"title": "My Eighteenth Code Post",
 			"content": "This is the content of my eighteenth post.",
-			"link": "http://example.com/my-eighteenth-post",
-			"imgURL": "https://picsum.photos/200",
-			"likes": 0,
-			"dislikes": 0,
+			"likes": 456,
+			"dislikes": 123,
 			"comments": []
 		},
 		{
@@ -222,10 +209,8 @@
 			"type": "code",
 			"title": "My Nineteenth Code Post",
 			"content": "This is the content of my nineteenth post.",
-			"link": "http://example.com/my-nineteenth-post",
-			"imgURL": "https://picsum.photos/200",
-			"likes": 0,
-			"dislikes": 0,
+			"likes": 567,
+			"dislikes": 98,
 			"comments": []
 		},
 		{
@@ -233,10 +218,8 @@
 			"type": "code",
 			"title": "My Twentieth Post",
 			"content": "This is the content of my twentieth post.",
-			"link": "http://example.com/my-twentieth-post",
-			"imgURL": "https://picsum.photos/200",
-			"likes": 0,
-			"dislikes": 0,
+			"likes": 98,
+			"dislikes": 567,
 			"comments": []
 		},
 		{
@@ -246,8 +229,8 @@
 			"content": "This is a link post.",
 			"link": "https://stackoverflow.com/questions/70106880/err-import-assertion-type-missing-for-import-of-json-file",
 			"imgURL": "https://picsum.photos/200",
-			"likes": 0,
-			"dislikes": 0,
+			"likes": 234,
+			"dislikes": 345,
 			"comments": []
 		}
 	],

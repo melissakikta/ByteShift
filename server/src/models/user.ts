@@ -1,5 +1,4 @@
 import { Schema, model, Document } from 'mongoose';
-import Post from './Post.js';
 import bcrypt from 'bcrypt';
 
 export interface IUser extends Document {
@@ -31,9 +30,9 @@ const userSchema = new Schema<IUser>(
             required: true,
             minlength: 8,
         },
-        posts: [Post.schema!],
-        likedPosts: [Post.schema!],
-        dislikedPosts: [Post.schema!],
+        posts: [{type: Schema.Types.ObjectId, ref: "Post"}],
+        likedPosts: [{type: Schema.Types.ObjectId, ref: "Post"}],
+        dislikedPosts: [{type: Schema.Types.ObjectId, ref: "Post"}],
     }
 );
 

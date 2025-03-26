@@ -1,5 +1,4 @@
 import { Schema, model, Document } from 'mongoose';
-import Comment from './Comment.js';
 
 export interface IPost extends Document {
     username: string;
@@ -46,7 +45,7 @@ const postSchema = new Schema<IPost>(
             type: Number,
             default: 0,
         },
-        comments: [ Comment.schema ],
+        comments: [ {type: Schema.Types.ObjectId, ref: "Comment"} ],
         createdAt: {
             type: Date,
             default: Date.now,

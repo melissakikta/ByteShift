@@ -39,7 +39,7 @@ const Entry: React.FC = () => {
           </Col>
           <Col>
             <Link to="/login">
-              <Button type="default" size="large" className="custom-menu-item" style={{ background: "var(--quaternary)", color: "var(--tertiary)", fontSize: "2rem" }}>Login</Button>
+              <Button type="primary" size="large" className="custom-menu-item" style={{ background: "var(--quaternary)", color: "var(--tertiary)", fontSize: "2rem" }}>Login</Button>
             </Link>
           </Col>
         </Row>

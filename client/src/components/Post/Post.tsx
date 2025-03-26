@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { useMutation, useQuery } from '@apollo/client';
+import { Button, Typography, Card, Row, Col } from 'antd';
+
 import type PostType from '../../interfaces/Post';
 import type CommentProps from '../../interfaces/Comment';
-import CommentForm from '../Comment/CommentForm';
 
+import CommentForm from '../Comment/CommentForm';
 import Comment from '../Comment/Comment';
 import AuthService from '../../utils/auth';
 
-import { useMutation, useQuery } from '@apollo/client';
-import { Button, Typography, Card, Row, Col } from 'antd';
 
 import { QUERY_GET_COMMENTS_FOR_POST } from '../../utils/queries';
 import { LIKE_POST, DISLIKE_POST, ADD_TO_LIKED_POSTS, ADD_TO_DISLIKED_POSTS } from '../../utils/mutations';
@@ -29,34 +30,47 @@ const Post: React.FC<{ post: PostType }> = ({ post }) => {
 		return user._id;
 	}
 
-	//useMutation hooks
-	const [addLike] = useMutation(LIKE_POST);
+	// Use mutations with refetchQueries
+	const [addLike] = useMutation(LIKE_POST, {
+		variables: { postId: post._id },
+		refetchQueries: [{ query: QUERY_GET_COMMENTS_FOR_POST, variables: { postId: post._id } }],
+	});
+
+	const [addDislike] = useMutation(DISLIKE_POST, {
+		variables: { postId: post._id },
+		refetchQueries: [{ query: QUERY_GET_COMMENTS_FOR_POST, variables: { postId: post._id } }],
+	});
+
 	const [addToLikedPosts] = useMutation(ADD_TO_LIKED_POSTS);
-	const [addDislike] = useMutation(DISLIKE_POST);
 	const [addToDislikedPosts] = useMutation(ADD_TO_DISLIKED_POSTS);
 
 	// todo finish building like and dislike workflow in app (update state for user, send mutation to server)
 	//function to update likes count
 	async function updateLikes() {
-		setLikes((prevLikes) => prevLikes + 1);
 		try{
-			await addLike({variables: { postId: post._id }});
-			await addToLikedPosts({variables: { postId: post._id, userId: loggedUser() } });
+			const { data } = await addLike({variables: { postId: post._id }});
+
+			if (data?.likePost) {
+				setLikes(data.likePost.likes);
+				await addToLikedPosts({variables: { postId: post._id, userId: loggedUser() } });
+			}
 		} catch (error) {
 			console.error("Error updating likes:", error);
-			setLikes((prevLikes) => prevLikes - 1);
 		}
-	}
+	} 
+	
 
 	//function to update dislikes count
 	async function updateDislikes() {
-		setDislikes((prevDislikes) => prevDislikes + 1);
 		try{
-			await addDislike({variables: { postId: post._id }});
-			await addToDislikedPosts({variables: { postId: post._id, userId: loggedUser() } });
+			const { data } = await addDislike({variables: { postId: post._id }});
+
+			if (data?.dislikePost) {
+				setDislikes(data.dislikePost.dislikes);
+				await addToDislikedPosts({variables: { postId: post._id, userId: loggedUser() } });
+			}
 		} catch (error) {
 			console.error("Error updating dislikes:", error);
-			setDislikes((prevDislikes) => prevDislikes - 1);
 		}
 	}
 	

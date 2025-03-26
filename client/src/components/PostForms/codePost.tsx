@@ -97,6 +97,7 @@ const CodePost: React.FC = () => {
 							{loading ? "Submitting..." : "Submit Link"}
 						</Button>
 						<Button
+							type="primary"
 							htmlType="reset"
 							onClick={() => form.resetFields()}
 							className="custom-menu-item"

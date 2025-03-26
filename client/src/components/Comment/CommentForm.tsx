@@ -30,8 +30,8 @@ const CommentForm: React.FC<CommentFormProps> = ({ postId }) => {
     try {
       await addComment({
         variables: {
-          input: {
-            postId,
+          commentInput: {
+            postId: postId,
             username: user,
             content: values.content,
           },

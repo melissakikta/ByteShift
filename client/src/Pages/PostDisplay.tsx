@@ -24,18 +24,8 @@ const PostDisplay: React.FC = () => {
 	const [posts, setPosts] = useState<PostType[]>([defaultPost]);
 
 	const { data, loading, error } = useQuery(QUERY_GET_POSTS);
-	// todo remove console log after testing data returns for query
-	console.log(data);
-	console.log(loading);
-	console.log(error);
-	console.log(posts);
-
-	//Set posts if the query return data
-	// if (data && data.posts !== posts) {
-	// 	setPosts(data.posts);
-	// }
+	
 	if (!loading) {
-		console.log("data.getPosts ", data.getPosts);
 		if (data.getPosts.length !== 0 && data.getPosts !== posts) {
 			setPosts(data.getPosts);
 		} else {

@@ -51,6 +51,7 @@ const typeDefs = `#graphql
 	}
 
 	input AddCommentInput {
+		postId: ID!
 		username: String!
 		content: String!
 	}
@@ -67,7 +68,7 @@ const typeDefs = `#graphql
   	type Mutation {
 		login(email: String!, password: String!): Auth
 		addUser(userInput: AddUserInput!): Auth
-		addPost(postInput: AddPostInput!): User
+		addPost(postInput: AddPostInput!): Post
 
 		likePost(postId: ID!): Post
 		dislikePost(postId: ID!): Post

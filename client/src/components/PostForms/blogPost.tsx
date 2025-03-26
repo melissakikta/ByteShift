@@ -16,7 +16,7 @@ const BlogPost: React.FC = () => {
 	const user = AuthService.loggedIn() ? AuthService.getProfile().username : null;
 
 	//Handle form submission
-	const handleSumbit = async (values: { title: string; blog: string; imgURL?: string }) => {
+	const handleSumbit = async (values: { title: string; content: string; imgURL?: string }) => {
 
 		//Check if user is logged in
 		if (!user) {
@@ -24,19 +24,24 @@ const BlogPost: React.FC = () => {
 			return;
 		}
 
+		if (!values.title || !values.content) {
+			message.error("Please enter a title and blog content.");
+			return;
+		}
+
 		try {
+			const img = values.imgURL;
 			await addPost({
 				variables: {
-					input: {
+					postInput: {
 						username: user,
-						type: "blog",
+						type: 'blog',
 						title: values.title,
-						content: values.blog,
-						imgURL: values.imgURL || "",
+						content: values.content,
+						imgURL: !!img ? img : null,
 					},
 				},
 			});
-
 			message.success("Blog posted successfully!");
 			form.resetFields();
 		} catch (error) {
@@ -78,7 +83,7 @@ const BlogPost: React.FC = () => {
 				{/* Blog */}
 				<Form.Item
 					label={<span style={{ color: "var(--primary)" }}>Blog Content</span>}
-					name="blog"
+					name="content"
 					rules={[
 						{ required: true, message: "Please enter your blog content here." }]}
 				>

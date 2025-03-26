@@ -16,16 +16,16 @@ interface LoginUserArgs {
 }
 
 interface AddPostArgs {
-	username: string; // The username of the user who created the post, required to be automatically populated
-	type: string; // The type of the post, required to be automatically populated
-	title: string; // The title of the post
-	content: string; // The content of the post
-	link?: string; // The link of the post
-	imgURL?: string; // The image URL of the post
-	// Commented out bc likes, dislikes, and comments are automatically populated
+    username: string; // The username of the user who created the post, required to be automatically populated
+    type: string; // The type of the post, required to be automatically populated
+    title: string; // The title of the post
+    content: string; // The content of the post
+    link?: string; // The link of the post
+    imgURL?: string; // The image URL of the post
+    // Commented out bc likes, dislikes, and comments are automatically populated
     // likes: number; // The number of likes the post has
-	// dislikes: number; // The number of dislikes the post has
-	// comments: CommentType[]; // The comments on the post TODO: Change Comment type or ID?
+    // dislikes: number; // The number of dislikes the post has
+    // comments: CommentType[]; // The comments on the post TODO: Change Comment type or ID?
 }
 
 interface AddCommentArgs {
@@ -35,7 +35,7 @@ interface AddCommentArgs {
 }
 
 const resolvers = {
-	Query: {
+    Query: {
         getUsersAllData: async () => {
             return await User.find().populate('posts');
         },
@@ -54,9 +54,9 @@ const resolvers = {
         getCommentsForPost: async (_parent: any, { postId }: { postId: string }) => {
             return await Comment.find({ post: postId });
         }
-	},
+    },
 
-	Mutation: {
+    Mutation: {
         addUser: async (_parent: any, { username, email, password }: AddUserArgs) => {
             // Create a new user with the provided username, email, and password
             const user = await User.create({ username, email, password });
@@ -78,17 +78,24 @@ const resolvers = {
             return { token, user };
         },
 
-        addPost: async (_parent: any, {postInput}: {postInput: AddPostArgs}) => {
+        addPost: async (_parent: any, { postInput }: { postInput: AddPostArgs }) => {
             const user = await User.findOne({ username: postInput.username });
             if (!user) throw new GraphQLError('User not found');
-
-            const newPost = await Post.create(postInput);
-            user.posts.push(newPost._id as Schema.Types.ObjectId);
-            await user.save();
-            return user.populate('posts');
+            console.log(postInput);
+            try {
+                const newPost = await Post.create(postInput);
+                user.posts.push(newPost._id as Schema.Types.ObjectId);
+                await user.save();
+                console.log(newPost);
+                return newPost;
+            }
+            catch (err) {
+                console.log(err);
+            }
+            return;
         },
 
-        addComment: async (_parent: any, {commentInput}: {commentInput: AddCommentArgs}) => {
+        addComment: async (_parent: any, { commentInput }: { commentInput: AddCommentArgs }) => {
             const post = await Post.findById(commentInput.postId);
             if (!post) throw new GraphQLError('Post not found');
 
@@ -107,11 +114,11 @@ const resolvers = {
         },
 
         dislikePost: async (_parent: any, { postId }: { postId: string }) => {
-           return await Post.findByIdAndUpdate(
+            return await Post.findByIdAndUpdate(
                 postId,
                 { $inc: { dislikes: 1 } },
                 { new: true }
-           );
+            );
         },
 
         addToLikedPosts: async (_parent: any, { userId, postId }: { userId: string, postId: string }) => {
@@ -148,7 +155,7 @@ const resolvers = {
                 { new: true }
             ).populate('comments');
         },
-	},
+    },
 };
 
 export default resolvers;

@@ -81,7 +81,7 @@ const Post: React.FC<PostProps> = ({ post }) => {
 				}))
 			);
 		}
-	});
+	}, [data]);
 
 	function generateBlogPost() {
 		console.log(post);
@@ -133,7 +133,21 @@ const Post: React.FC<PostProps> = ({ post }) => {
 				</Row>
 				<Row>
 					<Col span={24}>
-						<code style={{fontSize: '1rem', background: 'var(--code)', color: 'white', padding: '6px', fontFamily: 'monaco'}}>{post.content}</code>
+						<Card
+						style={{
+							backgroundColor: 'var(--code)',
+							color: 'white',
+							fontFamily: 'monospace',
+							fontSize: '1rem',
+							padding: '10px',
+							border: '1px solid var(--primary)',
+							whiteSpace: 'pre-wrap',
+						}}>
+
+							<code style={{fontSize: '1rem', padding: '6px', fontFamily: 'monaco'}}>
+								{post.content}
+							</code>
+						</Card>
 					</Col>
 				</Row>
 				<Row>

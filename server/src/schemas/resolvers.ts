@@ -52,9 +52,9 @@ const resolvers = {
         },
 
         getCommentsForPost: async (_parent: any, { postId }: { postId: string }) => {
-            console.log("postId ---   ", postId);
-            console.log("Comment.find() ---   ", await Comment.find({ post: postId }));
-            return await Comment.find({ post: postId });
+            const post = await Post.findById(postId).populate('comments');
+            if (!post) throw new GraphQLError('Post not found');
+            return post.comments;
         }
     },
 

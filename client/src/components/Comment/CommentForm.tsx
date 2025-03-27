@@ -61,15 +61,15 @@ const CommentForm: React.FC<CommentFormProps> = ({ postId }) => {
           borderRadius: "10px", // Rounded corners
           padding: "20px", // Padding for better spacing
           boxShadow: "0 0 10px var(--quaternary)", // Lime shadow
-          backgroundColor: "var(--secondary)", // Ensure background color
-					color: "var(--primary)", // Ensure text color
+          backgroundColor: "var(--primary)", // Ensure background color
+					color: "var(--tertiary)", // Ensure text color
           fontFamily: "var(--font-body)",
 					fontSize: "1.5rem",
         }}
         form={form}
       >
         <Form.Item
-          label={<span style={{ color: "var(--primary)" }}>Comment</span>}
+          label={<span style={{ color: "var(--tertiary)" }}>Comment</span>}
           name="content"
           rules={[{ required: true, message: "Please enter a comment." }]}
         >

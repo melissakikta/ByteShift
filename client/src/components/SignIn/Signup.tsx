@@ -21,7 +21,7 @@ const Signup: React.FC = () => {
     
     try {
       const { data } = await addUser({
-        variables: { input: { ...values } },
+        variables: { userInput: { ...values } },
       });
 
       AuthService.login(data.addUser.token);

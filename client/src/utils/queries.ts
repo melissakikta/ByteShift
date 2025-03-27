@@ -229,12 +229,8 @@ export const QUERY_GET_COMMENTS_FOR_POST = gql`
   	query getCommentsForPost($postId: ID!) {
 		getCommentsForPost(postId: $postId) {
 			_id
-			comments {
-				_id
-				username
-				content
-				createdAt
-			}
+			username
+			content
 			createdAt
 		}
 	}

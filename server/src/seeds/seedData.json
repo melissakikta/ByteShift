@@ -73,6 +73,17 @@
 		},
 		{
 			"username": "john_doe",
+			"type": "link",
+			"title": "A place 4 placeholders",
+			"content": "This is a good place for placeholder images of specific sizes.",
+			"link": "https://placehold.co/",
+			"imgURL": "",
+			"likes": 567,
+			"dislikes": 98,
+			"comments": []
+		},
+		{
+			"username": "john_doe",
 			"type": "code",
 			"title": "Let's start coding...",
 			"content": "<div>\n\t<crazyCode>\n\t\tLot of words\n\t</crazyCode>\n</div>",
@@ -83,8 +94,19 @@
 		{
 			"username": "john_doe",
 			"type": "code",
-			"title": "My Seventh Post",
+			"title": "Covering HTML",
 			"content": "<html><body>\n\t<h1>\nThis is the content of my seventh post.\n</h1>\n</body></html>",
+			"likes": 345,
+			"dislikes": 234,
+			"comments": []
+		},
+		{
+			"username": "jane_doe",
+			"type": "link",
+			"title": "Mo Ergo fo Mo People",
+			"content": "Screw RSI, not your wrists! Pick one of these bad boys up.",
+			"link": "https://www.moergo.com/",
+			"imgURL": "",
 			"likes": 345,
 			"dislikes": 234,
 			"comments": []
@@ -96,17 +118,6 @@
 			"content": "We are all just bits on a wire...",
 			"likes": 456,
 			"dislikes": 123,
-			"comments": []
-		},
-		{
-			"username": "john_doe",
-			"type": "link",
-			"title": "A place 4 placeholders",
-			"content": "This is a good place for placeholder images of specific sizes.",
-			"link": "https://placehold.co/",
-			"imgURL": "",
-			"likes": 567,
-			"dislikes": 98,
 			"comments": []
 		},
 		{
@@ -123,8 +134,8 @@
 		{
 			"username": "john_doe",
 			"type": "link",
-			"title": "My Eleventh Post",
-			"content": "This is a link post.",
+			"title": "APIs, to the moon and back!",
+			"content": "Apollo is very common for graphql, read how to use it here.",
 			"link": "https://www.apollographql.com/docs/react/data/queries",
 			"imgURL": "",
 			"likes": 234,
@@ -132,23 +143,11 @@
 			"comments": []
 		},
 		{
-			"username": "jane_doe",
-			"type": "link",
-			"title": "My Twelfth Post",
-			"content": "This is a link post.",
-			"link": "https://stackoverflow.com/questions/70106880/err-import-assertion-type-missing-for-import-of-json-file",
-			"imgURL": "",
-			"likes": 345,
-			"dislikes": 234,
-			"comments": []
-		},
-		{
 			"username": "john_doe",
 			"type": "blog",
 			"title": "My Thirteenth Post",
-			"content": "This is the content of my thirteenth post.",
-			"link": "http://example.com/my-thirteenth-post",
-			"imgURL": "https://picsum.photos/200",
+			"content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque neque mi, rhoncus eu venenatis accumsan, blandit laoreet libero. Quisque tristique iaculis enim ac ullamcorper. Sed accumsan consectetur ipsum, vitae fringilla purus vehicula non. Praesent id odio dapibus magna pulvinar sollicitudin quis ac leo. Cras interdum dolor sit amet hendrerit pellentesque. Suspendisse ultricies elit tempor bibendum elementum. In hac habitasse platea dictumst. Quisque tellus metus, gravida sed nisi nec, dictum eleifend magna. Nunc ullamcorper molestie sem et consequat. Proin pharetra, dui sed posuere interdum, nibh lorem dapibus felis, eu volutpat tellus neque nec eros. Fusce libero turpis, ultricies eu erat quis, tincidunt molestie enim. Sed vel quam libero. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras velit lectus, accumsan et velit eget, condimentum egestas felis. Aenean eget neque et libero interdum blandit ut a lectus. Mauris nisi est, gravida consectetur quam ac, facilisis tempus neque. Fusce eu gravida felis. Vestibulum vel orci sed velit convallis volutpat ut nec est. Mauris nibh sapien, vehicula vel magna eu, scelerisque faucibus lacus. Sed nisi ligula, malesuada non purus quis, interdum hendrerit mauris. Nullam id lacus auctor, suscipit purus et, efficitur nisl. Mauris fringilla justo lobortis risus lacinia, sed blandit lorem posuere. Vestibulum sed consequat dui. Maecenas consequat, tortor in dictum varius, justo tellus gravida sapien, a fermentum ante lectus ut odio. Sed in quam at nulla sodales pharetra at eu velit. Aliquam malesuada elementum purus. Aenean turpis est, tempus non ipsum nec, posuere porttitor augue. Morbi finibus vehicula aliquam. Morbi rutrum, felis quis sodales varius, tellus diam sollicitudin nulla, vel feugiat turpis nunc et urna. Quisque id eros posuere, bibendum ligula vel, volutpat enim. Sed sed egestas elit. Donec vel leo quis dolor porttitor blandit et id justo. Nulla dictum, velit aliquam sagittis condimentum, sapien ipsum lacinia diam, vel posuere est metus eget justo. Duis eu ex volutpat dolor pretium pharetra. Integer dapibus libero at libero tempor tincidunt. Integer aliquam auctor lectus, non interdum enim volutpat at. Morbi odio risus, euismod in consequat pellentesque, aliquam porttitor libero. Duis vel dolor lectus. Cras convallis lorem in lorem tincidunt varius. Nunc lobortis tellus eget tellus lacinia pellentesque. Nulla sagittis, felis at ornare faucibus, nulla eros gravida lacus, sed vulputate lacus velit in ex. Nullam tristique a eros in faucibus. Etiam massa quam, dictum vel quam et, vulputate pulvinar nulla. Pellentesque imperdiet euismod pharetra. Proin dui orci, pretium sagittis interdum eu, eleifend eu tortor. Curabitur fermentum ornare ligula, eu viverra justo varius non. Vivamus at pharetra eros, et molestie sem. Sed id aliquet tortor, at congue massa. Sed urna lorem, pellentesque tincidunt lectus ut, congue eleifend magna. Nunc tempus ut libero non viverra. Ut pulvinar lectus quis nisi porttitor malesuada. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque scelerisque convallis eros at fringilla. Ut sapien tortor, pulvinar in hendrerit in, finibus vitae velit. Ut vestibulum lorem at facilisis aliquam.",
+			"imgURL": "https://picsum.photos/900",
 			"likes": 456,
 			"dislikes": 123,
 			"comments": []
@@ -158,8 +157,7 @@
 			"type": "blog",
 			"title": "My Fourteenth Post",
 			"content": "This is the content of my fourteenth post.",
-			"link": "http://example.com/my-fourteenth-post",
-			"imgURL": "https://picsum.photos/200",
+			"imgURL": "https://picsum.photos/800",
 			"likes": 567,
 			"dislikes": 98,
 			"comments": []
@@ -181,7 +179,7 @@
 			"title": "My Sixteenth Post",
 			"content": "This is the content of my sixteenth post.",
 			"link": "http://example.com/my-sixteenth-post",
-			"imgURL": "https://picsum.photos/200",
+			"imgURL": "https://picsum.photos/203",
 			"likes": 234,
 			"dislikes": 345,
 			"comments": []

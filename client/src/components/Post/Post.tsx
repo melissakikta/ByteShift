@@ -123,7 +123,7 @@ const Post: React.FC<{ post: PostType }> = ({ post }) => {
 
 				<div>
 					{comments.map((comment) => (
-						<Comment key={comment._id} comment={comment} />
+						<Comment comment={comment} />
 					))}
 				</div>
 			</Card>
@@ -173,7 +173,7 @@ const Post: React.FC<{ post: PostType }> = ({ post }) => {
 
 				<div>
 					{comments.map((comment) => (
-						<Comment key={comment._id} comment={comment} />
+						<Comment comment={comment} />
 					))}
 				</div>
 			</Card>
@@ -189,6 +189,14 @@ const Post: React.FC<{ post: PostType }> = ({ post }) => {
 						<Text style={{ fontFamily: 'var(--font-body)', fontSize: '1.5rem'}}>{post.username}</Text>
 					</Col>
 				</Row>
+				<Row>
+					<Col span={24}>
+						<Typography.Link href={post.link} target="_blank" rel="noopener noreferrer" style={{ fontFamily: 'var(--font-body)', fontSize: '1.5rem', color: 'var(--tertiary)'}}>
+								{post.link}
+						</Typography.Link>
+					</Col>
+				</Row>
+				
 				<Row>
 					<Col span={24}>
 						<Text style={{ fontFamily: 'var(--font-body)', fontSize: '1.5rem'}}>{post.content}</Text>
@@ -210,7 +218,7 @@ const Post: React.FC<{ post: PostType }> = ({ post }) => {
 
 				<div>
 					{comments.map((comment) => (
-						<Comment key={comment._id} comment={comment} />
+						<Comment comment={comment} />
 					))}
 				</div>
 			</Card>

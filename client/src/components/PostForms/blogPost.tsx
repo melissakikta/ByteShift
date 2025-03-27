@@ -38,7 +38,7 @@ const BlogPost: React.FC = () => {
 						type: 'blog',
 						title: values.title,
 						content: values.content,
-						imgURL: !!img ? img : null,
+						imgURL: img,
 					},
 				},
 			});

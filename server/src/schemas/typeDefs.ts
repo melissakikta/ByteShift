@@ -4,9 +4,9 @@ const typeDefs = `#graphql
     	username: String!
     	email: String!
     	password: String!
-    	posts: [Post]!
-		likedPosts: [Post]!
-		dislikedPosts: [Post]!
+    	posts: [Post]
+		likedPosts: [Post]
+		dislikedPosts: [Post]
   	}
 
 	type Post {

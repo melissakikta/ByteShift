@@ -52,6 +52,8 @@ const resolvers = {
         },
 
         getCommentsForPost: async (_parent: any, { postId }: { postId: string }) => {
+            console.log("postId ---   ", postId);
+            console.log("Comment.find() ---   ", await Comment.find({ post: postId }));
             return await Comment.find({ post: postId });
         }
     },
@@ -98,7 +100,6 @@ const resolvers = {
         addComment: async (_parent: any, { commentInput }: { commentInput: AddCommentArgs }) => {
             const post = await Post.findById(commentInput.postId);
             if (!post) throw new GraphQLError('Post not found');
-
             const newComment = await Comment.create(commentInput);
             post.comments.push(newComment._id as Schema.Types.ObjectId);
             await post.save();

@@ -1,0 +1,275 @@
+{
+	"users": [
+		{
+			"username": "john_doe",
+			"email": "john@example.com",
+			"password": "password123",
+			"posts": [],
+			"comments": [],
+			"likedPosts": [],
+			"dislikedPosts": []
+		},
+		{
+			"username": "jane_doe",
+			"email": "jane@example.com",
+			"password": "password456",
+			"posts": [],
+			"comments": [],
+			"likedPosts": [],
+			"dislikedPosts": []
+		}
+	],
+	"posts": [
+		{
+			"username": "john_doe",
+			"type": "blog",
+			"title": "!!!My First Post!!!",
+			"content": "First!",
+			"imgURL": "https://picsum.photos/100",
+			"likes": 0,
+			"dislikes": 0,
+			"comments": []
+		},
+		{
+			"username": "jane_doe",
+			"type": "blog",
+			"title": "Cool Place",
+			"content": "This is where I'll dump the contents of my developer mind.",
+			"imgURL": "https://picsum.photos/402",
+			"likes": 243,
+			"dislikes": 86,
+			"comments": []
+		},
+		{
+			"username": "jane_doe",
+			"type": "blog",
+			"title": "Let's get to the point",
+			"content": "Nobody REALLY thinks JS is good.",
+			"link": "",
+			"imgURL": "https://picsum.photos/202",
+			"likes": 0,
+			"dislikes": 0,
+			"comments": []
+		},
+		{
+			"username": "jane_doe",
+			"type": "code",
+			"title": "I'll show you the ropes",
+			"content": "<html><body>\n\t<h1>My Post</h1>\n</body></html>",
+			"likes": 234,
+			"dislikes": 345,
+			"comments": []
+		},
+		{
+			"username": "john_doe",
+			"type": "blog",
+			"title": "I'm back!",
+			"content": "This is the content of my second, wonderful, blog post.",
+			"link": "",
+			"imgURL": "https://picsum.photos/302",
+			"likes": 3,
+			"dislikes": 59,
+			"comments": []
+		},
+		{
+			"username": "john_doe",
+			"type": "code",
+			"title": "Let's start coding...",
+			"content": "<div>\n\t<crazyCode>\n\t\tLot of words\n\t</crazyCode>\n</div>",
+			"likes": 123,
+			"dislikes": 456,
+			"comments": []
+		},
+		{
+			"username": "john_doe",
+			"type": "code",
+			"title": "My Seventh Post",
+			"content": "<html><body>\n\t<h1>\nThis is the content of my seventh post.\n</h1>\n</body></html>",
+			"likes": 345,
+			"dislikes": 234,
+			"comments": []
+		},
+		{
+			"username": "jane_doe",
+			"type": "code",
+			"title": "More mindless devThoughts.messages",
+			"content": "We are all just bits on a wire...",
+			"likes": 456,
+			"dislikes": 123,
+			"comments": []
+		},
+		{
+			"username": "john_doe",
+			"type": "link",
+			"title": "A place 4 placeholders",
+			"content": "This is a good place for placeholder images of specific sizes.",
+			"link": "https://placehold.co/",
+			"imgURL": "",
+			"likes": 567,
+			"dislikes": 98,
+			"comments": []
+		},
+		{
+			"username": "jane_doe",
+			"type": "link",
+			"title": "This is a useful bit of info!",
+			"content": "Here's mutation information.",
+			"link": "https://graphql.org/learn/mutations/",
+			"imgURL": "",
+			"likes": 98,
+			"dislikes": 567,
+			"comments": []
+		},
+		{
+			"username": "john_doe",
+			"type": "link",
+			"title": "My Eleventh Post",
+			"content": "This is a link post.",
+			"link": "https://www.apollographql.com/docs/react/data/queries",
+			"imgURL": "",
+			"likes": 234,
+			"dislikes": 345,
+			"comments": []
+		},
+		{
+			"username": "jane_doe",
+			"type": "link",
+			"title": "My Twelfth Post",
+			"content": "This is a link post.",
+			"link": "https://stackoverflow.com/questions/70106880/err-import-assertion-type-missing-for-import-of-json-file",
+			"imgURL": "",
+			"likes": 345,
+			"dislikes": 234,
+			"comments": []
+		},
+		{
+			"username": "john_doe",
+			"type": "blog",
+			"title": "My Thirteenth Post",
+			"content": "This is the content of my thirteenth post.",
+			"link": "http://example.com/my-thirteenth-post",
+			"imgURL": "https://picsum.photos/200",
+			"likes": 456,
+			"dislikes": 123,
+			"comments": []
+		},
+		{
+			"username": "jane_doe",
+			"type": "blog",
+			"title": "My Fourteenth Post",
+			"content": "This is the content of my fourteenth post.",
+			"link": "http://example.com/my-fourteenth-post",
+			"imgURL": "https://picsum.photos/200",
+			"likes": 567,
+			"dislikes": 98,
+			"comments": []
+		},
+		{
+			"username": "john_doe",
+			"type": "blog",
+			"title": "My Fifteenth Post",
+			"content": "This is the content of my fifteenth post.",
+			"link": "http://example.com/my-fifteenth-post",
+			"imgURL": "https://picsum.photos/200",
+			"likes": 98,
+			"dislikes": 567,
+			"comments": []
+		},
+		{
+			"username": "jane_doe",
+			"type": "blog",
+			"title": "My Sixteenth Post",
+			"content": "This is the content of my sixteenth post.",
+			"link": "http://example.com/my-sixteenth-post",
+			"imgURL": "https://picsum.photos/200",
+			"likes": 234,
+			"dislikes": 345,
+			"comments": []
+		},
+		{
+			"username": "john_doe",
+			"type": "code",
+			"title": "My Seventeenth Code Post",
+			"content": "This is the content of my seventeenth post.",
+			"likes": 345,
+			"dislikes": 234,
+			"comments": []
+		},
+		{
+			"username": "jane_doe",
+			"type": "code",
+			"title": "My Eighteenth Code Post",
+			"content": "This is the content of my eighteenth post.",
+			"likes": 456,
+			"dislikes": 123,
+			"comments": []
+		},
+		{
+			"username": "john_doe",
+			"type": "code",
+			"title": "My Nineteenth Code Post",
+			"content": "This is the content of my nineteenth post.",
+			"likes": 567,
+			"dislikes": 98,
+			"comments": []
+		},
+		{
+			"username": "jane_doe",
+			"type": "code",
+			"title": "My Twentieth Post",
+			"content": "This is the content of my twentieth post.",
+			"likes": 98,
+			"dislikes": 567,
+			"comments": []
+		},
+		{
+			"username": "john_doe",
+			"type": "link",
+			"title": "My Twenty-first Post",
+			"content": "This is a link post.",
+			"link": "https://stackoverflow.com/questions/70106880/err-import-assertion-type-missing-for-import-of-json-file",
+			"imgURL": "https://picsum.photos/200",
+			"likes": 234,
+			"dislikes": 345,
+			"comments": []
+		}
+	],
+	"comments": [
+		{
+			"username": "jane_doe",
+			"content": "Great post!"
+		},
+		{
+			"username": "john_doe",
+			"content": "Thanks for sharing!"
+		},
+		{
+			"username": "jane_doe",
+			"content": "I totally agree!"
+		},
+		{
+			"username": "john_doe",
+			"content": "Thanks for the feedback!"
+		},
+		{
+			"username": "jane_doe",
+			"content": "Great post!"
+		},
+		{
+			"username": "john_doe",
+			"content": "Thanks for sharing!"
+		},
+		{
+			"username": "jane_doe",
+			"content": "I totally agree!"
+		},
+		{
+			"username": "john_doe",
+			"content": "Thanks for the feedback!"
+		},
+		{
+			"username": "jane_doe",
+			"content": "Great post!"
+		}
+	]
+}

@@ -48,7 +48,7 @@ const resolvers = {
         },
 
         getPosts: async () => {
-            return await Post.find().populate('comments');
+            return await Post.find().populate('comments').sort({ createdAt: -1 }).exec();
         },
 
         getCommentsForPost: async (_parent: any, { postId }: { postId: string }) => {

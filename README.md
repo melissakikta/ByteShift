@@ -8,7 +8,7 @@ Try <strong>ByteShift</strong>!
 
 ByteShift provides a dedicated space for your team to effortlessly share links, code snippets, and text. Team members can react, comment, and collaborate seamlessly, ensuring smoother communication and better organization. Say goodbye to scattered information and hello to streamlined teamwork!
 
-[Deployed Application](link here) 
+[Deployed Application](https://byteshift-1.onrender.com) 
 
 ## 🚀 Table of Contents
   * [Usage](#📝-Usage)
@@ -42,7 +42,7 @@ Back to [Table-of-Contents](#🚀-table-of-contents)
 
 ## ⭐ Features
 
-  * Authentication Wall for Protection
+  * Authentication Wall for Protection, content only visible while not logged in, all likes, comments and posts are directly from a verified user and not some random person floating around the internet
   * Code, Text, and Link Posting Options
   * Commenting and Response Interaction
 

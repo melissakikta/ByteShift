@@ -164,24 +164,21 @@
 		},
 		{
 			"username": "john_doe",
-			"type": "blog",
-			"title": "My Fifteenth Post",
-			"content": "This is the content of my fifteenth post.",
-			"link": "http://example.com/my-fifteenth-post",
-			"imgURL": "https://picsum.photos/200",
-			"likes": 98,
-			"dislikes": 567,
+			"type": "code",
+			"title": "My Nineteenth Code Post",
+			"content": "This is the content of my nineteenth post.",
+			"likes": 57,
+			"dislikes": 28,
 			"comments": []
 		},
 		{
-			"username": "jane_doe",
+			"username": "john_doe",
 			"type": "blog",
-			"title": "My Sixteenth Post",
-			"content": "This is the content of my sixteenth post.",
-			"link": "http://example.com/my-sixteenth-post",
-			"imgURL": "https://picsum.photos/203",
-			"likes": 234,
-			"dislikes": 345,
+			"title": "What's going in here?",
+			"content": "Are the AI listening?",
+			"imgURL": "https://picsum.photos/70",
+			"likes": 8,
+			"dislikes": 12,
 			"comments": []
 		},
 		{
@@ -189,46 +186,17 @@
 			"type": "code",
 			"title": "My Seventeenth Code Post",
 			"content": "This is the content of my seventeenth post.",
-			"likes": 345,
-			"dislikes": 234,
+			"likes": 302,
+			"dislikes": 231,
 			"comments": []
 		},
 		{
 			"username": "jane_doe",
 			"type": "code",
-			"title": "My Eighteenth Code Post",
-			"content": "This is the content of my eighteenth post.",
-			"likes": 456,
-			"dislikes": 123,
-			"comments": []
-		},
-		{
-			"username": "john_doe",
-			"type": "code",
-			"title": "My Nineteenth Code Post",
-			"content": "This is the content of my nineteenth post.",
-			"likes": 567,
-			"dislikes": 98,
-			"comments": []
-		},
-		{
-			"username": "jane_doe",
-			"type": "code",
-			"title": "My Twentieth Post",
-			"content": "This is the content of my twentieth post.",
-			"likes": 98,
-			"dislikes": 567,
-			"comments": []
-		},
-		{
-			"username": "john_doe",
-			"type": "link",
-			"title": "My Twenty-first Post",
-			"content": "This is a link post.",
-			"link": "https://stackoverflow.com/questions/70106880/err-import-assertion-type-missing-for-import-of-json-file",
-			"imgURL": "https://picsum.photos/200",
-			"likes": 234,
-			"dislikes": 345,
+			"title": "More code for you",
+			"content": "const server = new ApolloServer({\n\ttypeDefs,\n\tresolvers,\n});",
+			"likes": 54,
+			"dislikes": 23,
 			"comments": []
 		}
 	],

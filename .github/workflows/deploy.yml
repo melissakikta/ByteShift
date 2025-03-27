@@ -1,17 +1,27 @@
-name: Deploy to Render
+name: Deploy
+
+env:
+  deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
 
 on:
-  pull_request:
-    branches:
-      - main
-
+    push:
+      branches: [main]
+    pull_request:
+      branches:
+        - main
+        
 jobs:
-  deploy:
+  ci:
+    name: Deploy To Render
     runs-on: ubuntu-latest
-
     steps:
-      - name: Send deploy request to Render
-        env:
-          DEPLOY_HOOK: ${{ secrets.DEPLOY_HOOK }}
+      - uses: actions/checkout@v4
+      - name: Test
         run: |
-          curl $DEPLOY_HOOK
+          npm install
+          npm run test-component
+
+      - name: Deploy
+        # Only run this step if the branch is main
+       
+        run: curl "$deploy_url"

@@ -123,7 +123,7 @@ const Post: React.FC<{ post: PostType }> = ({ post }) => {
 
 				<div>
 					{comments.map((comment) => (
-						<Comment key={comment._id} comment={comment} />
+						<Comment comment={comment} />
 					))}
 				</div>
 			</Card>
@@ -173,7 +173,7 @@ const Post: React.FC<{ post: PostType }> = ({ post }) => {
 
 				<div>
 					{comments.map((comment) => (
-						<Comment key={comment._id} comment={comment} />
+						<Comment comment={comment} />
 					))}
 				</div>
 			</Card>
@@ -210,7 +210,7 @@ const Post: React.FC<{ post: PostType }> = ({ post }) => {
 
 				<div>
 					{comments.map((comment) => (
-						<Comment key={comment._id} comment={comment} />
+						<Comment comment={comment} />
 					))}
 				</div>
 			</Card>

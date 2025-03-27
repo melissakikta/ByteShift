@@ -84,13 +84,15 @@ export const ADD_TO_DISLIKED_POSTS = gql`
 	}
 `;
 
+// check for sanity
 export const ADD_COMMENT = gql`
 mutation addComment($commentInput: AddCommentInput!) {
 	addComment(commentInput: $commentInput) {
 			_id
-			username
-			content
-			createdAt
+			comments {
+				username
+				content
+			}
 		}
 	}
 `;

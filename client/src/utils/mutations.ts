@@ -13,8 +13,8 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_USER = gql`
-	mutation addUser($input: AddUserInput!) {
-		addUser(userInput: $input) {
+	mutation addUser($userInput: AddUserInput!) {
+		addUser(userInput: $userInput) {
 			user {
 				_id
 				username

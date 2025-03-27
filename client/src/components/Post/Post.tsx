@@ -191,6 +191,14 @@ const Post: React.FC<{ post: PostType }> = ({ post }) => {
 				</Row>
 				<Row>
 					<Col span={24}>
+						<Typography.Link href={post.link} target="_blank" rel="noopener noreferrer" style={{ fontFamily: 'var(--font-body)', fontSize: '1.5rem', color: 'var(--tertiary)'}}>
+								{post.link}
+						</Typography.Link>
+					</Col>
+				</Row>
+				
+				<Row>
+					<Col span={24}>
 						<Text style={{ fontFamily: 'var(--font-body)', fontSize: '1.5rem'}}>{post.content}</Text>
 						<iframe src={post.link} title="user shared embedded link" style={{ width: '100%', height: '300px', marginTop: '10px' }}></iframe>
 					</Col>

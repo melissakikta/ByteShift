@@ -9,9 +9,9 @@ import { IComment } from '../models/Comment.js';
 const seedDatabase = async () => {
 	await db();
 
-	await User.deleteMany({});
-	await Post.deleteMany({});
-	await Comment.deleteMany({});
+	await User.deleteMany();
+	await Post.deleteMany();
+	await Comment.deleteMany();
 
 	for (const user of seedData.users) {
 		const newUser = new User(user);

@@ -36,8 +36,9 @@ interface AddCommentArgs {
 
 const resolvers = {
     Query: {
+        // single command that can display all user data containing all existing posts and comments as well. Essentially a full DB query
         getUsersAllData: async () => {
-            return await User.find().populate('posts');
+            return await User.find().populate('posts').populate('likedPosts').populate('dislikedPosts').populate('comments');
         },
 
         me: async (_parent: any, _args: any, context: any) => {
@@ -47,6 +48,7 @@ const resolvers = {
             throw new GraphQLError('User not logged in');
         },
 
+        // if we want different sorting algorithms create other custom getPosts resolvers, thois should be the default of newest first
         getPosts: async () => {
             return await Post.find().populate('comments').sort({ createdAt: -1 }).exec();
         },
@@ -84,16 +86,14 @@ const resolvers = {
         addPost: async (_parent: any, { postInput }: { postInput: AddPostArgs }) => {
             const user = await User.findOne({ username: postInput.username });
             if (!user) throw new GraphQLError('User not found');
-            console.log(postInput);
             try {
                 const newPost = await Post.create(postInput);
                 user.posts.push(newPost._id as Schema.Types.ObjectId);
                 await user.save();
-                console.log(newPost);
                 return newPost;
             }
             catch (err) {
-                console.log(err);
+                console.error(err);
             }
             return;
         },

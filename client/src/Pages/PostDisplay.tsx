@@ -4,7 +4,7 @@ import type PostType from '../interfaces/Post';
 import { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_GET_POSTS } from '../utils/queries';
-import { Row, Col, Card, Button } from 'antd';
+import { Row, Col, Card } from 'antd';
 
 const PostDisplay: React.FC = () => {
 	const defaultPost: PostType = {

@@ -14,12 +14,11 @@ const Signup: React.FC = () => {
   const [addUser, { error, data }] = useMutation(ADD_USER);
   const [loading, setloading] = useState<boolean>(false);
 
-
-
   const handleFormSubmit = async (values: { username: string; email: string; password: string }) => {
     setloading(true);
     
     try {
+      // when signing up we'll create the user then automatically sign them in
       const { data } = await addUser({
         variables: { userInput: { ...values } },
       });

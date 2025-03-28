@@ -17,10 +17,8 @@ const { Title, Text } = Typography;
 
 const Post: React.FC<{ post: PostType }> = ({ post }) => {
 	// query for comments, likes, and dislikes and store in state
-	// array of comments, query for 3 most recent comments
 	const [comments, setComments] = useState<CommentProps[]>([]);
 
-	// todo add mutation and tracking for likes and dislikes onClick
 	const [likes, setLikes] = useState<number>(post.likes || 0);
 	const [dislikes, setDislikes] = useState<number>(post.dislikes || 0);
 
@@ -44,7 +42,6 @@ const Post: React.FC<{ post: PostType }> = ({ post }) => {
 	const [addToLikedPosts] = useMutation(ADD_TO_LIKED_POSTS);
 	const [addToDislikedPosts] = useMutation(ADD_TO_DISLIKED_POSTS);
 
-	// todo finish building like and dislike workflow in app (update state for user, send mutation to server)
 	//function to update likes count
 	async function updateLikes() {
 		try{
@@ -57,8 +54,7 @@ const Post: React.FC<{ post: PostType }> = ({ post }) => {
 		} catch (error) {
 			console.error("Error updating likes:", error);
 		}
-	} 
-	
+	}
 
 	//function to update dislikes count
 	async function updateDislikes() {

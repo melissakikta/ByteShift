@@ -20,9 +20,10 @@ const PostDisplay: React.FC = () => {
 		comments: [],
 		createdAt: "1742648022878",
 	};
-
+	//set up a state for posts to be stored in so react can keep track of them easily
 	const [posts, setPosts] = useState<PostType[]>([defaultPost]);
 
+	// retrieve all the posts for display
 	const { data, loading, error } = useQuery(QUERY_GET_POSTS);
 	
 	if (!loading) {

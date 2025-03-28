@@ -2,9 +2,10 @@
 
 :root {
   --primary: #2e294e;
+  --active-color: #ffffff;
   --secondary: #1B998B;
   --tertiary: #EC6F6F;
-  --quaternary: #C5D86D;
+  --quaternary: #178073;
   --warning: #e71d35ba;
   --code: #5c5863ab;
 
@@ -37,6 +38,10 @@
 
 .NavLink:hover {
   color: var(--quaternary) !important;
+}
+
+.NavLink.active {
+  background-color: var(--active-color) !important;
 }
 
 .footer-link {

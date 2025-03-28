@@ -4,7 +4,7 @@ import type PostType from '../interfaces/Post';
 import { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_GET_POSTS } from '../utils/queries';
-import { Row, Col } from 'antd';
+import { Row, Col, Card, Button } from 'antd';
 
 const PostDisplay: React.FC = () => {
 	const defaultPost: PostType = {
@@ -42,9 +42,27 @@ const PostDisplay: React.FC = () => {
 			<Row gutter={[16, 16]}>
 				{posts.map((loadingPost) => (
 					<Col xs={24} sm={24} md={12} lg={8} xl={8} key={loadingPost._id}>
-						<div style={{width: "100%"}}>
+						<Card
+							style={{ height: 700, 
+								display: 'flex', 
+								flexDirection: 'column', 
+								border: 'none', 
+								background: 'transparent',
+								boxShadow: 'none',
+								overflow: 'hidden', 
+							}}
+						>
+							<div 
+								style={{
+									height: '650px',
+									overflowY: 'auto',
+									padding: '10px',
+								}}
+							>
+
 							<Post post={loadingPost} /> {/* Pass post data to Post Component */}
-						</div>
+							</div>
+						</Card>
 					</Col>
 				))}
 			</Row>

@@ -9,10 +9,12 @@ import { IComment } from '../models/Comment.js';
 const seedDatabase = async () => {
 	await db();
 
-	await User.deleteMany({});
-	await Post.deleteMany({});
-	await Comment.deleteMany({});
+	// Clear the database
+	await User.deleteMany();
+	await Post.deleteMany();
+	await Comment.deleteMany();
 
+	// run users one at a time to hash passwords using pre hook
 	for (const user of seedData.users) {
 		const newUser = new User(user);
 		await newUser.save();

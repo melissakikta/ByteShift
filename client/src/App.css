@@ -85,3 +85,9 @@
     font-size: 3rem !important;
   }
 }
+
+@media (max-width: 480px) {
+  .Title {
+    font-size: 2rem !important;
+  }
+}

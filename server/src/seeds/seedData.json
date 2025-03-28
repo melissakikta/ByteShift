@@ -159,12 +159,13 @@
 			"comments": []
 		},
 		{
-			"username": "john_doe",
-			"type": "code",
-			"title": "let use a mutation",
-			"content": "const { data } = await addUser({\n\tvariables: { userInput: { ...values } },\n});",
-			"likes": 57,
-			"dislikes": 28,
+			"username": "jane_doe",
+			"type": "blog",
+			"title": "cool stuff i found",
+			"content": "This is the content of my fourteenth post.",
+			"imgURL": "https://picsum.photos/800",
+			"likes": 567,
+			"dislikes": 98,
 			"comments": []
 		},
 		{
@@ -174,15 +175,6 @@
 			"content": "Are the AI listening?",
 			"likes": 8,
 			"dislikes": 12,
-			"comments": []
-		},
-		{
-			"username": "john_doe",
-			"type": "code",
-			"title": "This is wrong",
-			"content": "<h6>\n\t<h3>Please Don't Do This</h3>\n</h6>.",
-			"likes": 302,
-			"dislikes": 231,
 			"comments": []
 		},
 		{

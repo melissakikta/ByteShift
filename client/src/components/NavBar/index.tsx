@@ -34,7 +34,7 @@ const NavBar = () => {
         onClick={auth.logout}
       >
         <NavLink to="/" style={{ padding: "5px", display: "block", color: "var(--primary)", fontSize: "1.5rem" }}>
-        Logout
+        {auth.loggedIn() ? `Logout (${auth.getProfile().username})` : "Login/Signup"}
         </NavLink>
       </Menu.Item>
 

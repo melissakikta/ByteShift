@@ -42,17 +42,6 @@
 		},
 		{
 			"username": "jane_doe",
-			"type": "blog",
-			"title": "Let's get to the point",
-			"content": "Nobody REALLY thinks JS is good.",
-			"link": "",
-			"imgURL": "https://picsum.photos/202",
-			"likes": 0,
-			"dislikes": 0,
-			"comments": []
-		},
-		{
-			"username": "jane_doe",
 			"type": "code",
 			"title": "I'll show you the ropes",
 			"content": "<html><body>\n\t<h1>My Post</h1>\n</body></html>",
@@ -92,6 +81,17 @@
 			"comments": []
 		},
 		{
+			"username": "jane_doe",
+			"type": "blog",
+			"title": "Let's get to the point",
+			"content": "Nobody REALLY thinks JS is good.",
+			"link": "",
+			"imgURL": "https://picsum.photos/202",
+			"likes": 530,
+			"dislikes": 210,
+			"comments": []
+		},
+		{
 			"username": "john_doe",
 			"type": "code",
 			"title": "Covering HTML",
@@ -109,6 +109,16 @@
 			"imgURL": "",
 			"likes": 345,
 			"dislikes": 234,
+			"comments": []
+		},
+		{
+			"username": "jane_doe",
+			"type": "blog",
+			"title": "Like my photo, plz....",
+			"content": "From my personal collection.",
+			"imgURL": "https://picsum.photos/800",
+			"likes": 567,
+			"dislikes": 98,
 			"comments": []
 		},
 		{
@@ -153,20 +163,10 @@
 			"comments": []
 		},
 		{
-			"username": "jane_doe",
-			"type": "blog",
-			"title": "My Fourteenth Post",
-			"content": "This is the content of my fourteenth post.",
-			"imgURL": "https://picsum.photos/800",
-			"likes": 567,
-			"dislikes": 98,
-			"comments": []
-		},
-		{
 			"username": "john_doe",
 			"type": "code",
-			"title": "My Nineteenth Code Post",
-			"content": "This is the content of my nineteenth post.",
+			"title": "let use a mutation",
+			"content": "const { data } = await addUser({\n\tvariables: { userInput: { ...values } },\n});",
 			"likes": 57,
 			"dislikes": 28,
 			"comments": []
@@ -176,7 +176,6 @@
 			"type": "blog",
 			"title": "What's going in here?",
 			"content": "Are the AI listening?",
-			"imgURL": "https://picsum.photos/70",
 			"likes": 8,
 			"dislikes": 12,
 			"comments": []
@@ -184,8 +183,8 @@
 		{
 			"username": "john_doe",
 			"type": "code",
-			"title": "My Seventeenth Code Post",
-			"content": "This is the content of my seventeenth post.",
+			"title": "This is wrong",
+			"content": "<h6>\n\t<h3>Please Don't Do This</h3>\n</h6>.",
 			"likes": 302,
 			"dislikes": 231,
 			"comments": []

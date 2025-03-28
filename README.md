@@ -78,7 +78,7 @@ Back to [Table-of-Contents](#🚀-table-of-contents)
 
 ## 🗨️ Contact
   
-  <strong>Dan Blaze GitHub:</strong> [GitHub.com/BlazeEMP](https://github.com/BlazeEMP)
+  <strong>Dan Blair GitHub:</strong> [GitHub.com/BlazeEMP](https://github.com/BlazeEMP)
 
   <strong>Steve Ha GitHub:</strong> [GitHub.com/Pizza199](https://github.com/Pizza199)
   

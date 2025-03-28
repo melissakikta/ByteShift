@@ -14,7 +14,7 @@ const NavBar = () => {
         key="posts"
         className="custom-menu-item"
       >
-        <NavLink to="/collection" style={{ padding: "5px", display: "block", color: "var(--primary)", fontSize: "1.5rem" }}>
+        <NavLink to="/collection" style={{ padding: "5px", display: "block", color: "var(--primary)", fontSize: "1.5rem"  }}>
         Posts
         </NavLink>
       </Menu.Item>
@@ -23,7 +23,7 @@ const NavBar = () => {
         key="new-post"
         className="custom-menu-item"
       >
-        <NavLink to="/form" style={{ padding: "5px", display: "block", color: "var(--primary)", fontSize: "1.5rem" }}>
+        <NavLink to="/form" style={{ padding: "5px", display: "block", color: "var(--primary)", fontSize: "1.5rem"  }}>
         New Post
         </NavLink>
       </Menu.Item>
@@ -33,7 +33,7 @@ const NavBar = () => {
         className="custom-menu-item"
         onClick={auth.logout}
       >
-        <NavLink to="/" style={{ padding: "5px", display: "block", color: "var(--primary)", fontSize: "1.5rem" }}>
+        <NavLink to="/" style={{ padding: "5px", display: "block", color: "var(--primary)", fontSize: "1.5rem"  }}>
         Logout
         </NavLink>
       </Menu.Item>

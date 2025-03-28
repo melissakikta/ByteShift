@@ -155,20 +155,11 @@
 		{
 			"username": "jane_doe",
 			"type": "blog",
-			"title": "My Fourteenth Post",
+			"title": "cool stuff i found",
 			"content": "This is the content of my fourteenth post.",
 			"imgURL": "https://picsum.photos/800",
 			"likes": 567,
 			"dislikes": 98,
-			"comments": []
-		},
-		{
-			"username": "john_doe",
-			"type": "code",
-			"title": "My Nineteenth Code Post",
-			"content": "This is the content of my nineteenth post.",
-			"likes": 57,
-			"dislikes": 28,
 			"comments": []
 		},
 		{
@@ -179,15 +170,6 @@
 			"imgURL": "https://picsum.photos/70",
 			"likes": 8,
 			"dislikes": 12,
-			"comments": []
-		},
-		{
-			"username": "john_doe",
-			"type": "code",
-			"title": "My Seventeenth Code Post",
-			"content": "This is the content of my seventeenth post.",
-			"likes": 302,
-			"dislikes": 231,
 			"comments": []
 		},
 		{

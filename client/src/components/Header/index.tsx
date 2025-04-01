@@ -7,7 +7,7 @@ const { Title } = Typography;
 //function to create the Header
 const Header: React.FC = () => {
   return (
-    <Title level={1} style={{color: "var(--primary)", background: "var(--tertiary)", marginTop: "0px",padding: "5px", fontFamily: "var(--font-header)", fontSize: "4rem" }}>
+    <Title level={1} style={{color: "var(--secondary)", background: "var(--tertiary)", marginTop: "0px",padding: "5px", fontFamily: "var(--font-header)", fontSize: "5rem" }}>
       ByteShift
     </Title>
   );

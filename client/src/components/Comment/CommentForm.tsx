@@ -47,8 +47,8 @@ const CommentForm: React.FC<CommentFormProps> = ({ postId }) => {
   };
 
   return (
-    <div style={{ maxWidth: 500, margin: "0 auto", padding: "20px" }}>
-      <Title level={3} style={{ textAlign: "center", fontFamily: "var(--font-header)", fontSize: "2rem", color: "0,0,0" }}>
+    <div className='comment-form' style={{ maxWidth: 500, margin: "0 auto", padding: "20px" }}>
+      <Title level={3} style={{ textAlign: "center", fontFamily: "var(--font-header)",  color: 'var(--secondary)' }}>
         Add a Comment
       </Title>
 
@@ -61,15 +61,15 @@ const CommentForm: React.FC<CommentFormProps> = ({ postId }) => {
           borderRadius: "10px", // Rounded corners
           padding: "20px", // Padding for better spacing
           boxShadow: "0 0 10px var(--quaternary)", // Lime shadow
-          backgroundColor: "var(--primary)", // Ensure background color
-					color: "var(--tertiary)", // Ensure text color
+          backgroundColor: "var(--tertiary)", // Ensure background color
+					color: "var(--secondary)", // Ensure text color
           fontFamily: "var(--font-body)",
 					fontSize: "1.5rem",
         }}
         form={form}
       >
         <Form.Item
-          label={<span style={{ color: "var(--tertiary)" }}>Comment</span>}
+          label={<span className='comment-form-label' style={{ color: "var(--secondary)" }}>Comment</span>}
           name="content"
           rules={[{ required: true, message: "Please enter a comment." }]}
         >
@@ -78,18 +78,20 @@ const CommentForm: React.FC<CommentFormProps> = ({ postId }) => {
 
         <Form.Item>
           <Space>
-            <Button type="primary" htmlType="submit" className="custom-menu-item" loading={loading}>
-              Submit Comment
-            </Button>
-            <Button
-              type="primary"
-              onClick={() => {
-                form.resetFields();
-              }}
-              className="custom-menu-item"
-            >
-              Reset
-            </Button>
+            <div className='comment-form-buttons'>
+              <Button type="primary" htmlType="submit" className="custom-menu-item" loading={loading}>
+                Submit Comment
+              </Button>
+              <Button
+                type="primary"
+                onClick={() => {
+                  form.resetFields();
+                }}
+                className="custom-menu-item"
+                >
+                Reset
+              </Button>
+            </div>
           </Space>
         </Form.Item>
       </Form>

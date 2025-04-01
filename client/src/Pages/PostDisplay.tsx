@@ -38,11 +38,11 @@ const PostDisplay: React.FC = () => {
 	if (error) return <div>Error: {error.message}</div>;
 
 	return (
-		<div>
+		<div className='post-display' style={{ padding: '0px' }}>
 			<Row gutter={[16, 16]}>
 				{posts.map((loadingPost) => (
-					<Col xs={24} sm={24} md={12} lg={8} xl={8} key={loadingPost._id}>
-						<Card
+					<Col xs={24} sm={12} md={12} lg={8} xl={8} key={loadingPost._id}>
+						<Card 
 							style={{ height: 700, 
 								display: 'flex', 
 								flexDirection: 'column', 
@@ -56,7 +56,7 @@ const PostDisplay: React.FC = () => {
 								style={{
 									height: '650px',
 									overflowY: 'auto',
-									padding: '10px',
+									padding: '5px',
 								}}
 							>
 

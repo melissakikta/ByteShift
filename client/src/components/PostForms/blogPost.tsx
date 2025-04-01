@@ -51,7 +51,7 @@ const BlogPost: React.FC = () => {
 	};
 
 	return (
-		<div style={{ minWidth: 450, maxWidth: 500, margin: "0 auto", padding: "20px" }}>
+		<div style={{ margin: "0 auto", padding: "20px" }}>
 			<Title level={3} style={{ textAlign: "center", fontFamily: "var(--font-header)", fontSize: "2.5rem", color: "var(--active-color)" }}>
 				Share a Blog Post
 			</Title>

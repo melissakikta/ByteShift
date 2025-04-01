@@ -57,8 +57,8 @@ const LinkPost: React.FC = () => {
 
 
 	return (
-		<div style={{ maxWidth: 500, margin: "0 auto", padding: "20px" }}>
-			<Title level={3} style={{ textAlign: "center", fontFamily: "var(--font-header)", fontSize: "3rem", color: "var(--tertiary)" }}>
+		<div style={{ minWidth: 450, maxWidth: 500, margin: "0 auto", padding: "20px" }}>
+			<Title level={3} style={{ textAlign: "center", fontFamily: "var(--font-header)", fontSize: "2.5rem", color: "var(--active-color)" }}>
 				Share a Link
 			</Title>
 
@@ -67,19 +67,19 @@ const LinkPost: React.FC = () => {
 				layout="vertical"
 				onFinish={handleSumbit}
 				style={{
-					border: "2px var(--quaternary)", // Lime border
-					borderRadius: "10px", // Rounded corners
 					padding: "20px", // Padding for better spacing
-					backgroundColor: "var(--secondary)", // Ensure background color
+					backgroundColor: "var(--tertiary)", // Ensure background color
 					color: "var(--primary)", // Ensure text color
-					boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)", // Optional shadow for a modern look
 					fontFamily: "var(--font-body)",
 					fontSize: "1.5rem",
+					border: "2px var(--quaternary)", // Lime border
+        	borderRadius: "10px", // Rounded corners
+       	 	boxShadow: "0 0 10px var(--quaternary)"
 				}}
 			>
 				{/* Title */}
 				<Form.Item
-					label={<span style={{ color: "var(--primary)" }}>Title</span>}
+					label={<span style={{ color: "var(--secondary)" }}>Title</span>}
 					name="title"
 					rules={[{ required: true, message: "Please enter a title." }]}
 				>
@@ -88,7 +88,7 @@ const LinkPost: React.FC = () => {
 
 				{/* Content */}
 				<Form.Item
-					label={<span style={{ color: "var(--primary)" }}>Description</span>}
+					label={<span style={{ color: "var(--secondary)" }}>Description</span>}
 					name="content"
 					rules={[{ required: true, message: "Please enter a description for the shared content." }]}
 				>
@@ -97,7 +97,7 @@ const LinkPost: React.FC = () => {
 
 				{/* Link */}
 				<Form.Item
-					label={<span style={{ color: "var(--primary)" }}>Link URL</span>}
+					label={<span style={{ color: "var(--secondary)" }}>Link URL</span>}
 					name="link"
 					rules={[
 						{ required: true, message: "Please enter a valid URL." },

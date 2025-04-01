@@ -58,7 +58,7 @@ function App() {
   return (
     <ConfigProvider theme={themeConfig}>
       <ApolloProvider client={client}>
-        <Layout style={{ minHeight: "100vh", display: "flex", flexDirection: "column", background: "var(--primary)" }}>
+        <Layout style={{ minHeight: "100vh", display: "flex", flexDirection: "column", background: "var(--tertiary)" }}>
           <Layout.Header style={{ textAlign: "center", padding: "0px 0" }}>
             <Header />
           </Layout.Header>

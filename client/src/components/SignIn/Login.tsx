@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { Form, Input, Button, Typography, Card as AntCard, Alert } from "antd"; 
+import { Form, Input, Button, Typography, Card, Alert } from "antd"; 
 import { LockOutlined } from '@ant-design/icons';
 import { LOGIN_USER } from '../../utils/mutations';
 import AuthService from '../../utils/auth';
@@ -30,9 +30,18 @@ const Login = () => {
 
   
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', margin: '0 auto', background: "var(--primary)" }}>
-      <AntCard style={{width: 400, textAlign: 'center', padding: '20px', background: "var(--primary)", color: "var(--secondary)" }}>
-        <Title level={2} style={{ textAlign: 'center', color: "var(--tertiary)", fontFamily: "var(--font-header)", fontSize: "2rem" }}>Login</Title>
+    <div style={{ display: 'flex', justifyContent: 'center',  }}>
+      <Card style={{ 
+        width: 400, 
+        textAlign: 'center', 
+        padding: '20px', 
+        background: "var(--teriary)", 
+        color: "var(--secondary)",
+        border: "2px var(--quaternary)", // Lime border
+        borderRadius: "10px", // Rounded corners
+        boxShadow: "0 0 10px var(--quaternary)"
+       }}>
+        <Title level={2} style={{ color: "var(--active-color)", fontFamily: "var(--font-header)", fontSize: "2.5rem" }}>Login</Title>
 
         {error && <Alert message="Incorrect username and/or password, please try again." type="error" showIcon style={{ marginBottom: 16, background: "white", color: "var(--warning)" }} />}
         
@@ -77,7 +86,7 @@ const Login = () => {
               )}
           </Form.Item>
         </Form>
-      </AntCard>
+      </Card>
     </div>
   );
 };

@@ -38,7 +38,7 @@ const PostDisplay: React.FC = () => {
 	if (error) return <div>Error: {error.message}</div>;
 
 	return (
-		<div>
+		<div style={{ backgroundColor: 'var(--primary)', padding: '20px' }}>
 			<Row gutter={[16, 16]}>
 				{posts.map((loadingPost) => (
 					<Col xs={24} sm={24} md={12} lg={8} xl={8} key={loadingPost._id}>

@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato:wght@300;400;700&display=swap');
 
 :root {
-  --primary: #2e294e;
+  --primary: #071223;
   --active-color: #ffffff;
-  --secondary: #1B998B;
-  --tertiary: #EC6F6F;
-  --quaternary: #178073;
+  --secondary: #22ffff;
+  --tertiary: #0a3f67;
+  --quaternary: #16a8a8;
   --warning: #e71d35ba;
-  --code: #5c5863ab;
+  --code: #444547;
+  --link: #167cc9;
 
   --font-header: 'Abril Fatface', impact, serif;
   --font-body: 'Lato', sans-serif;
@@ -36,12 +37,30 @@
   background: var(--quaternary) !important;
 }
 
-.NavLink:hover {
-  color: var(--quaternary) !important;
+.custom-nav-item .nav-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: stretch;
+  text-decoration: none;
+  background-color: var(--secondary);
+  color: var(--primary);
+  transition: background 0.3s ease-in-out;
 }
 
-.NavLink.active {
-  background-color: var(--active-color) !important;
+.nav-link:hover {
+  color: var(--secondary) !important;
+  background: var(--primary) !important;
+}
+
+.custom-nav-link .nav-link.active {
+  background-color: var(--primary) !important;
+  color: var(--active-color) !important;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
 }
 
 .footer-link {

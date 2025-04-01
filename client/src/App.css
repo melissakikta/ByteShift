@@ -79,7 +79,74 @@
   font-size: 1.5rem !important;
 }
 
-@media (max-width: 768px) {
+.home h1 {
+  font-size: 4rem;
+}
+
+.home {
+  font-size: 2.75rem;
+}
+
+.post-display {
+  background-color: var(--primary);
+}
+
+.comment-form h3{
+  font-size: 1.75rem;
+}
+
+.comment-form-label {
+  font-size: 1.75rem;
+}
+
+@media (max-width: 767px) {
+  
+  /*NavBar links vertical */
+  .custom-nav-link {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+  
+  .custom-nav-item {
+    width: 100% !important;
+    text-align: center !important;
+    font-size: 1rem !important;
+  }
+  .custom-nav-item .nav-link {
+    width: 100% !important;
+    text-align: center !important;
+  }
+  
+  .home h1 {
+    font-size: 3rem !important;
+  }
+  
+  .home {
+    font-size: 2.5rem;
+  }
+
+  .post-display {
+    background-color: var(--tertiary);
+  }
+  
+  .comment-form h3{
+    font-size: 1rem;
+  }
+
+  .comment-form-label {
+    font-size: 1rem;
+  }
+
+  .comment-form-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+
   /* Stack Footer links vertically */
   .footer-container{
     flex-direction: column !important;
@@ -93,20 +160,28 @@
     text-align: center !important;
   }
 
-  /*NavBar links vertical */
-  .NavLink {
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-  }
 
-  .Title {
-    font-size: 3rem !important;
-  }
 }
 
 @media (max-width: 480px) {
-  .Title {
-    font-size: 2rem !important;
+  .home h1 {
+    font-size: 2.5rem !important;
   }
+
+  .home {
+    font-size: 2rem;
+  }
+
+  .post-display {
+    background-color: var(--tertiary);
+  }
+
+  .comment-form h3{
+    font-size: 1rem;
+  }
+
+  .comment-form-label {
+    font-size: 1rem;
+  }
+
 }

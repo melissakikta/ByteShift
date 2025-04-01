@@ -14,13 +14,13 @@ const Entry: React.FC = () => {
   return (
     <Layout className="home" style={{ minHeight: "100vh", padding: "40px", background: "var(--tertiary)" }}>
       <Content className="page-section" style={{ textAlign: "center", maxWidth: 800, margin: "auto" }}>
-        <Title level={1} style={{ color: "var(--active-color)", fontFamily: "var(--font-header)", fontSize: "4rem"}}>Welcome to ByteShift!</Title>
+        <Title level={1} style={{ color: "var(--active-color)", fontFamily: "var(--font-header)" }}>Welcome to ByteShift!</Title>
         <Row gutter={[16, 16]} justify="center">
           <Col span={24}>
-            <Paragraph style={{ color: "var(--secondary)", fontFamily: "var(--font-body)", fontSize: "1.75rem"}}>
+            <Paragraph  style={{ color: "var(--secondary)", fontFamily: "var(--font-body)", fontSize: "1.75rem"}}>
               Struggling to keep track of important team updates? Losing links in endless email threads?
             </Paragraph>
-            <Paragraph style={{ color: "var(--active-color)", fontFamily: "var(--font-header)", fontSize: "2.75rem"}}>
+            <Paragraph className="home" style={{ color: "var(--active-color)", fontFamily: "var(--font-header)"}}>
               Try <strong>ByteShift</strong>!
             </Paragraph>
             <Paragraph style={{ color: "var(--secondary)", fontFamily: "var(--font-body)", fontSize: "1.75rem"}}>

@@ -14,11 +14,11 @@ const handlePostTypeChange = (value: string) => {
 }
     
     return (
-       <Layout className="home" style={{ minHeight: "100vh", padding: "40px", background: "var(--tertiary)" }}>
-         <Content className="page-section" style={{ textAlign: "center", maxWidth: 800, margin: "auto" }}>
+       <Layout className="home" style={{ minHeight: "100vh", padding: '10px', background: "var(--tertiary)" }}>
+         <Content style={{ textAlign: "center" }}>
            <Title level={1} style={{ color: "var(--active-color)", fontFamily: "var(--font-header)", fontSize: "4rem" }}>Welcome to ByteShift!</Title>    
            <Row gutter={{ xs: 16, sm: 16, md: 16, lg: 16 }} justify="center">
-             <Col span={24}>
+             <Col >
                <Paragraph style={{ color: "var(--secondary)", fontFamily: "var(--font-body)", fontSize: "1.75rem" }}>What would you like to post today?</Paragraph>
                <Select defaultValue="blog" 
                onChange={handlePostTypeChange} 

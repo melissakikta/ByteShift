@@ -47,8 +47,8 @@ const CommentForm: React.FC<CommentFormProps> = ({ postId }) => {
   };
 
   return (
-    <div style={{ maxWidth: 500, margin: "0 auto", padding: "20px" }}>
-      <Title level={3} style={{ textAlign: "center", fontFamily: "var(--font-header)", fontSize: "1.75rem",  color: 'var(--secondary)' }}>
+    <div className='comment-form' style={{ maxWidth: 500, margin: "0 auto", padding: "20px" }}>
+      <Title level={3} style={{ textAlign: "center", fontFamily: "var(--font-header)",  color: 'var(--secondary)' }}>
         Add a Comment
       </Title>
 
@@ -69,7 +69,7 @@ const CommentForm: React.FC<CommentFormProps> = ({ postId }) => {
         form={form}
       >
         <Form.Item
-          label={<span style={{ color: "var(--secondary)" }}>Comment</span>}
+          label={<span className='comment-form-label' style={{ color: "var(--secondary)" }}>Comment</span>}
           name="content"
           rules={[{ required: true, message: "Please enter a comment." }]}
         >
@@ -78,18 +78,20 @@ const CommentForm: React.FC<CommentFormProps> = ({ postId }) => {
 
         <Form.Item>
           <Space>
-            <Button type="primary" htmlType="submit" className="custom-menu-item" loading={loading}>
-              Submit Comment
-            </Button>
-            <Button
-              type="primary"
-              onClick={() => {
-                form.resetFields();
-              }}
-              className="custom-menu-item"
-            >
-              Reset
-            </Button>
+            <div className='comment-form-buttons'>
+              <Button type="primary" htmlType="submit" className="custom-menu-item" loading={loading}>
+                Submit Comment
+              </Button>
+              <Button
+                type="primary"
+                onClick={() => {
+                  form.resetFields();
+                }}
+                className="custom-menu-item"
+                >
+                Reset
+              </Button>
+            </div>
           </Space>
         </Form.Item>
       </Form>

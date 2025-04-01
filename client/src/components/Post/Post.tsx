@@ -91,22 +91,30 @@ const Post: React.FC<{ post: PostType }> = ({ post }) => {
 
 	function generateBlogPost() {
 		return (
-			<Card className="custom-menu-item" style={{ marginBottom: '20px', fontFamily: 'var(--font-body)', fontSize: '1.5rem' }}>
+			<Card className="custom-menu-item" 
+				style={{ 
+					marginBottom: '20px', 
+					fontFamily: 'var(--font-body)', 
+					fontSize: '1.5rem', 
+					backgroundColor: 'var(--tertiary)',
+					border: "2px var(--quaternary)", // Lime border
+        	borderRadius: "10px", // Rounded corners
+       	 	boxShadow: "0 0 10px var(--quaternary)" }}>
 				<Row>
 					<Col span={24}>
-						<Title level={3} style={{ fontFamily: 'var(--font-body)', fontSize: '2rem'}}>{post.title}</Title>
-						<Text style={{ fontFamily: 'var(--font-body)', fontSize: '1.5rem'}}>{post.username}</Text>
+						<Title level={3} style={{ fontFamily: 'var(--font-body)', fontSize: '2rem', color: 'var(--active-color)'}}>{post.title}</Title>
+						<Text style={{ fontFamily: 'var(--font-body)', fontSize: '1.5rem', color: 'var(--secondary)'}}>{post.username}</Text>
 					</Col>
 				</Row>
 				<Row>
 					<Col span={24}>
-						<Text style={{ fontFamily: 'var(--font-body)', fontSize: '1.5rem'}}>{post.content}</Text>
+						<Text style={{ fontFamily: 'var(--font-body)', fontSize: '1.5rem', color: 'var(--active-color)', padding: '15px'}}>{post.content}</Text>
 						{post.imgURL && <img src={post.imgURL} alt="Post Image" style={{ width: '100%', marginTop: '10px' }} />}
 					</Col>
 				</Row>
 				<Row>
 					<Col span={12}>
-					<Button type="primary" onClick={() => updateLikes()} style={{ marginRight: '10px', fontSize: '1rem' }}>
+					<Button type="primary" onClick={() => updateLikes()} style={{ marginTop: '10px', marginRight: '10px', fontSize: '1rem' }}>
 							Likes ({likes})
 						</Button>
 						<Button type="primary" onClick={updateDislikes} style={{ marginRight: '10px', fontSize: '1rem' }}>
@@ -128,11 +136,19 @@ const Post: React.FC<{ post: PostType }> = ({ post }) => {
 
 	function generateCodePost() {
 		return (
-			<Card className="custom-menu-item" style={{ marginBottom: '20px', fontFamily: 'var(--font-body)', fontSize: '1.5rem' }}>
+			<Card className="custom-menu-item" 
+				style={{ 
+					marginBottom: '20px', 
+					fontFamily: 'var(--font-body)', 
+					fontSize: '1.5rem', 
+					backgroundColor: 'var(--tertiary)',
+					border: "2px var(--quaternary)", // Lime border
+        	borderRadius: "10px", // Rounded corners
+       	 	boxShadow: "0 0 10px var(--quaternary)" }}>
 				<Row>
 					<Col span={24}>
-						<Title level={3} style={{ fontFamily: 'var(--font-body)', fontSize: '2rem'}}>{post.title}</Title>
-						<Text style={{ fontFamily: 'var(--font-body)', fontSize: '1.5rem'}}>{post.username}</Text>
+						<Title level={3} style={{ fontFamily: 'var(--font-body)', fontSize: '2rem', color: 'var(--active-color)'}}>{post.title}</Title>
+						<Text style={{ fontFamily: 'var(--font-body)', fontSize: '1.5rem', color: 'var(--secondary)'}}>{post.username}</Text>
 					</Col>
 				</Row>
 				<Row>
@@ -156,7 +172,7 @@ const Post: React.FC<{ post: PostType }> = ({ post }) => {
 				</Row>
 				<Row>
 					<Col span={12}>
-					<Button type="primary" onClick={() => updateLikes()} style={{ marginRight: '10px', fontSize: '1rem' }}>
+					<Button type="primary" onClick={() => updateLikes()} style={{ marginTop: '10px', marginRight: '10px', fontSize: '1rem' }}>
 							Likes ({likes})
 						</Button>
 						<Button type="primary" onClick={updateDislikes} style={{ marginRight: '10px', fontSize: '1rem' }}>
@@ -178,16 +194,24 @@ const Post: React.FC<{ post: PostType }> = ({ post }) => {
 
 	function generateLinkPost() {
 		return (
-			<Card className="custom-menu-item" style={{ marginBottom: '20px', fontFamily: 'var(--font-body)', fontSize: '1.5rem' }}>
+			<Card className="custom-menu-item" 
+			style={{ 
+				marginBottom: '20px', 
+				fontFamily: 'var(--font-body)', 
+				fontSize: '1.5rem', 
+				backgroundColor: 'var(--tertiary)',
+				border: "2px var(--quaternary)", // Lime border
+        borderRadius: "10px", // Rounded corners
+       	boxShadow: "0 0 10px var(--quaternary)" }}>
 				<Row>
 					<Col span={24}>
-						<Title level={3} style={{ fontFamily: 'var(--font-body)', fontSize: '2rem'}}>{post.title} </Title>
-						<Text style={{ fontFamily: 'var(--font-body)', fontSize: '1.5rem'}}>{post.username}</Text>
+						<Title level={3} style={{ fontFamily: 'var(--font-body)', fontSize: '2rem', color: 'var(--active-color)'}}>{post.title} </Title>
+						<Text style={{ fontFamily: 'var(--font-body)', fontSize: '1.5rem', color: 'var(--secondary)'}}>{post.username}</Text>
 					</Col>
 				</Row>
 				<Row>
 					<Col span={24}>
-						<Typography.Link href={post.link} target="_blank" rel="noopener noreferrer" style={{ fontFamily: 'var(--font-body)', fontSize: '1.5rem', color: 'var(--tertiary)'}}>
+						<Typography.Link href={post.link} target="_blank" rel="noopener noreferrer" style={{ fontFamily: 'var(--font-body)', fontSize: '1.5rem', color: 'var(--link)', padding: '15px'}}>
 								{post.link}
 						</Typography.Link>
 					</Col>
@@ -195,13 +219,13 @@ const Post: React.FC<{ post: PostType }> = ({ post }) => {
 				
 				<Row>
 					<Col span={24}>
-						<Text style={{ fontFamily: 'var(--font-body)', fontSize: '1.5rem'}}>{post.content}</Text>
+						<Text style={{ fontFamily: 'var(--font-body)', fontSize: '1.5rem', color: 'var(--active-color)'}}>{post.content}</Text>
 						<iframe src={post.link} title="user shared embedded link" style={{ width: '100%', height: '300px', marginTop: '10px' }}></iframe>
 					</Col>
 				</Row>
 				<Row>
 					<Col span={12}>
-						<Button type="primary" onClick={() => updateLikes()} style={{ marginRight: '10px', fontSize: '1rem' }}>
+						<Button type="primary" onClick={() => updateLikes()} style={{ marginTop: '10px', marginRight: '10px', fontSize: '1rem' }}>
 							Likes ({likes})
 						</Button>
 						<Button type="primary" onClick={updateDislikes} style={{ marginRight: '10px', fontSize: '1rem' }}>

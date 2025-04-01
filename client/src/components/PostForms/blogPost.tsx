@@ -51,8 +51,8 @@ const BlogPost: React.FC = () => {
 	};
 
 	return (
-		<div style={{ maxWidth: 500, margin: "0 auto", padding: "20px" }}>
-			<Title level={3} style={{ textAlign: "center", fontFamily: "var(--font-header)", fontSize: "3rem", color: "var(--tertiary)" }}>
+		<div style={{ minWidth: 450, maxWidth: 500, margin: "0 auto", padding: "20px" }}>
+			<Title level={3} style={{ textAlign: "center", fontFamily: "var(--font-header)", fontSize: "2.5rem", color: "var(--active-color)" }}>
 				Share a Blog Post
 			</Title>
 
@@ -61,19 +61,19 @@ const BlogPost: React.FC = () => {
 				layout="vertical"
 				onFinish={handleSumbit}
 				style={{
-					border: "2px var(--quaternary)", // Lime border
-					borderRadius: "10px", // Rounded corners
 					padding: "20px", // Padding for better spacing
-					backgroundColor: "var(--secondary)", // Ensure background color
+					backgroundColor: "var(--tertiary)", // Ensure background color
 					color: "var(--primary)", // Ensure text color
-					boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)", // Optional shadow for a modern look
 					fontFamily: "var(--font-body)",
 					fontSize: "1.5rem",
+					border: "2px var(--quaternary)", // Lime border
+        	borderRadius: "10px", // Rounded corners
+       	 	boxShadow: "0 0 10px var(--quaternary)" // Optional shadow for a modern look
 				}}
 			>
 				{/* Title */}
 				<Form.Item
-					label={<span style={{ color: "var(--primary)" }}>Title</span>}
+					label={<span style={{ color: "var(--secondary)" }}>Title</span>}
 					name="title"
 					rules={[{ required: true, message: "Please enter a title." }]}
 				>
@@ -82,7 +82,7 @@ const BlogPost: React.FC = () => {
 
 				{/* Blog */}
 				<Form.Item
-					label={<span style={{ color: "var(--primary)" }}>Blog Content</span>}
+					label={<span style={{ color: "var(--secondary)" }}>Blog Content</span>}
 					name="content"
 					rules={[
 						{ required: true, message: "Please enter your blog content here." }]}
@@ -93,7 +93,7 @@ const BlogPost: React.FC = () => {
 				{/* Image URL */}
 
 				<Form.Item
-					label={<span style={{ color: "var(--primary)" }}>Image URL (Optional)</span>}
+					label={<span style={{ color: "var(--secondary)" }}>Image URL (Optional)</span>}
 					name="imgURL">
 					<Input placeholder="Enter an image URL here" />
 				</Form.Item>

@@ -32,9 +32,17 @@ const Signup: React.FC = () => {
   };
 
   return (
-    <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}}>
-      <Card style={{ width: 400, textAlign: 'center', padding: '20px', background: "var(--primary)", color: "var(--secondary)" }}>
-        <Title level={2} style={{ color: "var(--tertiary)", fontFamily: "var(--font-header)", fontSize: "2rem" }}>Sign Up</Title>
+    <div style={{display: 'flex', justifyContent: 'center'}}>
+      <Card style={{ 
+        width: 400, 
+        textAlign: 'center', 
+        padding: '20px', 
+        background: "var(--teriary)", 
+        color: "var(--secondary)",
+        border: "2px var(--quaternary)", // Lime border
+        borderRadius: "10px", // Rounded corners
+        boxShadow: "0 0 10px var(--quaternary)" }}>
+        <Title level={2} style={{ color: "var(--active-color)", fontFamily: "var(--font-header)", fontSize: "2.5rem" }}>Sign Up</Title>
 
         {data ? (
           <Text type="success">
